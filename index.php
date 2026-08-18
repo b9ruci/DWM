@@ -85,17 +85,17 @@
     <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
   </div>
 
-  <div class="carousel-inner">
+<div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="img/banner1.jpg" alt="Descripción 1" class="d-block w-100">
+      <img src="https://i.pinimg.com/736x/0b/8c/f7/0b8cf7640d3b1e88aeb79526c6998910.jpg" alt="Momonga cigarro 1" class="d-block w-100" style="height: 400px; object-fit: contain;">
     </div>
     <div class="carousel-item">
-      <img src="img/banner2.jpg" alt="Descripción 2" class="d-block w-100">
+      <img src="https://i.pinimg.com/736x/ab/46/49/ab464965c3a4fae0067aa1e71b824da9.jpg" alt="Momonga porro miserable 2" class="d-block w-100" style="height: 400px; object-fit: contain;">
     </div>
     <div class="carousel-item">
-      <img src="img/banner3.jpg" alt="Descripción 3" class="d-block w-100">
+      <img src="https://i.pinimg.com/736x/bf/f9/9c/bff99c0afacf0209d90aefbb2cf20bd0.jpg" alt="Momonga feliz 3" class="d-block w-100" style="height: 400px; object-fit: contain;">
     </div>
-  </div>
+</div>
 
   <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
     <span class="carousel-control-prev-icon"></span>
