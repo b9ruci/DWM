@@ -77,7 +77,66 @@
 </div>
 
 <div class="container-fluid mt-3">
-  <!-- contenido de productos.php va aquí -->
+<div class="container-fluid mt-3">
+  <div class="row" id="listaProductos">
+    <!-- las cards se insertan aquí dinámicamente con JS -->
+  </div>
+</div>
+
+<script>
+    const resAPI = {
+    "status": 200,
+    "message": "Productos obtenidos",
+    "data": [
+      {"id": "1", "nombre": "Martillo", "precio": 5990},
+      {"id": "2", "nombre": "Tijera", "precio": 2990},
+      {"id": "3", "nombre": "Destornillador", "precio": 3490}
+    ]
+  };
+
+  function cargarProductos(resAPI) {
+    delete resAPI.status;
+    delete resAPI.message;
+
+    const contenedor = document.getElementById("listaProductos");
+
+    Object.values(resAPI.data).forEach(prod => {
+      const col = document.createElement("div");
+      col.classList.add("col-md-4", "mb-4");
+
+      const card = document.createElement("div");
+      card.classList.add("card", "shadow-sm");
+
+      const body = document.createElement("div");
+      body.classList.add("card-body");
+
+      const titulo = document.createElement("h5");
+      titulo.classList.add("card-title");
+      titulo.innerText = prod.nombre;
+
+      const precio = document.createElement("p");
+      precio.classList.add("card-text", "text-muted");
+      precio.innerText = `$${prod.precio}`;
+
+      const boton = document.createElement("button");
+      boton.classList.add("btn", "btn-primary");
+      boton.innerText = "Agregar al carro";
+      boton.setAttribute("data-id", prod.id);
+
+      body.appendChild(titulo);
+      body.appendChild(precio);
+      body.appendChild(boton);
+      card.appendChild(body);
+      col.appendChild(card);
+      contenedor.appendChild(col);
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    cargarProductos(resAPI);
+  });
+
+</script>
 </div>
 
 </body>

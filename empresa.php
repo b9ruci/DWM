@@ -23,7 +23,7 @@
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Link 1</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Quienes somos</a></li>
-              <li><a class="dropdown-item" href="#">Nuestro equipo</a></li>
+              <li><a class="dropdown-item" href="empresa.php#equipo">Nuestro equipo</a></li>
               <li><a class="dropdown-item" href="#">Mision</a></li>
             </ul>
           </li>
@@ -77,6 +77,13 @@
   <p>Miau</p> 
 </div>
 
+<div class="container-fluid mt-5" id="equipo">
+  <h2 class="text-center mb-4">Nuestro equipo</h2>
+  <div class="row" id="listaEquipo">
+    <!-- las cards del equipo se insertan aquí por JS -->
+  </div>
+</div>
+
 <div class="container-fluid mt-3">
 	<div class="row">
 		<div class="bg-primary col-12">Navbar</div>
@@ -93,5 +100,52 @@
 		<div class="bg-primary col-4">Der</div>
 	</div>
 </div>
+<script>
+  const resAPI = {
+    "status": 200,
+    "message": "Equipo obtenido",
+    "data": [
+      {"id": "1", "nombre": "Nombre Apellido", "cargo": "Gerente General"},
+      {"id": "2", "nombre": "Nombre Apellido", "cargo": "Jefe de Ventas"},
+      {"id": "3", "nombre": "Nombre Apellido", "cargo": "Encargado de Producción"}
+    ]
+  };
+
+  function cargarEquipo(resAPI) {
+    delete resAPI.status;
+    delete resAPI.message;
+
+    const contenedor = document.getElementById("listaEquipo");
+
+    Object.values(resAPI.data).forEach(persona => {
+      const col = document.createElement("div");
+      col.classList.add("col-md-4", "mb-4", "text-center");
+
+      const card = document.createElement("div");
+      card.classList.add("card", "shadow-sm");
+
+      const body = document.createElement("div");
+      body.classList.add("card-body");
+
+      const nombre = document.createElement("h5");
+      nombre.classList.add("card-title");
+      nombre.innerText = persona.nombre;
+
+      const cargo = document.createElement("p");
+      cargo.classList.add("card-text", "text-muted");
+      cargo.innerText = persona.cargo;
+
+      body.appendChild(nombre);
+      body.appendChild(cargo);
+      card.appendChild(body);
+      col.appendChild(card);
+      contenedor.appendChild(col);
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    cargarEquipo(resAPI);
+  });
+</script>
 </body>
 </html>
