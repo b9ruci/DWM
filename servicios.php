@@ -77,8 +77,64 @@
 </div>
 
 <div class="container-fluid mt-3">
-  <!-- contenido de servicios.php va aquí -->
+  <div class="accordion" id="accordionServicios">
+  </div>
 </div>
 
+<script>
+  const resAPI = {
+    "status": 200,
+    "message": "Servicios obtenidos",
+    "data": [
+      {"id": "1", "nombre": "Instalación", "descripcion": "Instalamos el producto en tu domicilio con garantía incluida."},
+      {"id": "2", "nombre": "Mantención", "descripcion": "Revisión y mantención periódica para asegurar el buen funcionamiento."},
+      {"id": "3", "nombre": "Reparación", "descripcion": "Diagnóstico y reparación de fallas por técnicos certificados."}
+    ]
+  };
+
+  function cargarServicios(resAPI) {
+    delete resAPI.status;
+    delete resAPI.message;
+
+    const contenedor = document.getElementById("accordionServicios");
+
+    Object.values(resAPI.data).forEach((servicio, index) => {
+      const item = document.createElement("div");
+      item.classList.add("accordion-item");
+
+      const header = document.createElement("h2");
+      header.classList.add("accordion-header");
+
+      const boton = document.createElement("button");
+      boton.classList.add("accordion-button");
+      if (index !== 0) boton.classList.add("collapsed"); // solo el primero abierto
+      boton.setAttribute("type", "button");
+      boton.setAttribute("data-bs-toggle", "collapse");
+      boton.setAttribute("data-bs-target", "#collapse" + index);
+      boton.innerText = servicio.nombre;
+
+      header.appendChild(boton);
+
+      const collapseDiv = document.createElement("div");
+      collapseDiv.id = "collapse" + index;
+      collapseDiv.classList.add("accordion-collapse", "collapse");
+      if (index === 0) collapseDiv.classList.add("show");
+      collapseDiv.setAttribute("data-bs-parent", "#accordionServicios");
+
+      const body = document.createElement("div");
+      body.classList.add("accordion-body");
+      body.innerText = servicio.descripcion;
+
+      collapseDiv.appendChild(body);
+      item.appendChild(header);
+      item.appendChild(collapseDiv);
+      contenedor.appendChild(item);
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    cargarServicios(resAPI);
+  });
+</script>
 </body>
 </html>

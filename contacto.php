@@ -77,8 +77,93 @@
 </div>
 
 <div class="container-fluid mt-3">
-  <!-- contenido de contacto.php va aquí -->
-</div>
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Envíanos un mensaje</h3>
+      <form id="formContacto">
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="nombre" placeholder="Tu nombre">
+        </div>
+        <div class="mb-3">
+          <label for="correo" class="form-label">Correo electrónico</label>
+          <input type="email" class="form-control" id="correo" placeholder="nombre@ejemplo.com">
+        </div>
+        <div class="mb-3">
+          <label for="mensaje" class="form-label">Mensaje</label>
+          <textarea class="form-control" id="mensaje" rows="4" placeholder="Escribe tu mensaje"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+      <div id="respuestaContacto" class="mt-3"></div>
+    </div>
 
+    <div class="col-md-6">
+      <h3>Nuestros canales</h3>
+      <div id="listaCanales" class="list-group"></div>
+    </div>
+  </div>
+</div>
+</div>
+<script>
+  const resAPI = {
+    "status": 200,
+    "message": "Canales obtenidos",
+    "data": [
+      {"id": "1", "tipo": "Teléfono", "valor": "+56 9 1234 5678"},
+      {"id": "2", "tipo": "Correo", "valor": "contacto@negocio.cl"},
+      {"id": "3", "tipo": "Dirección", "valor": "Av. Siempre Viva 123, Santiago"}
+    ]
+  };
+
+  function cargarCanales(resAPI) {
+    delete resAPI.status;
+    delete resAPI.message;
+
+    const contenedor = document.getElementById("listaCanales");
+
+    Object.values(resAPI.data).forEach(canal => {
+      const item = document.createElement("div");
+      item.classList.add("list-group-item");
+
+      const tipo = document.createElement("strong");
+      tipo.innerText = canal.tipo + ": ";
+
+      const valor = document.createElement("span");
+      valor.innerText = canal.valor;
+
+      item.appendChild(tipo);
+      item.appendChild(valor);
+      contenedor.appendChild(item);
+    });
+  }
+
+  function manejarEnvio(event) {
+    event.preventDefault();
+
+    const datosFormulario = {
+      nombre: document.getElementById("nombre").value,
+      correo: document.getElementById("correo").value,
+      mensaje: document.getElementById("mensaje").value
+    };
+
+    console.log(datosFormulario);
+
+    const respuesta = document.getElementById("respuestaContacto");
+    respuesta.innerHTML = "";
+
+    const alerta = document.createElement("div");
+    alerta.classList.add("alert", "alert-success");
+    alerta.innerText = `Gracias ${datosFormulario.nombre}, recibimos tu mensaje.`;
+
+    respuesta.appendChild(alerta);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    cargarCanales(resAPI);
+    document.getElementById("formContacto").addEventListener("submit", manejarEnvio);
+  });
+</script>
 </body>
 </html>

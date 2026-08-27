@@ -80,22 +80,10 @@
 <!-- Carousel -->
 <div id="demo" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
-    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
   </div>
 
-<div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://i.pinimg.com/736x/0b/8c/f7/0b8cf7640d3b1e88aeb79526c6998910.jpg" alt="Momonga cigarro 1" class="d-block w-100" style="height: 400px; object-fit: contain;">
-    </div>
-    <div class="carousel-item">
-      <img src="https://i.pinimg.com/736x/ab/46/49/ab464965c3a4fae0067aa1e71b824da9.jpg" alt="Momonga porro miserable 2" class="d-block w-100" style="height: 400px; object-fit: contain;">
-    </div>
-    <div class="carousel-item">
-      <img src="https://i.pinimg.com/736x/bf/f9/9c/bff99c0afacf0209d90aefbb2cf20bd0.jpg" alt="Momonga feliz 3" class="d-block w-100" style="height: 400px; object-fit: contain;">
-    </div>
-</div>
+  <div class="carousel-inner">
+  </div>
 
   <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
     <span class="carousel-control-prev-icon"></span>
@@ -104,6 +92,58 @@
     <span class="carousel-control-next-icon"></span>
   </button>
 </div>
+
+<script>
+  // --- Datos del carrusel, ---
+  const resAPI = {
+    "status": 200,
+    "message": "Slides obtenidos",
+    "data": [
+      {"id": "1", "img": "https://i.pinimg.com/736x/0b/8c/f7/0b8cf7640d3b1e88aeb79526c6998910.jpg", "alt": "Momonga cigarro 1"},
+      {"id": "2", "img": "https://i.pinimg.com/736x/ab/46/49/ab464965c3a4fae0067aa1e71b824da9.jpg", "alt": "Momonga porro miserable 2"},
+      {"id": "3", "img": "https://i.pinimg.com/736x/bf/f9/9c/bff99c0afacf0209d90aefbb2cf20bd0.jpg", "alt": "Momonga feliz 3"}
+    ]
+  };
+
+  function cargarCarrusel(resAPI) {
+    // --- Manipulación de objeto ---
+    delete resAPI.status;
+    delete resAPI.message;
+
+    const indicadores = document.querySelector("#demo .carousel-indicators");
+    const inner = document.querySelector("#demo .carousel-inner");
+
+    // --- Iteración con Object.values, incluyendo índice ---
+    Object.values(resAPI.data).forEach((slide, index) => {
+      // indicador (los puntitos de abajo)
+      const boton = document.createElement("button");
+      boton.setAttribute("type", "button");
+      boton.setAttribute("data-bs-target", "#demo");
+      boton.setAttribute("data-bs-slide-to", index);
+      if (index === 0) boton.classList.add("active");
+      indicadores.appendChild(boton);
+
+      // slide (la imagen)
+      const item = document.createElement("div");
+      item.classList.add("carousel-item");
+      if (index === 0) item.classList.add("active");
+
+      const img = document.createElement("img");
+      img.setAttribute("src", slide.img);
+      img.setAttribute("alt", slide.alt);
+      img.classList.add("d-block", "w-100");
+      img.style.height = "400px";
+      img.style.objectFit = "contain";
+
+      item.appendChild(img);
+      inner.appendChild(item);
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    cargarCarrusel(resAPI);
+  });
+</script>
 
 <div class="container-fluid mt-3">
 	<div class="row">
