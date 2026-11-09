@@ -1,0 +1,15 @@
+{"ts":"2026-11-09T23:07:21.726Z","svc":"inventory","level":"warn","msg":"internal_auth_rejected","cid":"a44d1734-6b5e-4bd2-b65b-80190c80b668","reason":"missing","path":"/products"}
+{"ts":"2026-11-09T23:07:21.727Z","svc":"inventory","level":"info","msg":"request","cid":"a44d1734-6b5e-4bd2-b65b-80190c80b668","method":"GET","path":"/products","route":"GET /products","status":401,"ms":0.6,"caller":null,"sub":null}
+{"ts":"2026-11-09T23:07:21.728Z","svc":"orders","level":"warn","msg":"internal_auth_rejected","cid":"77072f8d-f5f6-400d-a988-e75f0c5796a3","reason":"missing","path":"/orders"}
+{"ts":"2026-11-09T23:07:21.729Z","svc":"orders","level":"info","msg":"request","cid":"77072f8d-f5f6-400d-a988-e75f0c5796a3","method":"GET","path":"/orders","route":"GET /orders","status":401,"ms":0.5,"caller":null,"sub":null}
+{"ts":"2026-11-09T23:07:21.730Z","svc":"clients","level":"warn","msg":"internal_auth_rejected","cid":"5c6a8dbf-9f58-4b6a-9f08-25a152c87060","reason":"missing","path":"/clients/me"}
+{"ts":"2026-11-09T23:07:21.731Z","svc":"clients","level":"info","msg":"request","cid":"5c6a8dbf-9f58-4b6a-9f08-25a152c87060","method":"GET","path":"/clients/me","route":"GET /clients/me","status":401,"ms":0.7,"caller":null,"sub":null}
+{"ts":"2026-11-09T23:07:21.732Z","svc":"payments","level":"info","msg":"request","cid":"625760c2-7476-4a3a-9144-ad5d6bd896d2","method":"GET","path":"/payments/x","route":"GET /payments/:id","status":401,"ms":0.4,"caller":null,"sub":null}
+{"ts":"2026-11-09T23:07:21.732Z","svc":"payments","level":"warn","msg":"internal_auth_rejected","cid":"625760c2-7476-4a3a-9144-ad5d6bd896d2","reason":"missing","path":"/payments/x"}
+{"ts":"2026-11-09T23:07:21.734Z","svc":"graphql","level":"info","msg":"request","cid":"d01d7e62-ff25-4c64-ad61-7fb9d50a6116","method":"POST","path":"/graphql","route":"POST /graphql","status":401,"ms":0.4,"caller":null,"sub":null}
+{"ts":"2026-11-09T23:07:21.734Z","svc":"graphql","level":"warn","msg":"internal_auth_rejected","cid":"d01d7e62-ff25-4c64-ad61-7fb9d50a6116","reason":"missing","path":"/graphql"}
+{"ts":"2026-11-09T23:07:21.739Z","svc":"auth","level":"warn","msg":"internal_auth_rejected","cid":"e01dfd7c-aa9b-448a-bc85-8ab295acab1e","reason":"missing","path":"/me"}
+{"ts":"2026-11-09T23:07:21.740Z","svc":"auth","level":"info","msg":"request","cid":"e01dfd7c-aa9b-448a-bc85-8ab295acab1e","method":"GET","path":"/me","route":"GET /me","status":401,"ms":0.5,"caller":null,"sub":null}
+{"ts":"2026-11-09T23:07:21.741Z","svc":"orders","level":"info","msg":"request","cid":"baded978-a24e-4fcf-b005-954ebc39d471","method":"GET","path":"/orders","route":"GET /orders","status":401,"ms":0.4,"caller":null,"sub":null}
+{"ts":"2026-11-09T23:07:21.741Z","svc":"orders","level":"warn","msg":"internal_auth_rejected","cid":"baded978-a24e-4fcf-b005-954ebc39d471","reason":"bad_signature","path":"/orders"}
+{"ts":"2026-11-09T23:07:21.746Z","svc":"gateway","level":"info","msg":"request","cid":"1079b99e-9880-4177-9cbe-1c4ef0d72abb","route":"GW13","method":"GET","path":"/api/v1/orders","status":401,"ms":1,"sub":null,"role":null,"ip":"127.0.0.1"}
