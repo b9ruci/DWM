@@ -1,0 +1,104 @@
+"""
+GraphQL Gateway privado de Chocolatería Chocomanía.
+Solo se alcanza a través del API Gateway (POST /api/v1/graphql) con un usuario autenticado.
+Agrega información de orders, inventory, payments y clients sin acceder a sus bases de datos.
+Las reglas transaccionales (crear, pagar, cancelar) permanecen en los servicios de negocio (REST).
+"""
+type Query {
+  "Pedidos del usuario autenticado (paginados, máx. 20 por página). Combina orders + inventory + payments."
+  misPedidos(limite: Int = 5, desde: Int = 0): PaginaPedidos!
+  "Resumen de un pedido propio (o de cualquiera si el rol es ADMIN). null si no existe o es ajeno."
+  pedido(id: ID!): ResumenPedido
+  "Indicadores de ventas. Solo ADMIN."
+  resumenVentas(dias: Int = 30): ResumenVentas
+}
+
+type PaginaPedidos {
+  total: Int!
+  limite: Int!
+  desde: Int!
+  pedidos: [ResumenPedido!]!
+}
+
+enum EstadoPedido {
+  PENDIENTE_PAGO
+  PAGADO
+  EN_PREPARACION
+  DESPACHADO
+  ENTREGADO
+  CANCELADO
+}
+
+type ResumenPedido {
+  id: ID!
+  estado: EstadoPedido!
+  creadoEn: String!
+  subtotal: Int!
+  costoDespacho: Int!
+  total: Int!
+  comuna: String!
+  items: [ItemPedido!]!
+  "Último intento de pago (fuente: payments). null si no hay o si payments no responde."
+  pago: Pago
+  "Titular del pedido (fuente: clients)."
+  cliente: Cliente
+  "Solo ADMIN: notas internas de gestión."
+  notasInternas: String
+  "false cuando alguna dependencia no respondió y la información es parcial."
+  completo: Boolean!
+  advertencias: [String!]!
+}
+
+type ItemPedido {
+  productoId: ID!
+  "Nombre registrado al momento de la compra (fuente: orders)."
+  nombre: String!
+  cantidad: Int!
+  precioUnitario: Int!
+  subtotal: Int!
+  "Ficha actual del producto (fuente: inventory). null si inventory no responde."
+  producto: Producto
+}
+
+type Producto {
+  id: ID!
+  nombre: String!
+  imagen: String!
+  unidad: String!
+  categoria: String!
+  disponible: Boolean!
+}
+
+type Pago {
+  id: ID!
+  estado: String!
+  monto: Int!
+  actualizadoEn: String!
+}
+
+type Cliente {
+  nombre: String!
+  email: String!
+  comuna: String
+}
+
+type ResumenVentas {
+  dias: Int!
+  generadoEn: String!
+  pedidosPagados: Int!
+  ingresos: Int!
+  porEstado: [ConteoEstado!]!
+  topProductos: [TopProducto!]!
+}
+
+type ConteoEstado {
+  estado: String!
+  cantidad: Int!
+}
+
+type TopProducto {
+  productoId: ID!
+  nombre: String!
+  unidades: Int!
+  monto: Int!
+}
