@@ -1,0 +1,198 @@
+[
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:33.304Z",
+    "ms": 2,
+    "method": "GET",
+    "url": "http://127.0.0.1:7003/products",
+    "requestHeaders": {
+      "x-correlation-id": "3f153b87-ad14-4470-a334-e2ae76a91d97"
+    },
+    "status": 401,
+    "responseCid": "3f153b87-ad14-4470-a334-e2ae76a91d97",
+    "responseBody": {
+      "error": {
+        "code": "SERVICE_AUTH_REQUIRED",
+        "message": "Identidad de servicio no válida",
+        "correlationId": "3f153b87-ad14-4470-a334-e2ae76a91d97"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:33.306Z",
+    "ms": 2,
+    "method": "GET",
+    "url": "http://127.0.0.1:7004/orders",
+    "requestHeaders": {
+      "x-correlation-id": "ec5a4d43-430d-40e6-a704-f0ea9924f18f"
+    },
+    "status": 401,
+    "responseCid": "ec5a4d43-430d-40e6-a704-f0ea9924f18f",
+    "responseBody": {
+      "error": {
+        "code": "SERVICE_AUTH_REQUIRED",
+        "message": "Identidad de servicio no válida",
+        "correlationId": "ec5a4d43-430d-40e6-a704-f0ea9924f18f"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:33.308Z",
+    "ms": 2,
+    "method": "GET",
+    "url": "http://127.0.0.1:7005/clients/me",
+    "requestHeaders": {
+      "x-correlation-id": "819452ae-6f00-4c21-9a30-1f127739e447"
+    },
+    "status": 401,
+    "responseCid": "819452ae-6f00-4c21-9a30-1f127739e447",
+    "responseBody": {
+      "error": {
+        "code": "SERVICE_AUTH_REQUIRED",
+        "message": "Identidad de servicio no válida",
+        "correlationId": "819452ae-6f00-4c21-9a30-1f127739e447"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:33.310Z",
+    "ms": 2,
+    "method": "GET",
+    "url": "http://127.0.0.1:7006/payments/x",
+    "requestHeaders": {
+      "x-correlation-id": "641c64b1-ae3c-488a-9cf9-1e2025629f0c"
+    },
+    "status": 401,
+    "responseCid": "641c64b1-ae3c-488a-9cf9-1e2025629f0c",
+    "responseBody": {
+      "error": {
+        "code": "SERVICE_AUTH_REQUIRED",
+        "message": "Identidad de servicio no válida",
+        "correlationId": "641c64b1-ae3c-488a-9cf9-1e2025629f0c"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:33.312Z",
+    "ms": 2,
+    "method": "POST",
+    "url": "http://127.0.0.1:7002/graphql",
+    "requestHeaders": {
+      "x-correlation-id": "d8b43dc2-a78e-48a2-a54c-779896d906ef",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "query": "{misPedidos{total}}"
+    },
+    "status": 401,
+    "responseCid": "d8b43dc2-a78e-48a2-a54c-779896d906ef",
+    "responseBody": {
+      "error": {
+        "code": "SERVICE_AUTH_REQUIRED",
+        "message": "Identidad de servicio no válida",
+        "correlationId": "d8b43dc2-a78e-48a2-a54c-779896d906ef"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:33.314Z",
+    "ms": 2,
+    "method": "GET",
+    "url": "http://127.0.0.1:7001/me",
+    "requestHeaders": {
+      "x-correlation-id": "ebcee2ce-cd04-45e8-b94a-2d72ba23b658"
+    },
+    "status": 401,
+    "responseCid": "ebcee2ce-cd04-45e8-b94a-2d72ba23b658",
+    "responseBody": {
+      "error": {
+        "code": "SERVICE_AUTH_REQUIRED",
+        "message": "Identidad de servicio no válida",
+        "correlationId": "ebcee2ce-cd04-45e8-b94a-2d72ba23b658"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:33.315Z",
+    "ms": 1,
+    "method": "GET",
+    "url": "http://127.0.0.1:7004/orders",
+    "requestHeaders": {
+      "x-correlation-id": "75214c33-520b-4654-af1b-b62bb3b96ac4",
+      "x-internal-auth": "[ENMASCARADO]"
+    },
+    "status": 401,
+    "responseCid": "75214c33-520b-4654-af1b-b62bb3b96ac4",
+    "responseBody": {
+      "error": {
+        "code": "SERVICE_AUTH_REQUIRED",
+        "message": "Identidad de servicio no válida",
+        "correlationId": "75214c33-520b-4654-af1b-b62bb3b96ac4"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:33.317Z",
+    "ms": 2,
+    "method": "GET",
+    "url": "http://127.0.0.1:7000/v1/secrets/auth%2Fjwt-signing-key",
+    "requestHeaders": {
+      "x-correlation-id": "edc29360-7e67-4df4-976e-7e6e4cd5bd17"
+    },
+    "status": 401,
+    "responseCid": null,
+    "responseBody": {
+      "error": {
+        "code": "UNAUTHENTICATED"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:33.319Z",
+    "ms": 2,
+    "method": "GET",
+    "url": "http://127.0.0.1:7000/v1/secrets/auth%2Fjwt-signing-key",
+    "requestHeaders": {
+      "x-correlation-id": "7629a831-9cd9-4a90-95d3-dd6c61c9e04a",
+      "authorization": "[ENMASCARADO]",
+      "x-consumer": "gateway"
+    },
+    "status": 403,
+    "responseCid": null,
+    "responseBody": {
+      "error": {
+        "code": "FORBIDDEN"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:33.320Z",
+    "ms": 1,
+    "method": "GET",
+    "url": "http://127.0.0.1:8080/api/v1/orders",
+    "requestHeaders": {
+      "x-correlation-id": "879d4103-142e-4ad0-a5eb-eea232adbcf3",
+      "x-internal-auth": "[ENMASCARADO]",
+      "x-user-id": "00000000-0000-4000-8000-0000000000a1",
+      "x-user-role": "ADMIN"
+    },
+    "status": 401,
+    "responseCid": "879d4103-142e-4ad0-a5eb-eea232adbcf3",
+    "responseBody": {
+      "error": {
+        "code": "AUTH_REQUIRED",
+        "message": "Debes iniciar sesión para continuar",
+        "correlationId": "879d4103-142e-4ad0-a5eb-eea232adbcf3"
+      }
+    }
+  }
+]

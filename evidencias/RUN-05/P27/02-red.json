@@ -1,0 +1,1845 @@
+[
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.226Z",
+    "ms": 11,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "f66fa797-fc6e-43fc-86f4-08b4356b9444",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "f66fa797-fc6e-43fc-86f4-08b4356b9444",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "f66fa797-fc6e-43fc-86f4-08b4356b9444"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.230Z",
+    "ms": 4,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "125e0687-8774-492e-950e-cbef00502b64",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "125e0687-8774-492e-950e-cbef00502b64",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "125e0687-8774-492e-950e-cbef00502b64"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.233Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "50098b9f-4c30-4e29-aff9-b234f4c0edbc",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "50098b9f-4c30-4e29-aff9-b234f4c0edbc",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "50098b9f-4c30-4e29-aff9-b234f4c0edbc"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.236Z",
+    "ms": 2,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "b690d6ce-1f10-4c57-8ccd-38bbd70beb67",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "b690d6ce-1f10-4c57-8ccd-38bbd70beb67",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "b690d6ce-1f10-4c57-8ccd-38bbd70beb67"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.239Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "9f07a80c-4208-4042-ba53-47b296782073",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "9f07a80c-4208-4042-ba53-47b296782073",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "9f07a80c-4208-4042-ba53-47b296782073"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.242Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "6174af6b-9ffd-41f2-9ef1-7bdebfff7f68",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "6174af6b-9ffd-41f2-9ef1-7bdebfff7f68",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "6174af6b-9ffd-41f2-9ef1-7bdebfff7f68"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.245Z",
+    "ms": 2,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "0865f025-92e1-44c8-8efe-148c0db4d5b3",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "0865f025-92e1-44c8-8efe-148c0db4d5b3",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "0865f025-92e1-44c8-8efe-148c0db4d5b3"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.248Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "81ff9207-14b8-4588-8eb1-d198ceccaf19",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "81ff9207-14b8-4588-8eb1-d198ceccaf19",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "81ff9207-14b8-4588-8eb1-d198ceccaf19"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.251Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "b3889c58-cd0e-4285-9ef7-94e4cda54933",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "b3889c58-cd0e-4285-9ef7-94e4cda54933",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "b3889c58-cd0e-4285-9ef7-94e4cda54933"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.253Z",
+    "ms": 2,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "9157933e-bf23-4fed-8238-6ebce1a8aafa",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "9157933e-bf23-4fed-8238-6ebce1a8aafa",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "9157933e-bf23-4fed-8238-6ebce1a8aafa"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.257Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "45ead13d-3d0b-45ad-9e15-57c90f1dc9e7",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "45ead13d-3d0b-45ad-9e15-57c90f1dc9e7",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "45ead13d-3d0b-45ad-9e15-57c90f1dc9e7"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.260Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "55f71409-bb3a-4e8d-b3c2-43bb1d1c5289",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "55f71409-bb3a-4e8d-b3c2-43bb1d1c5289",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "55f71409-bb3a-4e8d-b3c2-43bb1d1c5289"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.263Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "9fac8e21-4f66-4450-b9d0-0ba81d4a3480",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "9fac8e21-4f66-4450-b9d0-0ba81d4a3480",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "9fac8e21-4f66-4450-b9d0-0ba81d4a3480"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.266Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "af49364f-7b50-46cd-abb2-bb410b7651ca",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "af49364f-7b50-46cd-abb2-bb410b7651ca",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "af49364f-7b50-46cd-abb2-bb410b7651ca"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.269Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "0b05fe09-fe45-410f-b1bc-afbe13e2045c",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "0b05fe09-fe45-410f-b1bc-afbe13e2045c",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "0b05fe09-fe45-410f-b1bc-afbe13e2045c"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.272Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "47ef55f0-446c-48bb-8336-042dc2c69438",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "47ef55f0-446c-48bb-8336-042dc2c69438",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "47ef55f0-446c-48bb-8336-042dc2c69438"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.276Z",
+    "ms": 4,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "15ece64a-2ac7-42f0-bf1c-999ac294cd0b",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "15ece64a-2ac7-42f0-bf1c-999ac294cd0b",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "15ece64a-2ac7-42f0-bf1c-999ac294cd0b"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.278Z",
+    "ms": 2,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "0b3cf6c4-bab2-4243-a780-959386e76f65",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "0b3cf6c4-bab2-4243-a780-959386e76f65",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "0b3cf6c4-bab2-4243-a780-959386e76f65"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.281Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "dd2ac530-8af8-4f25-b477-f48625a5b1ad",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "dd2ac530-8af8-4f25-b477-f48625a5b1ad",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "dd2ac530-8af8-4f25-b477-f48625a5b1ad"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.284Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "55bec5ab-939d-49b1-a290-4d1cc65ef188",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "55bec5ab-939d-49b1-a290-4d1cc65ef188",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "55bec5ab-939d-49b1-a290-4d1cc65ef188"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.287Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "53523794-676c-4fbf-9ff5-b65806542edf",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "53523794-676c-4fbf-9ff5-b65806542edf",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "53523794-676c-4fbf-9ff5-b65806542edf"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.289Z",
+    "ms": 2,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "d5a162f2-b0bb-4bbc-99a3-1eb892bab92d",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "d5a162f2-b0bb-4bbc-99a3-1eb892bab92d",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "d5a162f2-b0bb-4bbc-99a3-1eb892bab92d"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.292Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "b6b71464-b988-428d-ab41-e0df29be3768",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "b6b71464-b988-428d-ab41-e0df29be3768",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "b6b71464-b988-428d-ab41-e0df29be3768"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.295Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "872120b6-750f-4b83-8977-ec0b30721633",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "872120b6-750f-4b83-8977-ec0b30721633",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "872120b6-750f-4b83-8977-ec0b30721633"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.297Z",
+    "ms": 2,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "a2bfd8fc-b50a-4f00-a01d-6fb8769db5be",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "a2bfd8fc-b50a-4f00-a01d-6fb8769db5be",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "a2bfd8fc-b50a-4f00-a01d-6fb8769db5be"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.300Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "2f6b3b67-4847-456a-be71-f4a33e418e08",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "2f6b3b67-4847-456a-be71-f4a33e418e08",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "2f6b3b67-4847-456a-be71-f4a33e418e08"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.302Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "3162c2e1-0201-4e2b-af32-cb5fbe15da98",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "3162c2e1-0201-4e2b-af32-cb5fbe15da98",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "3162c2e1-0201-4e2b-af32-cb5fbe15da98"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.305Z",
+    "ms": 2,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "bd4665c1-aaed-470f-a14d-f92acd7cdc61",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "bd4665c1-aaed-470f-a14d-f92acd7cdc61",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "bd4665c1-aaed-470f-a14d-f92acd7cdc61"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.308Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "d7d70f22-4b10-4a8e-8fb2-0c3c6ad51501",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "d7d70f22-4b10-4a8e-8fb2-0c3c6ad51501",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "d7d70f22-4b10-4a8e-8fb2-0c3c6ad51501"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.310Z",
+    "ms": 2,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "0fc149b4-7e85-412c-b094-59df55711c8d",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "0fc149b4-7e85-412c-b094-59df55711c8d",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "0fc149b4-7e85-412c-b094-59df55711c8d"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.313Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "294496cf-80af-4fff-ae1a-bf21bf2dc9ea",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "294496cf-80af-4fff-ae1a-bf21bf2dc9ea",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "294496cf-80af-4fff-ae1a-bf21bf2dc9ea"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.315Z",
+    "ms": 2,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "3653ea30-b803-4288-9296-d3ec76203f0e",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "3653ea30-b803-4288-9296-d3ec76203f0e",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "3653ea30-b803-4288-9296-d3ec76203f0e"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.318Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "bc42aa1f-514e-4fe6-be68-12afb82d198d",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "bc42aa1f-514e-4fe6-be68-12afb82d198d",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "bc42aa1f-514e-4fe6-be68-12afb82d198d"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.321Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "d938ad64-a2d7-46cb-a31a-bfbc20c35865",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "d938ad64-a2d7-46cb-a31a-bfbc20c35865",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "d938ad64-a2d7-46cb-a31a-bfbc20c35865"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.324Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "a72154af-d7b9-4bf3-8f7b-40dc0e33236e",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "a72154af-d7b9-4bf3-8f7b-40dc0e33236e",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "a72154af-d7b9-4bf3-8f7b-40dc0e33236e"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.326Z",
+    "ms": 2,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "5c823c54-2b35-4def-8f2c-803179985a24",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "5c823c54-2b35-4def-8f2c-803179985a24",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "5c823c54-2b35-4def-8f2c-803179985a24"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.329Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "8daf3b1d-7221-460a-ac77-3e83aeffdc1d",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "8daf3b1d-7221-460a-ac77-3e83aeffdc1d",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "8daf3b1d-7221-460a-ac77-3e83aeffdc1d"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.331Z",
+    "ms": 2,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "cfac66c1-3841-4e58-a485-01904d2467f5",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "cfac66c1-3841-4e58-a485-01904d2467f5",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "cfac66c1-3841-4e58-a485-01904d2467f5"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.334Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "78b153f8-1993-4b31-acd9-a4a21155579b",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "78b153f8-1993-4b31-acd9-a4a21155579b",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "78b153f8-1993-4b31-acd9-a4a21155579b"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.337Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "f2465f56-78aa-477e-aa98-4fe13f6f2b20",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "f2465f56-78aa-477e-aa98-4fe13f6f2b20",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "f2465f56-78aa-477e-aa98-4fe13f6f2b20"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.339Z",
+    "ms": 2,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "af47f08e-858c-4c87-ad31-1848e673265b",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "af47f08e-858c-4c87-ad31-1848e673265b",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "af47f08e-858c-4c87-ad31-1848e673265b"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.342Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "97a90c8c-7c83-4403-aaa7-99d4c1ee8834",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "97a90c8c-7c83-4403-aaa7-99d4c1ee8834",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "97a90c8c-7c83-4403-aaa7-99d4c1ee8834"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.345Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "68fd280c-bb1f-42da-9ba1-440a499e8fa1",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "68fd280c-bb1f-42da-9ba1-440a499e8fa1",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "68fd280c-bb1f-42da-9ba1-440a499e8fa1"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.348Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "c3daeec8-769c-4534-a224-2714f04e02d1",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "c3daeec8-769c-4534-a224-2714f04e02d1",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "c3daeec8-769c-4534-a224-2714f04e02d1"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.351Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "b1451856-3254-4826-a6ef-cc6673c2167d",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "b1451856-3254-4826-a6ef-cc6673c2167d",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "b1451856-3254-4826-a6ef-cc6673c2167d"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.354Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "a34304b9-aaee-4595-89d5-61be7a15e841",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "a34304b9-aaee-4595-89d5-61be7a15e841",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "a34304b9-aaee-4595-89d5-61be7a15e841"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.357Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "676b0d4c-9ea8-4607-8bb6-df7eae535f26",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "676b0d4c-9ea8-4607-8bb6-df7eae535f26",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "676b0d4c-9ea8-4607-8bb6-df7eae535f26"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.360Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "0bd235f4-f3a8-4e47-9a61-14ed21fb9c84",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "0bd235f4-f3a8-4e47-9a61-14ed21fb9c84",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "0bd235f4-f3a8-4e47-9a61-14ed21fb9c84"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.363Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "61b79ad8-63e7-4ed3-b2fa-d4b85328d49b",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "61b79ad8-63e7-4ed3-b2fa-d4b85328d49b",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "61b79ad8-63e7-4ed3-b2fa-d4b85328d49b"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.367Z",
+    "ms": 4,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "f2cc0a32-1cd9-4d23-a1e0-b09bf1adef6d",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "f2cc0a32-1cd9-4d23-a1e0-b09bf1adef6d",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "f2cc0a32-1cd9-4d23-a1e0-b09bf1adef6d"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.370Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "ecee405d-cf1d-4fef-9bbd-94dcbbd50951",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "ecee405d-cf1d-4fef-9bbd-94dcbbd50951",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "ecee405d-cf1d-4fef-9bbd-94dcbbd50951"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.373Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "1daa5023-46fd-403c-8013-215eeb50ce13",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "1daa5023-46fd-403c-8013-215eeb50ce13",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "1daa5023-46fd-403c-8013-215eeb50ce13"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.376Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "d1bb7196-fafb-4691-ab5b-f727aeda51fe",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "d1bb7196-fafb-4691-ab5b-f727aeda51fe",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "d1bb7196-fafb-4691-ab5b-f727aeda51fe"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.378Z",
+    "ms": 2,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "3276e6f8-67cc-4bad-ab98-bb5b85d60e24",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "3276e6f8-67cc-4bad-ab98-bb5b85d60e24",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "3276e6f8-67cc-4bad-ab98-bb5b85d60e24"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.381Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "20e3f4fe-8d48-438e-b6f5-438b35757219",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "20e3f4fe-8d48-438e-b6f5-438b35757219",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "20e3f4fe-8d48-438e-b6f5-438b35757219"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.384Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "eaaf1d99-2a82-4e86-9502-7e6c351ccdb2",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "eaaf1d99-2a82-4e86-9502-7e6c351ccdb2",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "eaaf1d99-2a82-4e86-9502-7e6c351ccdb2"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.388Z",
+    "ms": 4,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "cdce9f56-5fe7-4e2c-932e-a86ee91fa35e",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "cdce9f56-5fe7-4e2c-932e-a86ee91fa35e",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "cdce9f56-5fe7-4e2c-932e-a86ee91fa35e"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.397Z",
+    "ms": 9,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "b993365d-89a6-442e-84ed-0bbad8de56df",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 400,
+    "responseCid": "b993365d-89a6-442e-84ed-0bbad8de56df",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "nombre",
+            "message": "Debe tener entre 2 y 80 caracteres"
+          }
+        ],
+        "correlationId": "b993365d-89a6-442e-84ed-0bbad8de56df"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.398Z",
+    "ms": 1,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "b74d54df-6f02-4ada-adb4-0b136a85a6d0",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 429,
+    "responseCid": "b74d54df-6f02-4ada-adb4-0b136a85a6d0",
+    "responseBody": {
+      "error": {
+        "code": "RATE_LIMITED",
+        "message": "Demasiadas solicitudes. Espera un momento e intenta nuevamente",
+        "correlationId": "b74d54df-6f02-4ada-adb4-0b136a85a6d0"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.399Z",
+    "ms": 1,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "d900aae1-8366-4fd6-b762-7fbafef3180a",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 429,
+    "responseCid": "d900aae1-8366-4fd6-b762-7fbafef3180a",
+    "responseBody": {
+      "error": {
+        "code": "RATE_LIMITED",
+        "message": "Demasiadas solicitudes. Espera un momento e intenta nuevamente",
+        "correlationId": "d900aae1-8366-4fd6-b762-7fbafef3180a"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.400Z",
+    "ms": 1,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "6e406bd7-3e15-44b9-89a2-d4a156e8dc67",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 429,
+    "responseCid": "6e406bd7-3e15-44b9-89a2-d4a156e8dc67",
+    "responseBody": {
+      "error": {
+        "code": "RATE_LIMITED",
+        "message": "Demasiadas solicitudes. Espera un momento e intenta nuevamente",
+        "correlationId": "6e406bd7-3e15-44b9-89a2-d4a156e8dc67"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.401Z",
+    "ms": 1,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "572172d6-a6ee-43a4-a7d5-791f2b07dc65",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 429,
+    "responseCid": "572172d6-a6ee-43a4-a7d5-791f2b07dc65",
+    "responseBody": {
+      "error": {
+        "code": "RATE_LIMITED",
+        "message": "Demasiadas solicitudes. Espera un momento e intenta nuevamente",
+        "correlationId": "572172d6-a6ee-43a4-a7d5-791f2b07dc65"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.402Z",
+    "ms": 1,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "ee888b7c-061c-4709-a204-87cbc2fbad87",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 429,
+    "responseCid": "ee888b7c-061c-4709-a204-87cbc2fbad87",
+    "responseBody": {
+      "error": {
+        "code": "RATE_LIMITED",
+        "message": "Demasiadas solicitudes. Espera un momento e intenta nuevamente",
+        "correlationId": "ee888b7c-061c-4709-a204-87cbc2fbad87"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.403Z",
+    "ms": 1,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "760f0773-8619-4ade-bf2d-5d80e2dcb120",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 429,
+    "responseCid": "760f0773-8619-4ade-bf2d-5d80e2dcb120",
+    "responseBody": {
+      "error": {
+        "code": "RATE_LIMITED",
+        "message": "Demasiadas solicitudes. Espera un momento e intenta nuevamente",
+        "correlationId": "760f0773-8619-4ade-bf2d-5d80e2dcb120"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:51.404Z",
+    "ms": 1,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "9f2529e0-df08-4a37-b78f-be6b705c07cf",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "nombre": "x"
+    },
+    "status": 429,
+    "responseCid": "9f2529e0-df08-4a37-b78f-be6b705c07cf",
+    "responseBody": {
+      "error": {
+        "code": "RATE_LIMITED",
+        "message": "Demasiadas solicitudes. Espera un momento e intenta nuevamente",
+        "correlationId": "9f2529e0-df08-4a37-b78f-be6b705c07cf"
+      }
+    }
+  }
+]

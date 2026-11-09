@@ -332,7 +332,7 @@ export default [
     titulo: 'Mis pedidos: agregación GraphQL (orders + inventory + payments + clients) en pantalla real',
     precondiciones: 'clienteA con un pedido pagado creado en la prueba (por API).',
     pasos: ['Crear pedido (2 Bombones) y aprobar pago (precondición)', 'Abrir /pedidos.php?pedido={id} con sesión de clienteA', 'Leer total, estados y titular', 'Comparar con GET /orders/{id} (REST) y con la traza del backend'],
-    esperado: 'La pantalla muestra total $29.970 (2×12.990 + despacho 3.990), estado Pagado, pago aprobado y titular "Ana Pérez (ficticia)"; coincide con orders; la traza muestra que, con el mismo identificador de correlación, el gateway validó la sesión en auth y graphql consultó orders, inventory, payments y clients.',
+    esperado: 'La pantalla muestra total $29.970 (2×12.990 + despacho 3.990), estado Pagado, pago aprobado y titular "Ana Pérez (ficticia)"; coincide con orders; la traza muestra que, con el mismo identificador de correlación, graphql consultó orders, inventory, payments y clients (la validación de sesión en auth puede venir de la caché de 5 s del gateway).',
     verificacion: 'Capturas + red (POST /graphql) + REST independiente + traza backend.',
     restauracion: 'Base nueva por ejecución.',
     async run(ctx) {
@@ -355,8 +355,11 @@ export default [
         ctx.check(`[${vp}] titular desde clients`, true, (await page.locator('#detallePedido').textContent()).includes('Ana Pérez (ficticia)'));
         await ctx.shot(page, 'detalle', 'Detalle agregado del pedido');
         await new Promise((r) => setTimeout(r, 400));
+        // Protocolo v1.3 (I-02): la validación de sesión en auth puede resolverse desde la caché del
+        // gateway (5 s) si otra consulta concurrente de la misma página ya la hizo; por eso auth no se exige.
         const svcs = [...new Set(ctx.trace(cid).map((l) => JSON.parse(l).svc))].sort();
-        ctx.check(`[${vp}] servicios en la traza de la consulta GraphQL (cid ${cid.slice(0, 8)})`, ['auth', 'clients', 'gateway', 'graphql', 'inventory', 'orders', 'payments'], svcs);
+        const required = ['clients', 'gateway', 'graphql', 'inventory', 'orders', 'payments'];
+        ctx.check(`[${vp}] servicios de la agregación en la traza de la consulta GraphQL (cid ${cid.slice(0, 8)})`, `⊇ ${required.join(',')}`, svcs.join(','), required.every((x) => svcs.includes(x)));
       }
       ctx.check('total REST', 29970, rest.data.data.total);
     },

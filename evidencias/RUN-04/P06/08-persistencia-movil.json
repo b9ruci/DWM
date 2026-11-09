@@ -1,0 +1,38 @@
+{
+  "pedidoId": "d1cf6e9f-277d-4bd5-a23f-183ad7eaeb3c",
+  "orders": {
+    "estado": "PAGADO",
+    "total": 11970,
+    "payment_id": "f098325c-8e05-42af-8a35-66d6549a195c"
+  },
+  "payments": {
+    "estado": "APROBADO",
+    "monto": 11970
+  },
+  "reserva": {
+    "estado": "CONFIRMADA",
+    "cantidad": 2
+  },
+  "graphql": {
+    "id": "d1cf6e9f-277d-4bd5-a23f-183ad7eaeb3c",
+    "estado": "PAGADO",
+    "total": 11970,
+    "completo": true,
+    "items": [
+      {
+        "nombre": "Choco Miau",
+        "cantidad": 2,
+        "producto": {
+          "nombre": "Choco Miau"
+        }
+      }
+    ],
+    "pago": {
+      "estado": "APROBADO",
+      "monto": 11970
+    },
+    "cliente": {
+      "nombre": "Ana Pérez (ficticia)"
+    }
+  }
+}
