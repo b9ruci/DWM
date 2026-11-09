@@ -171,6 +171,9 @@ async function main() {
       const r = await client.call(route.target, req.method, target, {
         body, user, cid, headers, timeoutMs: TIMEOUTS[route.target] || TIMEOUTS.default,
       });
+      // I-01 (RUN-01/P17): al cerrar sesión se invalida la caché local de la sesión; de lo contrario
+      // el token revocado seguía aceptándose hasta SESSION_CACHE_MS en esta instancia del gateway.
+      if (route.id === 'GW07' && r.status === 200 && user) sessionCache.set(user.sid, { active: false, at: Date.now() });
       const extra = {};
       const replay = r.headers.get('idempotent-replay');
       if (replay) extra['idempotent-replay'] = replay;

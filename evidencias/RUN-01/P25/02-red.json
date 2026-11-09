@@ -1,0 +1,188 @@
+[
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:47:27.679Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/categories",
+    "requestHeaders": {
+      "x-correlation-id": "22de414c-8442-4962-8a83-ec76843bb062",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 504,
+    "responseCid": "22de414c-8442-4962-8a83-ec76843bb062",
+    "responseBody": {
+      "error": {
+        "code": "UPSTREAM_TIMEOUT",
+        "message": "El servicio tardó demasiado en responder. Intenta nuevamente.",
+        "correlationId": "22de414c-8442-4962-8a83-ec76843bb062"
+      }
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:47:27.679Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/products",
+    "requestHeaders": {
+      "x-correlation-id": "33fa4bfb-e1b5-4169-8f07-7357ab817928",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 504,
+    "responseCid": "33fa4bfb-e1b5-4169-8f07-7357ab817928",
+    "responseBody": {
+      "error": {
+        "code": "UPSTREAM_TIMEOUT",
+        "message": "El servicio tardó demasiado en responder. Intenta nuevamente.",
+        "correlationId": "33fa4bfb-e1b5-4169-8f07-7357ab817928"
+      }
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:47:28.095Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/categories",
+    "requestHeaders": {
+      "x-correlation-id": "3f881702-7fab-4c19-b958-00fc460eb3fb",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 503,
+    "responseCid": "3f881702-7fab-4c19-b958-00fc460eb3fb",
+    "responseBody": {
+      "error": {
+        "code": "SERVICE_UNAVAILABLE",
+        "message": "El servicio no está disponible en este momento. Intenta nuevamente en unos minutos.",
+        "correlationId": "3f881702-7fab-4c19-b958-00fc460eb3fb"
+      }
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:47:28.362Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/products",
+    "requestHeaders": {
+      "x-correlation-id": "681c68e1-03b5-42eb-a512-cf03e7313f2b",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "681c68e1-03b5-42eb-a512-cf03e7313f2b",
+    "responseBody": {
+      "data": [
+        {
+          "id": "p-001",
+          "nombre": "Barra Chocolate Dubái Labubu",
+          "descripcion": "Barra de chocolate de leche rellena de crema de pistacho y kataifi crujiente. Venta por kilo.",
+          "categoria": "Barras",
+          "precio": 100000,
+          "unidad": "kg",
+          "stock": 15,
+          "disponible": true,
+          "imagen": "/assets/img/productos/barra-dubai.svg",
+          "destacado": true
+        },
+        {
+          "id": "p-005",
+          "nombre": "Bombones Surtidos (12 u.)",
+          "descripcion": "Caja de 12 bombones artesanales con rellenos de frutos secos, licor y caramelo.",
+          "categoria": "Bombones",
+          "precio": 12990,
+          "unidad": "unidad",
+          "stock": 18,
+          "disponible": true,
+          "imagen": "/assets/img/productos/bombones.svg",
+          "destacado": true
+        },
+        {
+          "id": "p-002",
+          "nombre": "Choco Miau",
+          "descripcion": "Figura de chocolate de leche con forma de gatito, decorada a mano.",
+          "categoria": "Figuras",
+          "precio": 3990,
+          "unidad": "unidad",
+          "stock": 36,
+          "disponible": true,
+          "imagen": "/assets/img/productos/choco-miau.svg",
+          "destacado": true
+        },
+        {
+          "id": "p-003",
+          "nombre": "Choco Wau",
+          "descripcion": "Figura de chocolate semiamargo con forma de perrito.",
+          "categoria": "Figuras",
+          "precio": 3990,
+          "unidad": "unidad",
+          "stock": 32,
+          "disponible": true,
+          "imagen": "/assets/img/productos/choco-wau.svg",
+          "destacado": true
+        },
+        {
+          "id": "p-004",
+          "nombre": "Flor de Chocolate",
+          "descripcion": "Ramo de flores de chocolate blanco y de leche, ideal para regalo.",
+          "categoria": "Figuras",
+          "precio": 5490,
+          "unidad": "unidad",
+          "stock": 23,
+          "disponible": true,
+          "imagen": "/assets/img/productos/flor-chocolate.svg",
+          "destacado": true
+        },
+        {
+          "id": "p-009",
+          "nombre": "Huevo de Chocolate Sorpresa",
+          "descripcion": "Huevo de chocolate de leche con sorpresa en su interior.",
+          "categoria": "Figuras",
+          "precio": 9990,
+          "unidad": "unidad",
+          "stock": 0,
+          "disponible": false,
+          "imagen": "/assets/img/productos/huevo.svg",
+          "destacado": false
+        },
+        {
+          "id": "p-008",
+          "nombre": "Mezcla Chocolate Caliente",
+          "descripcion": "Mezcla de 250 g para preparar chocolate caliente espeso.",
+          "categoria": "Bebidas",
+          "precio": 6990,
+          "unidad": "unidad",
+          "stock": 3,
+          "disponible": true,
+          "imagen": "/assets/img/productos/chocolate-caliente.svg",
+          "destacado": false
+        },
+        {
+          "id": "p-007",
+          "nombre": "Tableta Amarga 70% Cacao",
+          "descripcion": "Tableta de 100 g de chocolate amargo 70% cacao de origen.",
+          "categoria": "Barras",
+          "precio": 4590,
+          "unidad": "unidad",
+          "stock": 47,
+          "disponible": true,
+          "imagen": "/assets/img/productos/tableta.svg",
+          "destacado": false
+        },
+        {
+          "id": "p-006",
+          "nombre": "Trufas de Pistacho (6 u.)",
+          "descripcion": "Trufas de chocolate amargo con centro de pistacho.",
+          "categoria": "Bombones",
+          "precio": 8990,
+          "unidad": "unidad",
+          "stock": 17,
+          "disponible": true,
+          "imagen": "/assets/img/productos/trufas.svg",
+          "destacado": false
+        }
+      ],
+      "total": 9
+    }
+  }
+]
