@@ -42,7 +42,7 @@ const TZ = 'America/Santiago';
 function localIso(d = new Date()) {
   const parts = new Intl.DateTimeFormat('sv-SE', { timeZone: TZ, year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', timeZoneName: 'longOffset' }).format(d);
   const [date, time, off] = parts.split(' ');
-  return `${date}T${time}${off.replace('GMT', '') || '+00:00'} (${TZ})`;
+  return `${date}T${time}${off.replace('GMT', '').replace('\u2212', '-') || '+00:00'} (${TZ})`;
 }
 const sh = (c) => {
   try {

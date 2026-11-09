@@ -1,0 +1,349 @@
+[
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T22:49:42.712Z",
+    "ms": 120,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/auth/login",
+    "requestHeaders": {
+      "x-correlation-id": "e9475ab9-60ff-40b8-8c5e-880b71319c1f",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "email": "ana.cliente@chocomania.test",
+      "password": "[ENMASCARADO]"
+    },
+    "status": 200,
+    "responseCid": "e9475ab9-60ff-40b8-8c5e-880b71319c1f",
+    "responseBody": {
+      "data": {
+        "accessToken": "[ENMASCARADO]",
+        "tokenType": "Bearer",
+        "expiresIn": 900,
+        "user": {
+          "id": "00000000-0000-4000-8000-0000000000a1",
+          "nombre": "Ana Pérez (ficticia)",
+          "role": "CLIENTE"
+        }
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T22:49:42.716Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/admin/products",
+    "requestHeaders": {
+      "x-correlation-id": "d26b6967-1878-4112-89db-3728798ccc67",
+      "content-type": "application/json",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": {
+      "sku": "HACK-1",
+      "nombre": "Hack",
+      "categoria": "Barras",
+      "precio": 1,
+      "unidad": "unidad",
+      "stock": 1
+    },
+    "status": 403,
+    "responseCid": "d26b6967-1878-4112-89db-3728798ccc67",
+    "responseBody": {
+      "error": {
+        "code": "FORBIDDEN",
+        "message": "No tienes permisos para esta operación",
+        "correlationId": "d26b6967-1878-4112-89db-3728798ccc67"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T22:49:42.718Z",
+    "ms": 2,
+    "method": "DELETE",
+    "url": "http://127.0.0.1:8080/api/v1/admin/products/p-002",
+    "requestHeaders": {
+      "x-correlation-id": "fe196300-8666-4f62-9017-082f21c1b713",
+      "authorization": "[ENMASCARADO]"
+    },
+    "status": 403,
+    "responseCid": "fe196300-8666-4f62-9017-082f21c1b713",
+    "responseBody": {
+      "error": {
+        "code": "FORBIDDEN",
+        "message": "No tienes permisos para esta operación",
+        "correlationId": "fe196300-8666-4f62-9017-082f21c1b713"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T22:49:42.719Z",
+    "ms": 1,
+    "method": "GET",
+    "url": "http://127.0.0.1:8080/api/v1/admin/orders",
+    "requestHeaders": {
+      "x-correlation-id": "a27afcad-f965-40ec-8447-23cd8c8fd184",
+      "authorization": "[ENMASCARADO]"
+    },
+    "status": 403,
+    "responseCid": "a27afcad-f965-40ec-8447-23cd8c8fd184",
+    "responseBody": {
+      "error": {
+        "code": "FORBIDDEN",
+        "message": "No tienes permisos para esta operación",
+        "correlationId": "a27afcad-f965-40ec-8447-23cd8c8fd184"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T22:49:42.720Z",
+    "ms": 1,
+    "method": "GET",
+    "url": "http://127.0.0.1:8080/api/v1/admin/clients",
+    "requestHeaders": {
+      "x-correlation-id": "5bff0f0c-e2c4-411d-9d9b-1da02022cebb",
+      "authorization": "[ENMASCARADO]"
+    },
+    "status": 403,
+    "responseCid": "5bff0f0c-e2c4-411d-9d9b-1da02022cebb",
+    "responseBody": {
+      "error": {
+        "code": "FORBIDDEN",
+        "message": "No tienes permisos para esta operación",
+        "correlationId": "5bff0f0c-e2c4-411d-9d9b-1da02022cebb"
+      }
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:49:42.885Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/categories",
+    "requestHeaders": {
+      "x-correlation-id": "d1a759a0-01a2-4809-bd10-7bde3a9d2db6",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "d1a759a0-01a2-4809-bd10-7bde3a9d2db6",
+    "responseBody": {
+      "data": [
+        {
+          "nombre": "Barras",
+          "total": 2
+        },
+        {
+          "nombre": "Bebidas",
+          "total": 1
+        },
+        {
+          "nombre": "Bombones",
+          "total": 2
+        },
+        {
+          "nombre": "Figuras",
+          "total": 4
+        }
+      ]
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:49:42.917Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/promotions",
+    "requestHeaders": {
+      "x-correlation-id": "66387b26-c80d-460e-9385-3f4ff7045f61",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "66387b26-c80d-460e-9385-3f4ff7045f61",
+    "responseBody": {
+      "data": [
+        {
+          "id": "promo-1",
+          "titulo": "Barra Chocolate Dubái Labubu",
+          "subtitulo": "La barra del momento, rellena de pistacho y kataifi.",
+          "productoId": "p-001",
+          "precio": 100000,
+          "unidad": "kg",
+          "imagen": "/assets/img/productos/barra-dubai.svg",
+          "disponible": true
+        },
+        {
+          "id": "promo-2",
+          "titulo": "Bombones Surtidos",
+          "subtitulo": "12 sabores artesanales en una caja para regalar.",
+          "productoId": "p-005",
+          "precio": 12990,
+          "unidad": "unidad",
+          "imagen": "/assets/img/productos/bombones.svg",
+          "disponible": true
+        },
+        {
+          "id": "promo-3",
+          "titulo": "Flor de Chocolate",
+          "subtitulo": "Un ramo que no se marchita: chocolate blanco y de leche.",
+          "productoId": "p-004",
+          "precio": 5490,
+          "unidad": "unidad",
+          "imagen": "/assets/img/productos/flor-chocolate.svg",
+          "disponible": true
+        },
+        {
+          "id": "promo-4",
+          "titulo": "Choco Miau",
+          "subtitulo": "Nuestro gatito de chocolate, favorito de los niños.",
+          "productoId": "p-002",
+          "precio": 3990,
+          "unidad": "unidad",
+          "imagen": "/assets/img/productos/choco-miau.svg",
+          "disponible": true
+        }
+      ]
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:49:42.917Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/products?destacado=true",
+    "requestHeaders": {
+      "x-correlation-id": "bc361ac8-e6e2-4892-84a2-b5c9545ea307",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "bc361ac8-e6e2-4892-84a2-b5c9545ea307",
+    "responseBody": {
+      "data": [
+        {
+          "id": "p-001",
+          "nombre": "Barra Chocolate Dubái Labubu",
+          "descripcion": "Barra de chocolate de leche rellena de crema de pistacho y kataifi crujiente. Venta por kilo.",
+          "categoria": "Barras",
+          "precio": 100000,
+          "unidad": "kg",
+          "stock": 15,
+          "disponible": true,
+          "imagen": "/assets/img/productos/barra-dubai.svg",
+          "destacado": true
+        },
+        {
+          "id": "p-005",
+          "nombre": "Bombones Surtidos (12 u.)",
+          "descripcion": "Caja de 12 bombones artesanales con rellenos de frutos secos, licor y caramelo.",
+          "categoria": "Bombones",
+          "precio": 12990,
+          "unidad": "unidad",
+          "stock": 18,
+          "disponible": true,
+          "imagen": "/assets/img/productos/bombones.svg",
+          "destacado": true
+        },
+        {
+          "id": "p-002",
+          "nombre": "Choco Miau",
+          "descripcion": "Figura de chocolate de leche con forma de gatito, decorada a mano.",
+          "categoria": "Figuras",
+          "precio": 3990,
+          "unidad": "unidad",
+          "stock": 36,
+          "disponible": true,
+          "imagen": "/assets/img/productos/choco-miau.svg",
+          "destacado": true
+        },
+        {
+          "id": "p-003",
+          "nombre": "Choco Wau",
+          "descripcion": "Figura de chocolate semiamargo con forma de perrito.",
+          "categoria": "Figuras",
+          "precio": 3990,
+          "unidad": "unidad",
+          "stock": 32,
+          "disponible": true,
+          "imagen": "/assets/img/productos/choco-wau.svg",
+          "destacado": true
+        },
+        {
+          "id": "p-004",
+          "nombre": "Flor de Chocolate",
+          "descripcion": "Ramo de flores de chocolate blanco y de leche, ideal para regalo.",
+          "categoria": "Figuras",
+          "precio": 5490,
+          "unidad": "unidad",
+          "stock": 24,
+          "disponible": true,
+          "imagen": "/assets/img/productos/flor-chocolate.svg",
+          "destacado": true
+        }
+      ],
+      "total": 5
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:49:43.640Z",
+    "method": "POST",
+    "url": "http://localhost:8080/api/v1/auth/login",
+    "requestHeaders": {
+      "x-correlation-id": "7f0cf094-c51a-429e-93cd-72b0b534d598",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": {
+      "email": "ana.cliente@chocomania.test",
+      "password": "[ENMASCARADO]"
+    },
+    "status": 200,
+    "responseCid": "7f0cf094-c51a-429e-93cd-72b0b534d598",
+    "responseBody": {
+      "data": {
+        "accessToken": "[ENMASCARADO]",
+        "tokenType": "Bearer",
+        "expiresIn": 900,
+        "user": {
+          "id": "00000000-0000-4000-8000-0000000000a1",
+          "nombre": "Ana Pérez (ficticia)",
+          "role": "CLIENTE"
+        }
+      }
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:49:43.874Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/categories",
+    "requestHeaders": {
+      "x-correlation-id": "9da25239-f3f3-48e3-ba8e-1d8cf0cdd2d6",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "9da25239-f3f3-48e3-ba8e-1d8cf0cdd2d6",
+    "responseBody": {
+      "data": [
+        {
+          "nombre": "Barras",
+          "total": 2
+        },
+        {
+          "nombre": "Bebidas",
+          "total": 1
+        },
+        {
+          "nombre": "Bombones",
+          "total": 2
+        },
+        {
+          "nombre": "Figuras",
+          "total": 4
+        }
+      ]
+    }
+  }
+]

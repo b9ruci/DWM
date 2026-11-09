@@ -1,0 +1,255 @@
+[
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T22:48:29.722Z",
+    "ms": 2,
+    "method": "GET",
+    "url": "http://127.0.0.1:8080/api/v1/orders",
+    "requestHeaders": {
+      "x-correlation-id": "d424cdae-4a75-4ffb-b440-6f17a96e7bc1"
+    },
+    "status": 401,
+    "responseCid": "d424cdae-4a75-4ffb-b440-6f17a96e7bc1",
+    "responseBody": {
+      "error": {
+        "code": "AUTH_REQUIRED",
+        "message": "Debes iniciar sesión para continuar",
+        "correlationId": "d424cdae-4a75-4ffb-b440-6f17a96e7bc1"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T22:48:29.724Z",
+    "ms": 2,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/orders",
+    "requestHeaders": {
+      "x-correlation-id": "31bbd2a5-333f-47cb-84e3-55a777597e1c",
+      "content-type": "application/json"
+    },
+    "requestBody": {},
+    "status": 401,
+    "responseCid": "31bbd2a5-333f-47cb-84e3-55a777597e1c",
+    "responseBody": {
+      "error": {
+        "code": "AUTH_REQUIRED",
+        "message": "Debes iniciar sesión para continuar",
+        "correlationId": "31bbd2a5-333f-47cb-84e3-55a777597e1c"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T22:48:29.725Z",
+    "ms": 1,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/graphql",
+    "requestHeaders": {
+      "x-correlation-id": "6885ea9d-b988-4142-ad3c-dca623d7e888",
+      "content-type": "application/json"
+    },
+    "requestBody": {},
+    "status": 401,
+    "responseCid": "6885ea9d-b988-4142-ad3c-dca623d7e888",
+    "responseBody": {
+      "error": {
+        "code": "AUTH_REQUIRED",
+        "message": "Debes iniciar sesión para continuar",
+        "correlationId": "6885ea9d-b988-4142-ad3c-dca623d7e888"
+      }
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:48:29.821Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/categories",
+    "requestHeaders": {
+      "x-correlation-id": "27019c6e-9d69-434f-9584-c1f3919db99e",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "27019c6e-9d69-434f-9584-c1f3919db99e",
+    "responseBody": {
+      "data": [
+        {
+          "nombre": "Barras",
+          "total": 2
+        },
+        {
+          "nombre": "Bebidas",
+          "total": 1
+        },
+        {
+          "nombre": "Bombones",
+          "total": 2
+        },
+        {
+          "nombre": "Figuras",
+          "total": 4
+        }
+      ]
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:48:29.935Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/categories",
+    "requestHeaders": {
+      "x-correlation-id": "d9a61361-591c-4f50-b46a-688c9ace7c40",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "d9a61361-591c-4f50-b46a-688c9ace7c40",
+    "responseBody": {
+      "data": [
+        {
+          "nombre": "Barras",
+          "total": 2
+        },
+        {
+          "nombre": "Bebidas",
+          "total": 1
+        },
+        {
+          "nombre": "Bombones",
+          "total": 2
+        },
+        {
+          "nombre": "Figuras",
+          "total": 4
+        }
+      ]
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:48:29.950Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/products",
+    "requestHeaders": {
+      "x-correlation-id": "76dfaa45-626d-4e17-943d-9a81e2f1c801",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "76dfaa45-626d-4e17-943d-9a81e2f1c801",
+    "responseBody": {
+      "data": [
+        {
+          "id": "p-001",
+          "nombre": "Barra Chocolate Dubái Labubu",
+          "descripcion": "Barra de chocolate de leche rellena de crema de pistacho y kataifi crujiente. Venta por kilo.",
+          "categoria": "Barras",
+          "precio": 100000,
+          "unidad": "kg",
+          "stock": 15,
+          "disponible": true,
+          "imagen": "/assets/img/productos/barra-dubai.svg",
+          "destacado": true
+        },
+        {
+          "id": "p-005",
+          "nombre": "Bombones Surtidos (12 u.)",
+          "descripcion": "Caja de 12 bombones artesanales con rellenos de frutos secos, licor y caramelo.",
+          "categoria": "Bombones",
+          "precio": 12990,
+          "unidad": "unidad",
+          "stock": 18,
+          "disponible": true,
+          "imagen": "/assets/img/productos/bombones.svg",
+          "destacado": true
+        },
+        {
+          "id": "p-002",
+          "nombre": "Choco Miau",
+          "descripcion": "Figura de chocolate de leche con forma de gatito, decorada a mano.",
+          "categoria": "Figuras",
+          "precio": 3990,
+          "unidad": "unidad",
+          "stock": 36,
+          "disponible": true,
+          "imagen": "/assets/img/productos/choco-miau.svg",
+          "destacado": true
+        },
+        {
+          "id": "p-003",
+          "nombre": "Choco Wau",
+          "descripcion": "Figura de chocolate semiamargo con forma de perrito.",
+          "categoria": "Figuras",
+          "precio": 3990,
+          "unidad": "unidad",
+          "stock": 32,
+          "disponible": true,
+          "imagen": "/assets/img/productos/choco-wau.svg",
+          "destacado": true
+        },
+        {
+          "id": "p-004",
+          "nombre": "Flor de Chocolate",
+          "descripcion": "Ramo de flores de chocolate blanco y de leche, ideal para regalo.",
+          "categoria": "Figuras",
+          "precio": 5490,
+          "unidad": "unidad",
+          "stock": 24,
+          "disponible": true,
+          "imagen": "/assets/img/productos/flor-chocolate.svg",
+          "destacado": true
+        },
+        {
+          "id": "p-009",
+          "nombre": "Huevo de Chocolate Sorpresa",
+          "descripcion": "Huevo de chocolate de leche con sorpresa en su interior.",
+          "categoria": "Figuras",
+          "precio": 9990,
+          "unidad": "unidad",
+          "stock": 0,
+          "disponible": false,
+          "imagen": "/assets/img/productos/huevo.svg",
+          "destacado": false
+        },
+        {
+          "id": "p-008",
+          "nombre": "Mezcla Chocolate Caliente",
+          "descripcion": "Mezcla de 250 g para preparar chocolate caliente espeso.",
+          "categoria": "Bebidas",
+          "precio": 6990,
+          "unidad": "unidad",
+          "stock": 3,
+          "disponible": true,
+          "imagen": "/assets/img/productos/chocolate-caliente.svg",
+          "destacado": false
+        },
+        {
+          "id": "p-007",
+          "nombre": "Tableta Amarga 70% Cacao",
+          "descripcion": "Tableta de 100 g de chocolate amargo 70% cacao de origen.",
+          "categoria": "Barras",
+          "precio": 4590,
+          "unidad": "unidad",
+          "stock": 47,
+          "disponible": true,
+          "imagen": "/assets/img/productos/tableta.svg",
+          "destacado": false
+        },
+        {
+          "id": "p-006",
+          "nombre": "Trufas de Pistacho (6 u.)",
+          "descripcion": "Trufas de chocolate amargo con centro de pistacho.",
+          "categoria": "Bombones",
+          "precio": 8990,
+          "unidad": "unidad",
+          "stock": 17,
+          "disponible": true,
+          "imagen": "/assets/img/productos/trufas.svg",
+          "destacado": false
+        }
+      ],
+      "total": 9
+    }
+  }
+]

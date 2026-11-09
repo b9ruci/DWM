@@ -495,6 +495,64 @@ export default [
       }
     },
   },
+  {
+    id: 'P30', flujo: 'F02', requisito: 'R01', criterio: 'CA30', tipo: 'éxito', viewports: ['escritorio', 'movil'],
+    titulo: 'Inicio según el mockup: carrusel de promociones y destacados consistentes con inventory',
+    precondiciones: 'Datos semilla (4 promociones activas, 5 productos destacados). Visitante anónimo.',
+    pasos: ['Abrir /index.php', 'Contar diapositivas e indicadores del carrusel', 'Leer título y precio de la primera promoción', 'Contar tarjetas del riel de destacados', 'Comparar con GET /promotions y GET /products?destacado=true', 'Agregar la promoción al carrito y verificar el contador'],
+    esperado: '4 diapositivas y 4 puntos; primera promoción "Barra Chocolate Dubái Labubu" a $100.000 "venta por kilo"; 5 tarjetas destacadas + tarjeta "Ver todo el catálogo"; el contador del carrito pasa a 1.',
+    verificacion: 'Capturas + red + respuestas API independientes.',
+    restauracion: 'Carrito local por contexto de navegador (se descarta al cerrar).',
+    async run(ctx) {
+      const promos = await ctx.api('/promotions');
+      const dest = await ctx.api('/products?destacado=true');
+      for (const vp of this.viewports) {
+        const page = await ctx.page(vp);
+        await page.goto(`${WEB}/index.php`);
+        await page.locator('#promoSlides [data-promo]').first().waitFor();
+        await page.locator('#destacados .product-card').first().waitFor();
+        ctx.check(`[${vp}] diapositivas = promociones de la API`, promos.data.data.length, await page.locator('#promoSlides [data-promo]').count());
+        ctx.check(`[${vp}] puntos del carrusel`, promos.data.data.length, await page.locator('#promoDots button').count());
+        const first = page.locator('#promoSlides [data-promo]').first();
+        ctx.check(`[${vp}] primera promoción`, ['Barra Chocolate Dubái Labubu', '$100.000', 'venta por kilo'], [(await first.locator('h2').textContent()).trim(), (await first.locator('.price-tag strong').textContent()).trim(), (await first.locator('.price-tag span').textContent()).trim()]);
+        ctx.check(`[${vp}] tarjetas destacadas = API`, dest.data.total, await page.locator('#destacados .product-card').count());
+        ctx.check(`[${vp}] tarjeta "Ver todo el catálogo"`, 1, await page.locator('#destacados .rail-more').count());
+        await ctx.shot(page, 'inicio', 'Inicio: carrusel y destacados');
+        await first.locator('[data-testid=promo-add-p-001]').click();
+        ctx.check(`[${vp}] contador del carrito`, '1', (await page.locator('[data-cart-count]:visible').first().textContent()).trim());
+      }
+    },
+  },
+  {
+    id: 'P31', flujo: 'F11', requisito: 'R10', criterio: 'CA31', tipo: 'éxito', viewports: ['escritorio'],
+    titulo: 'Administración: resumen de ventas (GraphQL) y listado de clientes enmascarado',
+    precondiciones: 'Un pedido pagado nuevo de clienteA (precondición por API + sandbox). Cuenta admin.',
+    pasos: ['Admin consulta resumenVentas por API (valor de referencia)', 'Crear y pagar un pedido de 1 Choco Wau', 'Admin abre /admin.php (Resumen)', 'Comparar "Pedidos pagados" con referencia + 1', 'Abrir pestaña Clientes y revisar RUT/teléfono'],
+    esperado: 'El KPI de pedidos pagados aumenta exactamente en 1 respecto de la referencia y coincide con la API; en Clientes, el RUT y teléfono aparecen enmascarados (con *), sin valores completos.',
+    verificacion: 'Captura + red GraphQL + respuesta API.',
+    restauracion: 'Base nueva por ejecución.',
+    async run(ctx) {
+      const tAdm = await ctx.login(ctx.seed.admin);
+      const q = '{ resumenVentas(dias:30){ pedidosPagados ingresos } }';
+      const before = (await ctx.api('/graphql', { method: 'POST', token: tAdm, body: { query: q } })).data.data.resumenVentas;
+      const tA = await ctx.login(ctx.seed.clienteA);
+      const o = await createOrderApi(ctx, tA, [{ productId: 'p-003', cantidad: 1 }]);
+      await payApi(ctx, tA, o.id, 'approve');
+      await waitFor(() => ctx.db('orders').prepare('SELECT estado FROM orders WHERE id = ?').get(o.id).estado === 'PAGADO');
+      const page = await ctx.page('escritorio');
+      await page.goto(`${WEB}/index.php`);
+      await ctx.loginUi(page, ctx.seed.admin);
+      await page.goto(`${WEB}/admin.php`);
+      await page.locator('[data-testid=kpi-pagados]').waitFor();
+      ctx.check('KPI pedidos pagados = referencia + 1', String(before.pedidosPagados + 1), (await page.locator('[data-testid=kpi-pagados]').textContent()).trim());
+      await ctx.shot(page, 'resumen', 'Resumen de ventas en administración');
+      await page.locator('[data-bs-target="#tClientes"]').click();
+      await page.locator('#adminClientes table').waitFor();
+      const txt = await page.locator('#adminClientes').textContent();
+      ctx.check('RUT y teléfono enmascarados', [true, false, false], [txt.includes('*'), txt.includes('11.111.111-1'), txt.includes('+56 9 1111 1111')]);
+      await ctx.shot(page, 'clientes', 'Clientes con datos enmascarados');
+    },
+  },
 ];
 
 // P29 se ejecuta al final: revisa las evidencias de la propia ejecución.

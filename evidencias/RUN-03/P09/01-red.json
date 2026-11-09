@@ -1,0 +1,152 @@
+[
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T22:49:26.623Z",
+    "ms": 106,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/auth/login",
+    "requestHeaders": {
+      "x-correlation-id": "59e4c73a-1feb-45d2-8b01-183c920099ac",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "email": "ana.cliente@chocomania.test",
+      "password": "[ENMASCARADO]"
+    },
+    "status": 200,
+    "responseCid": "59e4c73a-1feb-45d2-8b01-183c920099ac",
+    "responseBody": {
+      "data": {
+        "accessToken": "[ENMASCARADO]",
+        "tokenType": "Bearer",
+        "expiresIn": 900,
+        "user": {
+          "id": "00000000-0000-4000-8000-0000000000a1",
+          "nombre": "Ana Pérez (ficticia)",
+          "role": "CLIENTE"
+        }
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T22:49:26.636Z",
+    "ms": 13,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/orders",
+    "requestHeaders": {
+      "x-correlation-id": "10b2ee2b-aeb9-423d-9902-167e22ce9e63",
+      "idempotency-key": "8784e54a-c3a5-41a8-a233-b72e1b2f6761",
+      "content-type": "application/json",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": {
+      "items": [
+        {
+          "productId": "p-003",
+          "cantidad": 2,
+          "precio": 1,
+          "precioUnitario": 1
+        }
+      ],
+      "despacho": {
+        "direccion": "Calle Bombón 123, depto 4",
+        "comuna": "Providencia"
+      }
+    },
+    "status": 201,
+    "responseCid": "10b2ee2b-aeb9-423d-9902-167e22ce9e63",
+    "responseBody": {
+      "data": {
+        "id": "16730587-7dc5-4ef4-bfd6-7fc165afa87d",
+        "clienteId": "00000000-0000-4000-8000-0000000000a1",
+        "estado": "PENDIENTE_PAGO",
+        "subtotal": 7980,
+        "costoDespacho": 3990,
+        "total": 11970,
+        "despacho": {
+          "direccion": "Calle Bombón 123, depto 4",
+          "comuna": "Providencia"
+        },
+        "notas": null,
+        "pagoId": null,
+        "items": [
+          {
+            "productoId": "p-003",
+            "nombre": "Choco Wau",
+            "precioUnitario": 3990,
+            "unidad": "unidad",
+            "cantidad": 2,
+            "subtotal": 7980
+          }
+        ],
+        "historial": [
+          {
+            "desde": null,
+            "hacia": "PENDIENTE_PAGO",
+            "actor": "cliente",
+            "nota": null,
+            "fecha": "2026-11-09T22:49:26.634Z"
+          }
+        ],
+        "creadoEn": "2026-11-09T22:49:26.634Z",
+        "actualizadoEn": "2026-11-09T22:49:26.634Z"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T22:49:26.640Z",
+    "ms": 4,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/payments",
+    "requestHeaders": {
+      "x-correlation-id": "967ebcd4-c8fd-4352-a150-9467c78c4209",
+      "content-type": "application/json",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": {
+      "pedidoId": "16730587-7dc5-4ef4-bfd6-7fc165afa87d",
+      "monto": 1
+    },
+    "status": 400,
+    "responseCid": "967ebcd4-c8fd-4352-a150-9467c78c4209",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "body.monto",
+            "message": "Campo no permitido"
+          }
+        ],
+        "correlationId": "967ebcd4-c8fd-4352-a150-9467c78c4209"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T22:49:26.642Z",
+    "ms": 2,
+    "method": "PUT",
+    "url": "http://127.0.0.1:8080/api/v1/admin/orders/16730587-7dc5-4ef4-bfd6-7fc165afa87d/status",
+    "requestHeaders": {
+      "x-correlation-id": "857e4ddf-804b-47c1-b260-b168d8f81304",
+      "content-type": "application/json",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": {
+      "estado": "PAGADO"
+    },
+    "status": 403,
+    "responseCid": "857e4ddf-804b-47c1-b260-b168d8f81304",
+    "responseBody": {
+      "error": {
+        "code": "FORBIDDEN",
+        "message": "No tienes permisos para esta operación",
+        "correlationId": "857e4ddf-804b-47c1-b260-b168d8f81304"
+      }
+    }
+  }
+]

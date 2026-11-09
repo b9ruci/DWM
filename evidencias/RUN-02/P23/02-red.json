@@ -1,0 +1,1427 @@
+[
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:48:38.481Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/categories",
+    "requestHeaders": {
+      "x-correlation-id": "b4429a6b-15e2-4189-85d4-c69a660111c7",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "b4429a6b-15e2-4189-85d4-c69a660111c7",
+    "responseBody": {
+      "data": [
+        {
+          "nombre": "Barras",
+          "total": 2
+        },
+        {
+          "nombre": "Bebidas",
+          "total": 1
+        },
+        {
+          "nombre": "Bombones",
+          "total": 2
+        },
+        {
+          "nombre": "Figuras",
+          "total": 4
+        }
+      ]
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:48:38.481Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/promotions",
+    "requestHeaders": {
+      "x-correlation-id": "d86a408d-1aaa-4772-bb0e-ba8abb934f41",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "d86a408d-1aaa-4772-bb0e-ba8abb934f41",
+    "responseBody": {
+      "data": [
+        {
+          "id": "promo-1",
+          "titulo": "Barra Chocolate Dubái Labubu",
+          "subtitulo": "La barra del momento, rellena de pistacho y kataifi.",
+          "productoId": "p-001",
+          "precio": 100000,
+          "unidad": "kg",
+          "imagen": "/assets/img/productos/barra-dubai.svg",
+          "disponible": true
+        },
+        {
+          "id": "promo-2",
+          "titulo": "Bombones Surtidos",
+          "subtitulo": "12 sabores artesanales en una caja para regalar.",
+          "productoId": "p-005",
+          "precio": 12990,
+          "unidad": "unidad",
+          "imagen": "/assets/img/productos/bombones.svg",
+          "disponible": true
+        },
+        {
+          "id": "promo-3",
+          "titulo": "Flor de Chocolate",
+          "subtitulo": "Un ramo que no se marchita: chocolate blanco y de leche.",
+          "productoId": "p-004",
+          "precio": 5490,
+          "unidad": "unidad",
+          "imagen": "/assets/img/productos/flor-chocolate.svg",
+          "disponible": true
+        },
+        {
+          "id": "promo-4",
+          "titulo": "Choco Miau",
+          "subtitulo": "Nuestro gatito de chocolate, favorito de los niños.",
+          "productoId": "p-002",
+          "precio": 3990,
+          "unidad": "unidad",
+          "imagen": "/assets/img/productos/choco-miau.svg",
+          "disponible": true
+        }
+      ]
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:48:38.482Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/products?destacado=true",
+    "requestHeaders": {
+      "x-correlation-id": "99229c8a-b8a2-4a0b-b9f9-1bad2cb6c70f",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "99229c8a-b8a2-4a0b-b9f9-1bad2cb6c70f",
+    "responseBody": {
+      "data": [
+        {
+          "id": "p-001",
+          "nombre": "Barra Chocolate Dubái Labubu",
+          "descripcion": "Barra de chocolate de leche rellena de crema de pistacho y kataifi crujiente. Venta por kilo.",
+          "categoria": "Barras",
+          "precio": 100000,
+          "unidad": "kg",
+          "stock": 15,
+          "disponible": true,
+          "imagen": "/assets/img/productos/barra-dubai.svg",
+          "destacado": true
+        },
+        {
+          "id": "p-005",
+          "nombre": "Bombones Surtidos (12 u.)",
+          "descripcion": "Caja de 12 bombones artesanales con rellenos de frutos secos, licor y caramelo.",
+          "categoria": "Bombones",
+          "precio": 12990,
+          "unidad": "unidad",
+          "stock": 18,
+          "disponible": true,
+          "imagen": "/assets/img/productos/bombones.svg",
+          "destacado": true
+        },
+        {
+          "id": "p-002",
+          "nombre": "Choco Miau",
+          "descripcion": "Figura de chocolate de leche con forma de gatito, decorada a mano.",
+          "categoria": "Figuras",
+          "precio": 3990,
+          "unidad": "unidad",
+          "stock": 36,
+          "disponible": true,
+          "imagen": "/assets/img/productos/choco-miau.svg",
+          "destacado": true
+        },
+        {
+          "id": "p-003",
+          "nombre": "Choco Wau",
+          "descripcion": "Figura de chocolate semiamargo con forma de perrito.",
+          "categoria": "Figuras",
+          "precio": 3990,
+          "unidad": "unidad",
+          "stock": 32,
+          "disponible": true,
+          "imagen": "/assets/img/productos/choco-wau.svg",
+          "destacado": true
+        },
+        {
+          "id": "p-004",
+          "nombre": "Flor de Chocolate",
+          "descripcion": "Ramo de flores de chocolate blanco y de leche, ideal para regalo.",
+          "categoria": "Figuras",
+          "precio": 5490,
+          "unidad": "unidad",
+          "stock": 24,
+          "disponible": true,
+          "imagen": "/assets/img/productos/flor-chocolate.svg",
+          "destacado": true
+        }
+      ],
+      "total": 5
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:48:39.189Z",
+    "method": "POST",
+    "url": "http://localhost:8080/api/v1/auth/login",
+    "requestHeaders": {
+      "x-correlation-id": "ba2e1f8b-79df-45ff-a832-1fa4a8f12798",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": {
+      "email": "admin@chocomania.test",
+      "password": "[ENMASCARADO]"
+    },
+    "status": 200,
+    "responseCid": "ba2e1f8b-79df-45ff-a832-1fa4a8f12798",
+    "responseBody": {
+      "data": {
+        "accessToken": "[ENMASCARADO]",
+        "tokenType": "Bearer",
+        "expiresIn": 900,
+        "user": {
+          "id": "00000000-0000-4000-8000-000000000001",
+          "nombre": "Administración Chocomanía",
+          "role": "ADMIN"
+        }
+      }
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:48:39.467Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/categories",
+    "requestHeaders": {
+      "x-correlation-id": "deb93e9b-ed6c-42e1-803d-41c93920abf5",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "deb93e9b-ed6c-42e1-803d-41c93920abf5",
+    "responseBody": {
+      "data": [
+        {
+          "nombre": "Barras",
+          "total": 2
+        },
+        {
+          "nombre": "Bebidas",
+          "total": 1
+        },
+        {
+          "nombre": "Bombones",
+          "total": 2
+        },
+        {
+          "nombre": "Figuras",
+          "total": 4
+        }
+      ]
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:48:39.487Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/admin/orders",
+    "requestHeaders": {
+      "x-correlation-id": "f1ecc0a6-f548-4a09-97b2-9b7b3bb99c96",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "f1ecc0a6-f548-4a09-97b2-9b7b3bb99c96",
+    "responseBody": {
+      "data": [
+        {
+          "id": "be7697c0-8152-4501-b2bf-6708e9aeef21",
+          "clienteId": "00000000-0000-4000-8000-0000000000a1",
+          "estado": "CANCELADO",
+          "subtotal": 17980,
+          "costoDespacho": 3990,
+          "total": 21970,
+          "despacho": {
+            "direccion": "Calle Bombón 123, depto 4",
+            "comuna": "Providencia"
+          },
+          "notas": null,
+          "notasInternas": null,
+          "pagoId": null,
+          "items": [
+            {
+              "productoId": "p-006",
+              "nombre": "Trufas de Pistacho (6 u.)",
+              "precioUnitario": 8990,
+              "unidad": "unidad",
+              "cantidad": 2,
+              "subtotal": 17980
+            }
+          ],
+          "historial": [
+            {
+              "desde": null,
+              "hacia": "PENDIENTE_PAGO",
+              "actor": "cliente",
+              "nota": null,
+              "fecha": "2026-11-09T22:48:33.597Z"
+            },
+            {
+              "desde": "PENDIENTE_PAGO",
+              "hacia": "CANCELADO",
+              "actor": "cliente",
+              "nota": null,
+              "fecha": "2026-11-09T22:48:34.850Z"
+            }
+          ],
+          "creadoEn": "2026-11-09T22:48:33.597Z",
+          "actualizadoEn": "2026-11-09T22:48:34.850Z"
+        },
+        {
+          "id": "729ccf71-26bf-468d-a63b-d9a5bf92a82a",
+          "clienteId": "00000000-0000-4000-8000-0000000000a1",
+          "estado": "PENDIENTE_PAGO",
+          "subtotal": 8990,
+          "costoDespacho": 3990,
+          "total": 12980,
+          "despacho": {
+            "direccion": "Calle Bombón 123, depto 4",
+            "comuna": "Providencia"
+          },
+          "notas": null,
+          "notasInternas": null,
+          "pagoId": null,
+          "items": [
+            {
+              "productoId": "p-006",
+              "nombre": "Trufas de Pistacho (6 u.)",
+              "precioUnitario": 8990,
+              "unidad": "unidad",
+              "cantidad": 1,
+              "subtotal": 8990
+            }
+          ],
+          "historial": [
+            {
+              "desde": null,
+              "hacia": "PENDIENTE_PAGO",
+              "actor": "cliente",
+              "nota": null,
+              "fecha": "2026-11-09T22:48:27.745Z"
+            }
+          ],
+          "creadoEn": "2026-11-09T22:48:27.745Z",
+          "actualizadoEn": "2026-11-09T22:48:27.745Z"
+        },
+        {
+          "id": "51179b60-f22f-4d11-be0c-bfc3b4edd5d6",
+          "clienteId": "00000000-0000-4000-8000-0000000000a1",
+          "estado": "PENDIENTE_PAGO",
+          "subtotal": 4590,
+          "costoDespacho": 3990,
+          "total": 8580,
+          "despacho": {
+            "direccion": "Calle Bombón 123, depto 4",
+            "comuna": "Providencia"
+          },
+          "notas": null,
+          "notasInternas": null,
+          "pagoId": null,
+          "items": [
+            {
+              "productoId": "p-007",
+              "nombre": "Tableta Amarga 70% Cacao",
+              "precioUnitario": 4590,
+              "unidad": "unidad",
+              "cantidad": 1,
+              "subtotal": 4590
+            }
+          ],
+          "historial": [
+            {
+              "desde": null,
+              "hacia": "PENDIENTE_PAGO",
+              "actor": "cliente",
+              "nota": null,
+              "fecha": "2026-11-09T22:48:27.324Z"
+            }
+          ],
+          "creadoEn": "2026-11-09T22:48:27.324Z",
+          "actualizadoEn": "2026-11-09T22:48:27.324Z"
+        },
+        {
+          "id": "5ca1480d-bba7-4d56-a49f-dfa7d6e93628",
+          "clienteId": "00000000-0000-4000-8000-0000000000a1",
+          "estado": "PENDIENTE_PAGO",
+          "subtotal": 4590,
+          "costoDespacho": 3990,
+          "total": 8580,
+          "despacho": {
+            "direccion": "Calle Bombón 123, depto 4",
+            "comuna": "Providencia"
+          },
+          "notas": null,
+          "notasInternas": null,
+          "pagoId": null,
+          "items": [
+            {
+              "productoId": "p-007",
+              "nombre": "Tableta Amarga 70% Cacao",
+              "precioUnitario": 4590,
+              "unidad": "unidad",
+              "cantidad": 1,
+              "subtotal": 4590
+            }
+          ],
+          "historial": [
+            {
+              "desde": null,
+              "hacia": "PENDIENTE_PAGO",
+              "actor": "cliente",
+              "nota": null,
+              "fecha": "2026-11-09T22:48:24.111Z"
+            }
+          ],
+          "creadoEn": "2026-11-09T22:48:24.111Z",
+          "actualizadoEn": "2026-11-09T22:48:24.111Z"
+        },
+        {
+          "id": "8317c913-514c-43f3-bf9b-96c4a4cf6651",
+          "clienteId": "00000000-0000-4000-8000-0000000000a1",
+          "estado": "PAGADO",
+          "subtotal": 25980,
+          "costoDespacho": 3990,
+          "total": 29970,
+          "despacho": {
+            "direccion": "Calle Bombón 123, depto 4",
+            "comuna": "Providencia"
+          },
+          "notas": null,
+          "notasInternas": null,
+          "pagoId": "e4770000-87c0-4834-be50-2afc04aae920",
+          "items": [
+            {
+              "productoId": "p-005",
+              "nombre": "Bombones Surtidos (12 u.)",
+              "precioUnitario": 12990,
+              "unidad": "unidad",
+              "cantidad": 2,
+              "subtotal": 25980
+            }
+          ],
+          "historial": [
+            {
+              "desde": null,
+              "hacia": "PENDIENTE_PAGO",
+              "actor": "cliente",
+              "nota": null,
+              "fecha": "2026-11-09T22:48:20.229Z"
+            },
+            {
+              "desde": "PENDIENTE_PAGO",
+              "hacia": "PAGADO",
+              "actor": "payments",
+              "nota": null,
+              "fecha": "2026-11-09T22:48:20.245Z"
+            }
+          ],
+          "creadoEn": "2026-11-09T22:48:20.229Z",
+          "actualizadoEn": "2026-11-09T22:48:20.245Z"
+        },
+        {
+          "id": "80368159-a70a-4720-a424-504e3d1b9691",
+          "clienteId": "00000000-0000-4000-8000-0000000000b2",
+          "estado": "PAGADO",
+          "subtotal": 3990,
+          "costoDespacho": 3990,
+          "total": 7980,
+          "despacho": {
+            "direccion": "Calle Bombón 123, depto 4",
+            "comuna": "Providencia"
+          },
+          "notas": null,
+          "notasInternas": null,
+          "pagoId": "00802964-4e69-48d9-8f57-71c77d297c9b",
+          "items": [
+            {
+              "productoId": "p-003",
+              "nombre": "Choco Wau",
+              "precioUnitario": 3990,
+              "unidad": "unidad",
+              "cantidad": 1,
+              "subtotal": 3990
+            }
+          ],
+          "historial": [
+            {
+              "desde": null,
+              "hacia": "PENDIENTE_PAGO",
+              "actor": "cliente",
+              "nota": null,
+              "fecha": "2026-11-09T22:48:19.767Z"
+            },
+            {
+              "desde": "PENDIENTE_PAGO",
+              "hacia": "PAGADO",
+              "actor": "payments",
+              "nota": null,
+              "fecha": "2026-11-09T22:48:19.785Z"
+            }
+          ],
+          "creadoEn": "2026-11-09T22:48:19.767Z",
+          "actualizadoEn": "2026-11-09T22:48:19.785Z"
+        },
+        {
+          "id": "815de0ed-2de0-45bc-90e2-2fa141556ba1",
+          "clienteId": "00000000-0000-4000-8000-0000000000b2",
+          "estado": "PAGADO",
+          "subtotal": 5490,
+          "costoDespacho": 3990,
+          "total": 9480,
+          "despacho": {
+            "direccion": "Calle Bombón 123, depto 4",
+            "comuna": "Providencia"
+          },
+          "notas": null,
+          "notasInternas": null,
+          "pagoId": "4a3c9989-16ef-48b0-87b5-1d57b6d6fd70",
+          "items": [
+            {
+              "productoId": "p-004",
+              "nombre": "Flor de Chocolate",
+              "precioUnitario": 5490,
+              "unidad": "unidad",
+              "cantidad": 1,
+              "subtotal": 5490
+            }
+          ],
+          "historial": [
+            {
+              "desde": null,
+              "hacia": "PENDIENTE_PAGO",
+              "actor": "cliente",
+              "nota": null,
+              "fecha": "2026-11-09T22:48:18.698Z"
+            },
+            {
+              "desde": "PENDIENTE_PAGO",
+              "hacia": "PAGADO",
+              "actor": "payments",
+              "nota": null,
+              "fecha": "2026-11-09T22:48:19.154Z"
+            }
+          ],
+          "creadoEn": "2026-11-09T22:48:18.698Z",
+          "actualizadoEn": "2026-11-09T22:48:19.154Z"
+        },
+        {
+          "id": "b4e7b0af-1a85-435e-8012-982fa81bd44c",
+          "clienteId": "00000000-0000-4000-8000-0000000000a1",
+          "estado": "PENDIENTE_PAGO",
+          "subtotal": 7980,
+          "costoDespacho": 3990,
+          "total": 11970,
+          "despacho": {
+            "direccion": "Calle Bombón 123, depto 4",
+            "comuna": "Providencia"
+          },
+          "notas": null,
+          "notasInternas": null,
+          "pagoId": null,
+          "items": [
+            {
+              "productoId": "p-003",
+              "nombre": "Choco Wau",
+              "precioUnitario": 3990,
+              "unidad": "unidad",
+              "cantidad": 2,
+              "subtotal": 7980
+            }
+          ],
+          "historial": [
+            {
+              "desde": null,
+              "hacia": "PENDIENTE_PAGO",
+              "actor": "cliente",
+              "nota": null,
+              "fecha": "2026-11-09T22:48:16.240Z"
+            }
+          ],
+          "creadoEn": "2026-11-09T22:48:16.240Z",
+          "actualizadoEn": "2026-11-09T22:48:16.240Z"
+        },
+        {
+          "id": "e1e7ad4c-9952-4da7-8629-e7ca547779bf",
+          "clienteId": "00000000-0000-4000-8000-0000000000b2",
+          "estado": "PENDIENTE_PAGO",
+          "subtotal": 4590,
+          "costoDespacho": 3990,
+          "total": 8580,
+          "despacho": {
+            "direccion": "Calle Bombón 123, depto 4",
+            "comuna": "Providencia"
+          },
+          "notas": null,
+          "notasInternas": null,
+          "pagoId": null,
+          "items": [
+            {
+              "productoId": "p-007",
+              "nombre": "Tableta Amarga 70% Cacao",
+              "precioUnitario": 4590,
+              "unidad": "unidad",
+              "cantidad": 1,
+              "subtotal": 4590
+            }
+          ],
+          "historial": [
+            {
+              "desde": null,
+              "hacia": "PENDIENTE_PAGO",
+              "actor": "cliente",
+              "nota": null,
+              "fecha": "2026-11-09T22:48:15.566Z"
+            }
+          ],
+          "creadoEn": "2026-11-09T22:48:15.566Z",
+          "actualizadoEn": "2026-11-09T22:48:15.566Z"
+        },
+        {
+          "id": "9db15254-1e32-4af4-b6bf-7cd9fa10730b",
+          "clienteId": "00000000-0000-4000-8000-0000000000a1",
+          "estado": "PAGADO",
+          "subtotal": 7980,
+          "costoDespacho": 3990,
+          "total": 11970,
+          "despacho": {
+            "direccion": "Calle Bombón 123, depto 4",
+            "comuna": "Providencia"
+          },
+          "notas": null,
+          "notasInternas": null,
+          "pagoId": "b4f2ad82-ac89-41db-b8d8-42c66be03173",
+          "items": [
+            {
+              "productoId": "p-002",
+              "nombre": "Choco Miau",
+              "precioUnitario": 3990,
+              "unidad": "unidad",
+              "cantidad": 2,
+              "subtotal": 7980
+            }
+          ],
+          "historial": [
+            {
+              "desde": null,
+              "hacia": "PENDIENTE_PAGO",
+              "actor": "cliente",
+              "nota": null,
+              "fecha": "2026-11-09T22:48:10.849Z"
+            },
+            {
+              "desde": "PENDIENTE_PAGO",
+              "hacia": "PAGADO",
+              "actor": "payments",
+              "nota": null,
+              "fecha": "2026-11-09T22:48:11.056Z"
+            }
+          ],
+          "creadoEn": "2026-11-09T22:48:10.849Z",
+          "actualizadoEn": "2026-11-09T22:48:11.056Z"
+        },
+        {
+          "id": "3c1c6a1d-c073-4d2e-b88d-acfce7378595",
+          "clienteId": "00000000-0000-4000-8000-0000000000a1",
+          "estado": "PAGADO",
+          "subtotal": 7980,
+          "costoDespacho": 3990,
+          "total": 11970,
+          "despacho": {
+            "direccion": "Calle Bombón 123, depto 4",
+            "comuna": "Providencia"
+          },
+          "notas": null,
+          "notasInternas": null,
+          "pagoId": "f4c88edd-545a-4c6b-ab8c-b80da9219034",
+          "items": [
+            {
+              "productoId": "p-002",
+              "nombre": "Choco Miau",
+              "precioUnitario": 3990,
+              "unidad": "unidad",
+              "cantidad": 2,
+              "subtotal": 7980
+            }
+          ],
+          "historial": [
+            {
+              "desde": null,
+              "hacia": "PENDIENTE_PAGO",
+              "actor": "cliente",
+              "nota": null,
+              "fecha": "2026-11-09T22:48:07.553Z"
+            },
+            {
+              "desde": "PENDIENTE_PAGO",
+              "hacia": "PAGADO",
+              "actor": "payments",
+              "nota": null,
+              "fecha": "2026-11-09T22:48:07.752Z"
+            }
+          ],
+          "creadoEn": "2026-11-09T22:48:07.553Z",
+          "actualizadoEn": "2026-11-09T22:48:07.752Z"
+        }
+      ]
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:48:39.490Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/admin/contact-requests",
+    "requestHeaders": {
+      "x-correlation-id": "d7b7f511-ce45-4105-9d41-498b9cde341b",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "d7b7f511-ce45-4105-9d41-498b9cde341b",
+    "responseBody": {
+      "data": [
+        {
+          "id": "eed26f5c-a781-44c5-99b9-d93df62aa2b4",
+          "nombre": "Pedro Evento (ficticio)",
+          "email": "pedro.evento@chocomania.test",
+          "tipo": "ORDEN_ESPECIAL",
+          "mensaje": "Necesito 30 figuras Choco Miau para un cumpleaños ref-1794264517694",
+          "estado": "NUEVA",
+          "creadoEn": "2026-11-09T22:48:37.743Z"
+        }
+      ]
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:48:39.490Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/admin/clients",
+    "requestHeaders": {
+      "x-correlation-id": "0c3d276a-ece2-4d65-a8fe-e0f9938554db",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "0c3d276a-ece2-4d65-a8fe-e0f9938554db",
+    "responseBody": {
+      "data": [
+        {
+          "id": "c3b67af2-8123-4677-98ef-08309dbf610d",
+          "nombre": "Carla Prueba (ficticia)",
+          "email": "nueva.1794264481720@chocomania.test",
+          "rut": null,
+          "telefono": null,
+          "comuna": null,
+          "creadoEn": "2026-11-09T22:48:02.648Z"
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001",
+          "nombre": "Administración Chocomanía",
+          "email": "admin@chocomania.test",
+          "rut": null,
+          "telefono": "***********6789",
+          "comuna": "Santiago",
+          "creadoEn": "2026-11-09T22:47:56.242Z"
+        },
+        {
+          "id": "00000000-0000-4000-8000-0000000000a1",
+          "nombre": "Ana Pérez (ficticia)",
+          "email": "ana.cliente@chocomania.test",
+          "rut": "*******111-1",
+          "telefono": "***********1111",
+          "comuna": "Providencia",
+          "creadoEn": "2026-11-09T22:47:56.242Z"
+        },
+        {
+          "id": "00000000-0000-4000-8000-0000000000b2",
+          "nombre": "Bruno Soto (ficticio)",
+          "email": "bruno.cliente@chocomania.test",
+          "rut": "*******678-5",
+          "telefono": "***********4444",
+          "comuna": "Ñuñoa",
+          "creadoEn": "2026-11-09T22:47:56.242Z"
+        }
+      ]
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:48:39.490Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/admin/products",
+    "requestHeaders": {
+      "x-correlation-id": "2b56ebfe-25e0-4c1a-99e5-04bcda95ef59",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "2b56ebfe-25e0-4c1a-99e5-04bcda95ef59",
+    "responseBody": {
+      "data": [
+        {
+          "id": "p-001",
+          "nombre": "Barra Chocolate Dubái Labubu",
+          "descripcion": "Barra de chocolate de leche rellena de crema de pistacho y kataifi crujiente. Venta por kilo.",
+          "categoria": "Barras",
+          "precio": 100000,
+          "unidad": "kg",
+          "stock": 15,
+          "disponible": true,
+          "imagen": "/assets/img/productos/barra-dubai.svg",
+          "destacado": true,
+          "sku": "BAR-DUB-LAB",
+          "activo": true,
+          "updatedAt": "2026-11-01T00:00:00Z"
+        },
+        {
+          "id": "p-005",
+          "nombre": "Bombones Surtidos (12 u.)",
+          "descripcion": "Caja de 12 bombones artesanales con rellenos de frutos secos, licor y caramelo.",
+          "categoria": "Bombones",
+          "precio": 12990,
+          "unidad": "unidad",
+          "stock": 18,
+          "disponible": true,
+          "imagen": "/assets/img/productos/bombones.svg",
+          "destacado": true,
+          "sku": "BOM-SUR-12",
+          "activo": true,
+          "updatedAt": "2026-11-09T22:48:20.226Z"
+        },
+        {
+          "id": "p-002",
+          "nombre": "Choco Miau",
+          "descripcion": "Figura de chocolate de leche con forma de gatito, decorada a mano.",
+          "categoria": "Figuras",
+          "precio": 3990,
+          "unidad": "unidad",
+          "stock": 36,
+          "disponible": true,
+          "imagen": "/assets/img/productos/choco-miau.svg",
+          "destacado": true,
+          "sku": "FIG-MIAU",
+          "activo": true,
+          "updatedAt": "2026-11-09T22:48:10.847Z"
+        },
+        {
+          "id": "p-003",
+          "nombre": "Choco Wau",
+          "descripcion": "Figura de chocolate semiamargo con forma de perrito.",
+          "categoria": "Figuras",
+          "precio": 3990,
+          "unidad": "unidad",
+          "stock": 32,
+          "disponible": true,
+          "imagen": "/assets/img/productos/choco-wau.svg",
+          "destacado": true,
+          "sku": "FIG-WAU",
+          "activo": true,
+          "updatedAt": "2026-11-09T22:48:19.765Z"
+        },
+        {
+          "id": "p-004",
+          "nombre": "Flor de Chocolate",
+          "descripcion": "Ramo de flores de chocolate blanco y de leche, ideal para regalo.",
+          "categoria": "Figuras",
+          "precio": 5490,
+          "unidad": "unidad",
+          "stock": 24,
+          "disponible": true,
+          "imagen": "/assets/img/productos/flor-chocolate.svg",
+          "destacado": true,
+          "sku": "FIG-FLOR",
+          "activo": true,
+          "updatedAt": "2026-11-09T22:48:18.697Z"
+        },
+        {
+          "id": "p-009",
+          "nombre": "Huevo de Chocolate Sorpresa",
+          "descripcion": "Huevo de chocolate de leche con sorpresa en su interior.",
+          "categoria": "Figuras",
+          "precio": 9990,
+          "unidad": "unidad",
+          "stock": 0,
+          "disponible": false,
+          "imagen": "/assets/img/productos/huevo.svg",
+          "destacado": false,
+          "sku": "FIG-HUEVO",
+          "activo": true,
+          "updatedAt": "2026-11-01T00:00:00Z"
+        },
+        {
+          "id": "p-008",
+          "nombre": "Mezcla Chocolate Caliente",
+          "descripcion": "Mezcla de 250 g para preparar chocolate caliente espeso.",
+          "categoria": "Bebidas",
+          "precio": 6990,
+          "unidad": "unidad",
+          "stock": 3,
+          "disponible": true,
+          "imagen": "/assets/img/productos/chocolate-caliente.svg",
+          "destacado": false,
+          "sku": "BEB-CAL",
+          "activo": true,
+          "updatedAt": "2026-11-01T00:00:00Z"
+        },
+        {
+          "id": "p-007",
+          "nombre": "Tableta Amarga 70% Cacao",
+          "descripcion": "Tableta de 100 g de chocolate amargo 70% cacao de origen.",
+          "categoria": "Barras",
+          "precio": 4590,
+          "unidad": "unidad",
+          "stock": 47,
+          "disponible": true,
+          "imagen": "/assets/img/productos/tableta.svg",
+          "destacado": false,
+          "sku": "BAR-70",
+          "activo": true,
+          "updatedAt": "2026-11-09T22:48:27.322Z"
+        },
+        {
+          "id": "p-006",
+          "nombre": "Trufas de Pistacho (6 u.)",
+          "descripcion": "Trufas de chocolate amargo con centro de pistacho.",
+          "categoria": "Bombones",
+          "precio": 8990,
+          "unidad": "unidad",
+          "stock": 17,
+          "disponible": true,
+          "imagen": "/assets/img/productos/trufas.svg",
+          "destacado": false,
+          "sku": "BOM-TRU-PIS",
+          "activo": true,
+          "updatedAt": "2026-11-09T22:48:34.847Z"
+        }
+      ]
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:48:39.490Z",
+    "method": "POST",
+    "url": "http://localhost:8080/api/v1/graphql",
+    "requestHeaders": {
+      "x-correlation-id": "4c2aacaf-c9da-49ac-b172-9e2b6d33f0cb",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": {
+      "query": "query { resumenVentas(dias: 30) { dias pedidosPagados ingresos porEstado { estado cantidad } topProductos { nombre unidades monto } } }",
+      "variables": {}
+    },
+    "status": 200,
+    "responseCid": "4c2aacaf-c9da-49ac-b172-9e2b6d33f0cb",
+    "responseBody": {
+      "data": {
+        "resumenVentas": {
+          "dias": 30,
+          "pedidosPagados": 5,
+          "ingresos": 71370,
+          "porEstado": [
+            {
+              "estado": "CANCELADO",
+              "cantidad": 1
+            },
+            {
+              "estado": "PAGADO",
+              "cantidad": 5
+            },
+            {
+              "estado": "PENDIENTE_PAGO",
+              "cantidad": 5
+            }
+          ],
+          "topProductos": [
+            {
+              "nombre": "Choco Miau",
+              "unidades": 4,
+              "monto": 15960
+            },
+            {
+              "nombre": "Bombones Surtidos (12 u.)",
+              "unidades": 2,
+              "monto": 25980
+            },
+            {
+              "nombre": "Choco Wau",
+              "unidades": 1,
+              "monto": 3990
+            },
+            {
+              "nombre": "Flor de Chocolate",
+              "unidades": 1,
+              "monto": 5490
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:48:40.134Z",
+    "method": "POST",
+    "url": "http://localhost:8080/api/v1/admin/products",
+    "requestHeaders": {
+      "x-correlation-id": "10e382e0-c5c1-47b8-825a-83d236d54e15",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": {
+      "nombre": "Paleta de Prueba PRU-MW9URMVK",
+      "sku": "PRU-MW9URMVK",
+      "descripcion": "",
+      "categoria": "Figuras",
+      "unidad": "unidad",
+      "precio": 2990,
+      "stock": 12,
+      "destacado": false,
+      "activo": true
+    },
+    "status": 201,
+    "responseCid": "10e382e0-c5c1-47b8-825a-83d236d54e15",
+    "responseBody": {
+      "data": {
+        "id": "p-mw9uroaj",
+        "nombre": "Paleta de Prueba PRU-MW9URMVK",
+        "descripcion": "",
+        "categoria": "Figuras",
+        "precio": 2990,
+        "unidad": "unidad",
+        "stock": 12,
+        "disponible": true,
+        "imagen": "/assets/img/productos/generico.svg",
+        "destacado": false,
+        "sku": "PRU-MW9URMVK",
+        "activo": true,
+        "updatedAt": "2026-11-09T22:48:40.123Z"
+      }
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:48:40.140Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/admin/products",
+    "requestHeaders": {
+      "x-correlation-id": "c0fe641d-e775-4c21-a558-70d0163e670a",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "c0fe641d-e775-4c21-a558-70d0163e670a",
+    "responseBody": {
+      "data": [
+        {
+          "id": "p-001",
+          "nombre": "Barra Chocolate Dubái Labubu",
+          "descripcion": "Barra de chocolate de leche rellena de crema de pistacho y kataifi crujiente. Venta por kilo.",
+          "categoria": "Barras",
+          "precio": 100000,
+          "unidad": "kg",
+          "stock": 15,
+          "disponible": true,
+          "imagen": "/assets/img/productos/barra-dubai.svg",
+          "destacado": true,
+          "sku": "BAR-DUB-LAB",
+          "activo": true,
+          "updatedAt": "2026-11-01T00:00:00Z"
+        },
+        {
+          "id": "p-005",
+          "nombre": "Bombones Surtidos (12 u.)",
+          "descripcion": "Caja de 12 bombones artesanales con rellenos de frutos secos, licor y caramelo.",
+          "categoria": "Bombones",
+          "precio": 12990,
+          "unidad": "unidad",
+          "stock": 18,
+          "disponible": true,
+          "imagen": "/assets/img/productos/bombones.svg",
+          "destacado": true,
+          "sku": "BOM-SUR-12",
+          "activo": true,
+          "updatedAt": "2026-11-09T22:48:20.226Z"
+        },
+        {
+          "id": "p-002",
+          "nombre": "Choco Miau",
+          "descripcion": "Figura de chocolate de leche con forma de gatito, decorada a mano.",
+          "categoria": "Figuras",
+          "precio": 3990,
+          "unidad": "unidad",
+          "stock": 36,
+          "disponible": true,
+          "imagen": "/assets/img/productos/choco-miau.svg",
+          "destacado": true,
+          "sku": "FIG-MIAU",
+          "activo": true,
+          "updatedAt": "2026-11-09T22:48:10.847Z"
+        },
+        {
+          "id": "p-003",
+          "nombre": "Choco Wau",
+          "descripcion": "Figura de chocolate semiamargo con forma de perrito.",
+          "categoria": "Figuras",
+          "precio": 3990,
+          "unidad": "unidad",
+          "stock": 32,
+          "disponible": true,
+          "imagen": "/assets/img/productos/choco-wau.svg",
+          "destacado": true,
+          "sku": "FIG-WAU",
+          "activo": true,
+          "updatedAt": "2026-11-09T22:48:19.765Z"
+        },
+        {
+          "id": "p-004",
+          "nombre": "Flor de Chocolate",
+          "descripcion": "Ramo de flores de chocolate blanco y de leche, ideal para regalo.",
+          "categoria": "Figuras",
+          "precio": 5490,
+          "unidad": "unidad",
+          "stock": 24,
+          "disponible": true,
+          "imagen": "/assets/img/productos/flor-chocolate.svg",
+          "destacado": true,
+          "sku": "FIG-FLOR",
+          "activo": true,
+          "updatedAt": "2026-11-09T22:48:18.697Z"
+        },
+        {
+          "id": "p-009",
+          "nombre": "Huevo de Chocolate Sorpresa",
+          "descripcion": "Huevo de chocolate de leche con sorpresa en su interior.",
+          "categoria": "Figuras",
+          "precio": 9990,
+          "unidad": "unidad",
+          "stock": 0,
+          "disponible": false,
+          "imagen": "/assets/img/productos/huevo.svg",
+          "destacado": false,
+          "sku": "FIG-HUEVO",
+          "activo": true,
+          "updatedAt": "2026-11-01T00:00:00Z"
+        },
+        {
+          "id": "p-008",
+          "nombre": "Mezcla Chocolate Caliente",
+          "descripcion": "Mezcla de 250 g para preparar chocolate caliente espeso.",
+          "categoria": "Bebidas",
+          "precio": 6990,
+          "unidad": "unidad",
+          "stock": 3,
+          "disponible": true,
+          "imagen": "/assets/img/productos/chocolate-caliente.svg",
+          "destacado": false,
+          "sku": "BEB-CAL",
+          "activo": true,
+          "updatedAt": "2026-11-01T00:00:00Z"
+        },
+        {
+          "id": "p-mw9uroaj",
+          "nombre": "Paleta de Prueba PRU-MW9URMVK",
+          "descripcion": "",
+          "categoria": "Figuras",
+          "precio": 2990,
+          "unidad": "unidad",
+          "stock": 12,
+          "disponible": true,
+          "imagen": "/assets/img/productos/generico.svg",
+          "destacado": false,
+          "sku": "PRU-MW9URMVK",
+          "activo": true,
+          "updatedAt": "2026-11-09T22:48:40.123Z"
+        },
+        {
+          "id": "p-007",
+          "nombre": "Tableta Amarga 70% Cacao",
+          "descripcion": "Tableta de 100 g de chocolate amargo 70% cacao de origen.",
+          "categoria": "Barras",
+          "precio": 4590,
+          "unidad": "unidad",
+          "stock": 47,
+          "disponible": true,
+          "imagen": "/assets/img/productos/tableta.svg",
+          "destacado": false,
+          "sku": "BAR-70",
+          "activo": true,
+          "updatedAt": "2026-11-09T22:48:27.322Z"
+        },
+        {
+          "id": "p-006",
+          "nombre": "Trufas de Pistacho (6 u.)",
+          "descripcion": "Trufas de chocolate amargo con centro de pistacho.",
+          "categoria": "Bombones",
+          "precio": 8990,
+          "unidad": "unidad",
+          "stock": 17,
+          "disponible": true,
+          "imagen": "/assets/img/productos/trufas.svg",
+          "destacado": false,
+          "sku": "BOM-TRU-PIS",
+          "activo": true,
+          "updatedAt": "2026-11-09T22:48:34.847Z"
+        }
+      ]
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T22:48:40.393Z",
+    "ms": 3,
+    "method": "GET",
+    "url": "http://127.0.0.1:8080/api/v1/products?q=PRU-MW9URMVK",
+    "requestHeaders": {
+      "x-correlation-id": "ace1b95d-ccd6-46ca-9970-f72db66c2f6b"
+    },
+    "status": 200,
+    "responseCid": "ace1b95d-ccd6-46ca-9970-f72db66c2f6b",
+    "responseBody": {
+      "data": [
+        {
+          "id": "p-mw9uroaj",
+          "nombre": "Paleta de Prueba PRU-MW9URMVK",
+          "descripcion": "",
+          "categoria": "Figuras",
+          "precio": 2990,
+          "unidad": "unidad",
+          "stock": 12,
+          "disponible": true,
+          "imagen": "/assets/img/productos/generico.svg",
+          "destacado": false
+        }
+      ],
+      "total": 1
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:48:40.482Z",
+    "method": "DELETE",
+    "url": "http://localhost:8080/api/v1/admin/products/p-mw9uroaj",
+    "requestHeaders": {
+      "x-correlation-id": "cc287d2c-39eb-4c91-819d-521cd527642d",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "cc287d2c-39eb-4c91-819d-521cd527642d",
+    "responseBody": {
+      "data": {
+        "id": "p-mw9uroaj",
+        "nombre": "Paleta de Prueba PRU-MW9URMVK",
+        "descripcion": "",
+        "categoria": "Figuras",
+        "precio": 2990,
+        "unidad": "unidad",
+        "stock": 12,
+        "disponible": false,
+        "imagen": "/assets/img/productos/generico.svg",
+        "destacado": false,
+        "sku": "PRU-MW9URMVK",
+        "activo": false,
+        "updatedAt": "2026-11-09T22:48:40.473Z"
+      }
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:48:40.489Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/admin/products",
+    "requestHeaders": {
+      "x-correlation-id": "11dbb195-f1af-4ad7-abc0-959a7af4707b",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "11dbb195-f1af-4ad7-abc0-959a7af4707b",
+    "responseBody": {
+      "data": [
+        {
+          "id": "p-001",
+          "nombre": "Barra Chocolate Dubái Labubu",
+          "descripcion": "Barra de chocolate de leche rellena de crema de pistacho y kataifi crujiente. Venta por kilo.",
+          "categoria": "Barras",
+          "precio": 100000,
+          "unidad": "kg",
+          "stock": 15,
+          "disponible": true,
+          "imagen": "/assets/img/productos/barra-dubai.svg",
+          "destacado": true,
+          "sku": "BAR-DUB-LAB",
+          "activo": true,
+          "updatedAt": "2026-11-01T00:00:00Z"
+        },
+        {
+          "id": "p-005",
+          "nombre": "Bombones Surtidos (12 u.)",
+          "descripcion": "Caja de 12 bombones artesanales con rellenos de frutos secos, licor y caramelo.",
+          "categoria": "Bombones",
+          "precio": 12990,
+          "unidad": "unidad",
+          "stock": 18,
+          "disponible": true,
+          "imagen": "/assets/img/productos/bombones.svg",
+          "destacado": true,
+          "sku": "BOM-SUR-12",
+          "activo": true,
+          "updatedAt": "2026-11-09T22:48:20.226Z"
+        },
+        {
+          "id": "p-002",
+          "nombre": "Choco Miau",
+          "descripcion": "Figura de chocolate de leche con forma de gatito, decorada a mano.",
+          "categoria": "Figuras",
+          "precio": 3990,
+          "unidad": "unidad",
+          "stock": 36,
+          "disponible": true,
+          "imagen": "/assets/img/productos/choco-miau.svg",
+          "destacado": true,
+          "sku": "FIG-MIAU",
+          "activo": true,
+          "updatedAt": "2026-11-09T22:48:10.847Z"
+        },
+        {
+          "id": "p-003",
+          "nombre": "Choco Wau",
+          "descripcion": "Figura de chocolate semiamargo con forma de perrito.",
+          "categoria": "Figuras",
+          "precio": 3990,
+          "unidad": "unidad",
+          "stock": 32,
+          "disponible": true,
+          "imagen": "/assets/img/productos/choco-wau.svg",
+          "destacado": true,
+          "sku": "FIG-WAU",
+          "activo": true,
+          "updatedAt": "2026-11-09T22:48:19.765Z"
+        },
+        {
+          "id": "p-004",
+          "nombre": "Flor de Chocolate",
+          "descripcion": "Ramo de flores de chocolate blanco y de leche, ideal para regalo.",
+          "categoria": "Figuras",
+          "precio": 5490,
+          "unidad": "unidad",
+          "stock": 24,
+          "disponible": true,
+          "imagen": "/assets/img/productos/flor-chocolate.svg",
+          "destacado": true,
+          "sku": "FIG-FLOR",
+          "activo": true,
+          "updatedAt": "2026-11-09T22:48:18.697Z"
+        },
+        {
+          "id": "p-009",
+          "nombre": "Huevo de Chocolate Sorpresa",
+          "descripcion": "Huevo de chocolate de leche con sorpresa en su interior.",
+          "categoria": "Figuras",
+          "precio": 9990,
+          "unidad": "unidad",
+          "stock": 0,
+          "disponible": false,
+          "imagen": "/assets/img/productos/huevo.svg",
+          "destacado": false,
+          "sku": "FIG-HUEVO",
+          "activo": true,
+          "updatedAt": "2026-11-01T00:00:00Z"
+        },
+        {
+          "id": "p-008",
+          "nombre": "Mezcla Chocolate Caliente",
+          "descripcion": "Mezcla de 250 g para preparar chocolate caliente espeso.",
+          "categoria": "Bebidas",
+          "precio": 6990,
+          "unidad": "unidad",
+          "stock": 3,
+          "disponible": true,
+          "imagen": "/assets/img/productos/chocolate-caliente.svg",
+          "destacado": false,
+          "sku": "BEB-CAL",
+          "activo": true,
+          "updatedAt": "2026-11-01T00:00:00Z"
+        },
+        {
+          "id": "p-007",
+          "nombre": "Tableta Amarga 70% Cacao",
+          "descripcion": "Tableta de 100 g de chocolate amargo 70% cacao de origen.",
+          "categoria": "Barras",
+          "precio": 4590,
+          "unidad": "unidad",
+          "stock": 47,
+          "disponible": true,
+          "imagen": "/assets/img/productos/tableta.svg",
+          "destacado": false,
+          "sku": "BAR-70",
+          "activo": true,
+          "updatedAt": "2026-11-09T22:48:27.322Z"
+        },
+        {
+          "id": "p-006",
+          "nombre": "Trufas de Pistacho (6 u.)",
+          "descripcion": "Trufas de chocolate amargo con centro de pistacho.",
+          "categoria": "Bombones",
+          "precio": 8990,
+          "unidad": "unidad",
+          "stock": 17,
+          "disponible": true,
+          "imagen": "/assets/img/productos/trufas.svg",
+          "destacado": false,
+          "sku": "BOM-TRU-PIS",
+          "activo": true,
+          "updatedAt": "2026-11-09T22:48:34.847Z"
+        },
+        {
+          "id": "p-mw9uroaj",
+          "nombre": "Paleta de Prueba PRU-MW9URMVK",
+          "descripcion": "",
+          "categoria": "Figuras",
+          "precio": 2990,
+          "unidad": "unidad",
+          "stock": 12,
+          "disponible": false,
+          "imagen": "/assets/img/productos/generico.svg",
+          "destacado": false,
+          "sku": "PRU-MW9URMVK",
+          "activo": false,
+          "updatedAt": "2026-11-09T22:48:40.473Z"
+        }
+      ]
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T22:48:40.503Z",
+    "ms": 7,
+    "method": "GET",
+    "url": "http://127.0.0.1:8080/api/v1/products?q=PRU-MW9URMVK",
+    "requestHeaders": {
+      "x-correlation-id": "d405ff29-76af-412c-85c4-e1059bb10990"
+    },
+    "status": 200,
+    "responseCid": "d405ff29-76af-412c-85c4-e1059bb10990",
+    "responseBody": {
+      "data": [],
+      "total": 0
+    }
+  }
+]

@@ -1,0 +1,345 @@
+[
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T22:49:38.225Z",
+    "ms": 96,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/auth/login",
+    "requestHeaders": {
+      "x-correlation-id": "8a497112-a784-4841-a64a-0b59da0f610e",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "email": "ana.cliente@chocomania.test",
+      "password": "[ENMASCARADO]"
+    },
+    "status": 200,
+    "responseCid": "8a497112-a784-4841-a64a-0b59da0f610e",
+    "responseBody": {
+      "data": {
+        "accessToken": "[ENMASCARADO]",
+        "tokenType": "Bearer",
+        "expiresIn": 900,
+        "user": {
+          "id": "00000000-0000-4000-8000-0000000000a1",
+          "nombre": "Ana Pérez (ficticia)",
+          "role": "CLIENTE"
+        }
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T22:49:38.323Z",
+    "ms": 97,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/auth/login",
+    "requestHeaders": {
+      "x-correlation-id": "7cdb9346-d6e7-4b06-856c-a4400e32f7eb",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "email": "admin@chocomania.test",
+      "password": "[ENMASCARADO]"
+    },
+    "status": 200,
+    "responseCid": "7cdb9346-d6e7-4b06-856c-a4400e32f7eb",
+    "responseBody": {
+      "data": {
+        "accessToken": "[ENMASCARADO]",
+        "tokenType": "Bearer",
+        "expiresIn": 900,
+        "user": {
+          "id": "00000000-0000-4000-8000-000000000001",
+          "nombre": "Administración Chocomanía",
+          "role": "ADMIN"
+        }
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T22:49:38.330Z",
+    "ms": 7,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/graphql",
+    "requestHeaders": {
+      "x-correlation-id": "fce73908-f62b-4c76-a455-dae182ac8c13",
+      "content-type": "application/json",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": {
+      "query": "{ a: misPedidos(limite:20){ pedidos{ items{ producto{ nombre } } pago{ estado } cliente{ nombre } } } b: misPedidos(limite:20){ pedidos{ items{ producto{ nombre } } pago{ estado } } } }"
+    },
+    "status": 400,
+    "responseCid": "fce73908-f62b-4c76-a455-dae182ac8c13",
+    "responseBody": {
+      "errors": [
+        {
+          "message": "Costo 942 excede el máximo permitido (500)",
+          "extensions": {
+            "code": "QUERY_TOO_COMPLEX",
+            "cost": 942,
+            "max": 500
+          }
+        }
+      ]
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T22:49:38.336Z",
+    "ms": 6,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/graphql",
+    "requestHeaders": {
+      "x-correlation-id": "cb9184c2-b5e7-4636-aaaf-0b986abf619b",
+      "content-type": "application/json",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": {
+      "query": "{ __schema { types { name } } }"
+    },
+    "status": 400,
+    "responseCid": "cb9184c2-b5e7-4636-aaaf-0b986abf619b",
+    "responseBody": {
+      "errors": [
+        {
+          "message": "GraphQL introspection has been disabled, but the requested query contained the field \"__schema\".",
+          "extensions": {
+            "code": "GRAPHQL_VALIDATION_FAILED"
+          }
+        },
+        {
+          "message": "GraphQL introspection has been disabled, but the requested query contained the field \"types\".",
+          "extensions": {
+            "code": "GRAPHQL_VALIDATION_FAILED"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T22:49:38.346Z",
+    "ms": 10,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/orders",
+    "requestHeaders": {
+      "x-correlation-id": "63bdcabb-c9ce-4c5b-8e0a-afa6d900fa8d",
+      "idempotency-key": "87fc9afa-60ab-4e9b-b24d-408a470b14a6",
+      "content-type": "application/json",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": {
+      "items": [
+        {
+          "productId": "p-007",
+          "cantidad": 1
+        }
+      ],
+      "despacho": {
+        "direccion": "Calle Bombón 123, depto 4",
+        "comuna": "Providencia"
+      }
+    },
+    "status": 201,
+    "responseCid": "63bdcabb-c9ce-4c5b-8e0a-afa6d900fa8d",
+    "responseBody": {
+      "data": {
+        "id": "76cb7b2c-f3b5-4d3a-b36f-6d2beaae1d68",
+        "clienteId": "00000000-0000-4000-8000-0000000000a1",
+        "estado": "PENDIENTE_PAGO",
+        "subtotal": 4590,
+        "costoDespacho": 3990,
+        "total": 8580,
+        "despacho": {
+          "direccion": "Calle Bombón 123, depto 4",
+          "comuna": "Providencia"
+        },
+        "notas": null,
+        "pagoId": null,
+        "items": [
+          {
+            "productoId": "p-007",
+            "nombre": "Tableta Amarga 70% Cacao",
+            "precioUnitario": 4590,
+            "unidad": "unidad",
+            "cantidad": 1,
+            "subtotal": 4590
+          }
+        ],
+        "historial": [
+          {
+            "desde": null,
+            "hacia": "PENDIENTE_PAGO",
+            "actor": "cliente",
+            "nota": null,
+            "fecha": "2026-11-09T22:49:38.343Z"
+          }
+        ],
+        "creadoEn": "2026-11-09T22:49:38.343Z",
+        "actualizadoEn": "2026-11-09T22:49:38.343Z"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T22:49:38.352Z",
+    "ms": 6,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/graphql",
+    "requestHeaders": {
+      "x-correlation-id": "a4265e58-d3bf-4bdf-a88c-2ac9eddce6c6",
+      "content-type": "application/json",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": {
+      "query": "query($id:ID!){ pedido(id:$id){ id notasInternas } }",
+      "variables": {
+        "id": "76cb7b2c-f3b5-4d3a-b36f-6d2beaae1d68"
+      }
+    },
+    "status": 200,
+    "responseCid": "a4265e58-d3bf-4bdf-a88c-2ac9eddce6c6",
+    "responseBody": {
+      "data": {
+        "pedido": {
+          "id": "76cb7b2c-f3b5-4d3a-b36f-6d2beaae1d68",
+          "notasInternas": null
+        }
+      },
+      "errors": [
+        {
+          "message": "No autorizado para este campo",
+          "path": [
+            "pedido",
+            "notasInternas"
+          ],
+          "extensions": {
+            "code": "FORBIDDEN"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T22:49:38.359Z",
+    "ms": 7,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/graphql",
+    "requestHeaders": {
+      "x-correlation-id": "7329848b-53cb-4778-8dbb-82162f9e12ec",
+      "content-type": "application/json",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": {
+      "query": "query($id:ID!){ pedido(id:$id){ id notasInternas } }",
+      "variables": {
+        "id": "76cb7b2c-f3b5-4d3a-b36f-6d2beaae1d68"
+      }
+    },
+    "status": 200,
+    "responseCid": "7329848b-53cb-4778-8dbb-82162f9e12ec",
+    "responseBody": {
+      "data": {
+        "pedido": {
+          "id": "76cb7b2c-f3b5-4d3a-b36f-6d2beaae1d68",
+          "notasInternas": null
+        }
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T22:49:38.363Z",
+    "ms": 4,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/graphql",
+    "requestHeaders": {
+      "x-correlation-id": "dace4d00-b4dc-45bb-a716-699e8140f579",
+      "content-type": "application/json",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": {
+      "query": "{ resumenVentas { ingresos } }"
+    },
+    "status": 200,
+    "responseCid": "dace4d00-b4dc-45bb-a716-699e8140f579",
+    "responseBody": {
+      "data": {
+        "resumenVentas": null
+      },
+      "errors": [
+        {
+          "message": "No autorizado para este campo",
+          "path": [
+            "resumenVentas"
+          ],
+          "extensions": {
+            "code": "FORBIDDEN"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T22:49:38.367Z",
+    "ms": 4,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/graphql",
+    "requestHeaders": {
+      "x-correlation-id": "ba7442a1-b1c8-4b8a-94b6-dd8985e517bc",
+      "content-type": "application/json",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": {
+      "query": "{ misPedidos(limite: 50) { total } }"
+    },
+    "status": 200,
+    "responseCid": "ba7442a1-b1c8-4b8a-94b6-dd8985e517bc",
+    "responseBody": {
+      "data": null,
+      "errors": [
+        {
+          "message": "limite debe estar entre 1 y 20 y desde >= 0",
+          "path": [
+            "misPedidos"
+          ],
+          "extensions": {
+            "code": "BAD_USER_INPUT"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T22:49:38.370Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/graphql",
+    "requestHeaders": {
+      "x-correlation-id": "fcfe3215-ceec-4fd9-a991-629defdcdefb",
+      "content-type": "application/json",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": {
+      "query": "{ misPedidos { total } } # xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    "status": 400,
+    "responseCid": "fcfe3215-ceec-4fd9-a991-629defdcdefb",
+    "responseBody": {
+      "errors": [
+        {
+          "message": "La consulta excede 4000 caracteres",
+          "extensions": {
+            "code": "QUERY_TOO_LARGE"
+          }
+        }
+      ]
+    }
+  }
+]

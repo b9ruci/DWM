@@ -1,0 +1,495 @@
+[
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T22:48:30.582Z",
+    "ms": 2,
+    "method": "GET",
+    "url": "http://127.0.0.1:8080/api/v1/orders",
+    "requestHeaders": {
+      "x-correlation-id": "49541c0f-a4c5-45ca-966d-947b8b568c6c",
+      "authorization": "[ENMASCARADO]"
+    },
+    "status": 401,
+    "responseCid": "49541c0f-a4c5-45ca-966d-947b8b568c6c",
+    "responseBody": {
+      "error": {
+        "code": "TOKEN_EXPIRED",
+        "message": "Tu sesión expiró. Inicia sesión nuevamente",
+        "correlationId": "49541c0f-a4c5-45ca-966d-947b8b568c6c"
+      }
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:48:30.715Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/categories",
+    "requestHeaders": {
+      "x-correlation-id": "01964568-d128-4417-983e-3a5750e6a88c",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "01964568-d128-4417-983e-3a5750e6a88c",
+    "responseBody": {
+      "data": [
+        {
+          "nombre": "Barras",
+          "total": 2
+        },
+        {
+          "nombre": "Bebidas",
+          "total": 1
+        },
+        {
+          "nombre": "Bombones",
+          "total": 2
+        },
+        {
+          "nombre": "Figuras",
+          "total": 4
+        }
+      ]
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:48:30.734Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/promotions",
+    "requestHeaders": {
+      "x-correlation-id": "de796428-140a-40a2-b7ad-6db2b011f6d9",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "de796428-140a-40a2-b7ad-6db2b011f6d9",
+    "responseBody": null
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:48:30.734Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/products?destacado=true",
+    "requestHeaders": {
+      "x-correlation-id": "c103c05e-e787-48af-aebb-d9de0cecb447",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "c103c05e-e787-48af-aebb-d9de0cecb447",
+    "responseBody": null
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:48:30.793Z",
+    "method": "POST",
+    "url": "http://localhost:8080/api/v1/graphql",
+    "requestHeaders": {
+      "x-correlation-id": "66ac33c8-f80c-42f1-ad7a-13302f2ad9d4",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": {
+      "query": "query MisPedidos($limite: Int!, $desde: Int!) {\n  misPedidos(limite: $limite, desde: $desde) {\n    total limite desde\n    pedidos { id estado creadoEn total completo items { cantidad } pago { estado } }\n  }\n}",
+      "variables": {
+        "limite": 5,
+        "desde": 0
+      }
+    },
+    "status": 401,
+    "responseCid": "66ac33c8-f80c-42f1-ad7a-13302f2ad9d4",
+    "responseBody": {
+      "error": {
+        "code": "TOKEN_EXPIRED",
+        "message": "Tu sesión expiró. Inicia sesión nuevamente",
+        "correlationId": "66ac33c8-f80c-42f1-ad7a-13302f2ad9d4"
+      }
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:48:30.794Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/categories",
+    "requestHeaders": {
+      "x-correlation-id": "8b7b2fe1-6a9a-492a-8068-83b5f6e8980b",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "8b7b2fe1-6a9a-492a-8068-83b5f6e8980b",
+    "responseBody": {
+      "data": [
+        {
+          "nombre": "Barras",
+          "total": 2
+        },
+        {
+          "nombre": "Bebidas",
+          "total": 1
+        },
+        {
+          "nombre": "Bombones",
+          "total": 2
+        },
+        {
+          "nombre": "Figuras",
+          "total": 4
+        }
+      ]
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T22:48:31.170Z",
+    "ms": 123,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/auth/login",
+    "requestHeaders": {
+      "x-correlation-id": "9f2ff7f3-ca10-484b-b698-a47ff91d4150",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "email": "ana.cliente@chocomania.test",
+      "password": "[ENMASCARADO]"
+    },
+    "status": 200,
+    "responseCid": "9f2ff7f3-ca10-484b-b698-a47ff91d4150",
+    "responseBody": {
+      "data": {
+        "accessToken": "[ENMASCARADO]",
+        "tokenType": "Bearer",
+        "expiresIn": 900,
+        "user": {
+          "id": "00000000-0000-4000-8000-0000000000a1",
+          "nombre": "Ana Pérez (ficticia)",
+          "role": "CLIENTE"
+        }
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T22:48:31.176Z",
+    "ms": 6,
+    "method": "GET",
+    "url": "http://127.0.0.1:8080/api/v1/orders",
+    "requestHeaders": {
+      "x-correlation-id": "ebd54e3d-4aa1-4666-9401-5839779706f0",
+      "authorization": "[ENMASCARADO]"
+    },
+    "status": 200,
+    "responseCid": "ebd54e3d-4aa1-4666-9401-5839779706f0",
+    "responseBody": {
+      "data": [
+        {
+          "id": "729ccf71-26bf-468d-a63b-d9a5bf92a82a",
+          "clienteId": "00000000-0000-4000-8000-0000000000a1",
+          "estado": "PENDIENTE_PAGO",
+          "subtotal": 8990,
+          "costoDespacho": 3990,
+          "total": 12980,
+          "despacho": {
+            "direccion": "Calle Bombón 123, depto 4",
+            "comuna": "Providencia"
+          },
+          "notas": null,
+          "pagoId": null,
+          "items": [
+            {
+              "productoId": "p-006",
+              "nombre": "Trufas de Pistacho (6 u.)",
+              "precioUnitario": 8990,
+              "unidad": "unidad",
+              "cantidad": 1,
+              "subtotal": 8990
+            }
+          ],
+          "historial": [
+            {
+              "desde": null,
+              "hacia": "PENDIENTE_PAGO",
+              "actor": "cliente",
+              "nota": null,
+              "fecha": "2026-11-09T22:48:27.745Z"
+            }
+          ],
+          "creadoEn": "2026-11-09T22:48:27.745Z",
+          "actualizadoEn": "2026-11-09T22:48:27.745Z"
+        },
+        {
+          "id": "51179b60-f22f-4d11-be0c-bfc3b4edd5d6",
+          "clienteId": "00000000-0000-4000-8000-0000000000a1",
+          "estado": "PENDIENTE_PAGO",
+          "subtotal": 4590,
+          "costoDespacho": 3990,
+          "total": 8580,
+          "despacho": {
+            "direccion": "Calle Bombón 123, depto 4",
+            "comuna": "Providencia"
+          },
+          "notas": null,
+          "pagoId": null,
+          "items": [
+            {
+              "productoId": "p-007",
+              "nombre": "Tableta Amarga 70% Cacao",
+              "precioUnitario": 4590,
+              "unidad": "unidad",
+              "cantidad": 1,
+              "subtotal": 4590
+            }
+          ],
+          "historial": [
+            {
+              "desde": null,
+              "hacia": "PENDIENTE_PAGO",
+              "actor": "cliente",
+              "nota": null,
+              "fecha": "2026-11-09T22:48:27.324Z"
+            }
+          ],
+          "creadoEn": "2026-11-09T22:48:27.324Z",
+          "actualizadoEn": "2026-11-09T22:48:27.324Z"
+        },
+        {
+          "id": "5ca1480d-bba7-4d56-a49f-dfa7d6e93628",
+          "clienteId": "00000000-0000-4000-8000-0000000000a1",
+          "estado": "PENDIENTE_PAGO",
+          "subtotal": 4590,
+          "costoDespacho": 3990,
+          "total": 8580,
+          "despacho": {
+            "direccion": "Calle Bombón 123, depto 4",
+            "comuna": "Providencia"
+          },
+          "notas": null,
+          "pagoId": null,
+          "items": [
+            {
+              "productoId": "p-007",
+              "nombre": "Tableta Amarga 70% Cacao",
+              "precioUnitario": 4590,
+              "unidad": "unidad",
+              "cantidad": 1,
+              "subtotal": 4590
+            }
+          ],
+          "historial": [
+            {
+              "desde": null,
+              "hacia": "PENDIENTE_PAGO",
+              "actor": "cliente",
+              "nota": null,
+              "fecha": "2026-11-09T22:48:24.111Z"
+            }
+          ],
+          "creadoEn": "2026-11-09T22:48:24.111Z",
+          "actualizadoEn": "2026-11-09T22:48:24.111Z"
+        },
+        {
+          "id": "8317c913-514c-43f3-bf9b-96c4a4cf6651",
+          "clienteId": "00000000-0000-4000-8000-0000000000a1",
+          "estado": "PAGADO",
+          "subtotal": 25980,
+          "costoDespacho": 3990,
+          "total": 29970,
+          "despacho": {
+            "direccion": "Calle Bombón 123, depto 4",
+            "comuna": "Providencia"
+          },
+          "notas": null,
+          "pagoId": "e4770000-87c0-4834-be50-2afc04aae920",
+          "items": [
+            {
+              "productoId": "p-005",
+              "nombre": "Bombones Surtidos (12 u.)",
+              "precioUnitario": 12990,
+              "unidad": "unidad",
+              "cantidad": 2,
+              "subtotal": 25980
+            }
+          ],
+          "historial": [
+            {
+              "desde": null,
+              "hacia": "PENDIENTE_PAGO",
+              "actor": "cliente",
+              "nota": null,
+              "fecha": "2026-11-09T22:48:20.229Z"
+            },
+            {
+              "desde": "PENDIENTE_PAGO",
+              "hacia": "PAGADO",
+              "actor": "payments",
+              "nota": null,
+              "fecha": "2026-11-09T22:48:20.245Z"
+            }
+          ],
+          "creadoEn": "2026-11-09T22:48:20.229Z",
+          "actualizadoEn": "2026-11-09T22:48:20.245Z"
+        },
+        {
+          "id": "b4e7b0af-1a85-435e-8012-982fa81bd44c",
+          "clienteId": "00000000-0000-4000-8000-0000000000a1",
+          "estado": "PENDIENTE_PAGO",
+          "subtotal": 7980,
+          "costoDespacho": 3990,
+          "total": 11970,
+          "despacho": {
+            "direccion": "Calle Bombón 123, depto 4",
+            "comuna": "Providencia"
+          },
+          "notas": null,
+          "pagoId": null,
+          "items": [
+            {
+              "productoId": "p-003",
+              "nombre": "Choco Wau",
+              "precioUnitario": 3990,
+              "unidad": "unidad",
+              "cantidad": 2,
+              "subtotal": 7980
+            }
+          ],
+          "historial": [
+            {
+              "desde": null,
+              "hacia": "PENDIENTE_PAGO",
+              "actor": "cliente",
+              "nota": null,
+              "fecha": "2026-11-09T22:48:16.240Z"
+            }
+          ],
+          "creadoEn": "2026-11-09T22:48:16.240Z",
+          "actualizadoEn": "2026-11-09T22:48:16.240Z"
+        },
+        {
+          "id": "9db15254-1e32-4af4-b6bf-7cd9fa10730b",
+          "clienteId": "00000000-0000-4000-8000-0000000000a1",
+          "estado": "PAGADO",
+          "subtotal": 7980,
+          "costoDespacho": 3990,
+          "total": 11970,
+          "despacho": {
+            "direccion": "Calle Bombón 123, depto 4",
+            "comuna": "Providencia"
+          },
+          "notas": null,
+          "pagoId": "b4f2ad82-ac89-41db-b8d8-42c66be03173",
+          "items": [
+            {
+              "productoId": "p-002",
+              "nombre": "Choco Miau",
+              "precioUnitario": 3990,
+              "unidad": "unidad",
+              "cantidad": 2,
+              "subtotal": 7980
+            }
+          ],
+          "historial": [
+            {
+              "desde": null,
+              "hacia": "PENDIENTE_PAGO",
+              "actor": "cliente",
+              "nota": null,
+              "fecha": "2026-11-09T22:48:10.849Z"
+            },
+            {
+              "desde": "PENDIENTE_PAGO",
+              "hacia": "PAGADO",
+              "actor": "payments",
+              "nota": null,
+              "fecha": "2026-11-09T22:48:11.056Z"
+            }
+          ],
+          "creadoEn": "2026-11-09T22:48:10.849Z",
+          "actualizadoEn": "2026-11-09T22:48:11.056Z"
+        },
+        {
+          "id": "3c1c6a1d-c073-4d2e-b88d-acfce7378595",
+          "clienteId": "00000000-0000-4000-8000-0000000000a1",
+          "estado": "PAGADO",
+          "subtotal": 7980,
+          "costoDespacho": 3990,
+          "total": 11970,
+          "despacho": {
+            "direccion": "Calle Bombón 123, depto 4",
+            "comuna": "Providencia"
+          },
+          "notas": null,
+          "pagoId": "f4c88edd-545a-4c6b-ab8c-b80da9219034",
+          "items": [
+            {
+              "productoId": "p-002",
+              "nombre": "Choco Miau",
+              "precioUnitario": 3990,
+              "unidad": "unidad",
+              "cantidad": 2,
+              "subtotal": 7980
+            }
+          ],
+          "historial": [
+            {
+              "desde": null,
+              "hacia": "PENDIENTE_PAGO",
+              "actor": "cliente",
+              "nota": null,
+              "fecha": "2026-11-09T22:48:07.553Z"
+            },
+            {
+              "desde": "PENDIENTE_PAGO",
+              "hacia": "PAGADO",
+              "actor": "payments",
+              "nota": null,
+              "fecha": "2026-11-09T22:48:07.752Z"
+            }
+          ],
+          "creadoEn": "2026-11-09T22:48:07.553Z",
+          "actualizadoEn": "2026-11-09T22:48:07.752Z"
+        }
+      ],
+      "total": 7,
+      "limite": 10,
+      "desde": 0
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T22:48:31.180Z",
+    "ms": 4,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/auth/logout",
+    "requestHeaders": {
+      "x-correlation-id": "fc2c304d-97e0-444a-8af2-0e9fde08c5f0",
+      "authorization": "[ENMASCARADO]"
+    },
+    "status": 200,
+    "responseCid": "fc2c304d-97e0-444a-8af2-0e9fde08c5f0",
+    "responseBody": {
+      "data": {
+        "revocada": true
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T22:48:31.182Z",
+    "ms": 1,
+    "method": "GET",
+    "url": "http://127.0.0.1:8080/api/v1/orders",
+    "requestHeaders": {
+      "x-correlation-id": "1855ded2-5119-49c1-80ae-db2dd88c2a64",
+      "authorization": "[ENMASCARADO]"
+    },
+    "status": 401,
+    "responseCid": "1855ded2-5119-49c1-80ae-db2dd88c2a64",
+    "responseBody": {
+      "error": {
+        "code": "SESSION_REVOKED",
+        "message": "Tu sesión fue cerrada. Inicia sesión nuevamente",
+        "correlationId": "1855ded2-5119-49c1-80ae-db2dd88c2a64"
+      }
+    }
+  }
+]
