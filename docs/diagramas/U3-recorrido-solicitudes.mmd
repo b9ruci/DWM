@@ -1,0 +1,8 @@
+flowchart LR
+  UI[Pantalla + api.js<br/>genera X-Correlation-Id] -->|HTTP + JWT| GW[API Gateway<br/>ruta GWxx · JWT · sesión · rol · límite]
+  GW -->|token HMAC gateway→svc<br/>mismo X-Correlation-Id| SVC[Servicio dueño<br/>identidad · propiedad · reglas]
+  GW --> GQL[GraphQL Gateway]
+  GQL -->|batch + 2 s| SVC
+  SVC --> DB[(SQLite del servicio)]
+  SVC -.log JSON con cid.-> LOG[logs-backend/*.log]
+  GW -.log JSON con cid.-> LOG

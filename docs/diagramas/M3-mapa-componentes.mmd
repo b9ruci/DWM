@@ -1,0 +1,15 @@
+flowchart LR
+  B[Navegador] -->|HTTP :8000| FE[Frontend PHP]
+  B -->|HTTPS* :8080 JWT| GW[API Gateway]
+  B -->|:8090 checkout| SB[(payment-sandbox<br/>doble de prueba)]
+  subgraph privada [Red privada - sin puertos publicados]
+    AUTH[auth] ; INV[inventory] ; ORD[orders] ; CLI[clients] ; PAY[payments] ; GQL[GraphQL Gateway] ; SEC[(secrets)]
+  end
+  GW -->|HMAC gateway→x| AUTH & INV & ORD & CLI & PAY & GQL
+  GQL -->|HMAC graphql→x| ORD & INV & PAY & CLI
+  ORD -->|HMAC| INV
+  PAY -->|HMAC| ORD
+  AUTH -->|HMAC| CLI
+  PAY -->|API key| SB
+  SB -->|webhook firmado| GW
+  AUTH & INV & ORD & CLI & PAY & GQL & GW -.->|token de identidad| SEC

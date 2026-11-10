@@ -1,0 +1,38 @@
+classDiagram
+  direction LR
+  class Cuenta { id: UUID; email; nombre; passwordHash; rol: CLIENTE|ADMIN }
+  class Sesion { id: UUID; creadaEn; expiraEn; revocadaEn? }
+  class Cliente { id: UUID; nombre; email; rut~cifrado~; telefono~cifrado~; direccion~cifrada~; comuna }
+  class Producto { id; sku; nombre; categoria; precio: int CLP; unidad: unidad|kg; stock; activo; destacado }
+  class Promocion { id; titulo; subtitulo; orden; activo }
+  class Reserva { cantidad; estado: RESERVADA|CONFIRMADA|LIBERADA }
+  class Pedido { id: UUID; estado; subtotal; costoDespacho; total; direccion; comuna; notasInternas }
+  class DetallePedido { productoId; nombre~instantánea~; precioUnitario~instantánea~; cantidad }
+  class EventoPedido { desde; hacia; actor; nota; fecha }
+  class Pago { id: UUID; monto; estado: PENDIENTE|APROBADO|RECHAZADO|ERROR|REEMBOLSO_PENDIENTE; sesionProveedor }
+  class EventoWebhook { eventId; tipo; hash; recibidoEn }
+  class SolicitudContacto { id; tipo; mensaje; estado }
+  Cuenta "1" -- "0..*" Sesion : abre
+  Cuenta "1" -- "1" Cliente : mismo id
+  Cliente "1" -- "0..*" Pedido : realiza
+  Pedido "1" *-- "1..*" DetallePedido : contiene
+  Pedido "1" *-- "1..*" EventoPedido : historial
+  Producto "1" -- "0..*" DetallePedido : referenciado por
+  Producto "1" -- "0..*" Promocion : se promociona en
+  Pedido "1" -- "1..*" Reserva : reserva stock
+  Producto "1" -- "0..*" Reserva
+  Pedido "1" -- "0..*" Pago : intentos
+  Pago "1" -- "0..*" EventoWebhook : notificado por
+  Cliente "0..1" -- "0..*" SolicitudContacto : envía
+
+  class CatalogService { <<service>> consultarCatalogo() S01; consultarProducto() S02; categorias() S03; promociones() S04 }
+  class AuthService { <<service>> registrar() S05; iniciarSesion() S06; cerrarSesion() S07 }
+  class ClientService { <<service>> verPerfil() S09; actualizarPerfil() S10; solicitarContacto() S11 }
+  class OrderService { <<service>> crearPedido() S12; listar() S13; ver() S14; cancelar() S15; cambiarEstado() S25 }
+  class PaymentService { <<service>> iniciarPago() S16; verPago() S17; recibirNotificacion() S18 }
+  class AdminCatalogService { <<service>> crear() S21; reemplazar() S22; darDeBaja() S23 }
+  CatalogService ..> Producto : usa ProductoDTO
+  OrderService ..> Pedido
+  PaymentService ..> Pago
+  AuthService ..> Cuenta
+  ClientService ..> Cliente

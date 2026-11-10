@@ -1,0 +1,30 @@
+classDiagram
+  class ApiGateway { puerto; origenesCORS; manejar(req) }
+  class RouteDefinition { id: GWxx; svc: Sxx; verbo; rutaExterna; rutaInterna; queryPermitida[]; cabecerasReenviadas[] }
+  class AuthenticationPolicy { verificarJWT(RS256, iss, aud, exp); sesionActiva(sid) }
+  class AuthorizationPolicy { acceso: anon|user|admin|webhook }
+  class RateLimitPolicy { default: 300/min; strict: 20/min }
+  class TimeoutPolicy { default 4 s; graphql 6 s; payments 9 s }
+  class ServiceTarget { nombre; url }
+  class SecretProvider { get(ref) }
+  class InternalTokenSigner { firmar(caller, target, verbo, ruta, usuario, cid) }
+  class GraphQLGateway { schema; ejecutar(query) }
+  class Schema
+  class Resolver { misPedidos; pedido; resumenVentas; producto; pago; cliente }
+  class BatchLoader { productos(ids); pagos(pedidoIds); clientes(ids) }
+  class QueryLimits { profundidad 5; costo 500; tamaño 4000; limite ≤ 20; sin introspección }
+  ApiGateway "1" *-- "1..*" RouteDefinition
+  RouteDefinition "1..*" --> "1" AuthorizationPolicy
+  RouteDefinition "1..*" --> "1" RateLimitPolicy
+  RouteDefinition "1..*" --> "1" ServiceTarget
+  ApiGateway "1" *-- "1" AuthenticationPolicy
+  ApiGateway "1" *-- "1" TimeoutPolicy
+  ApiGateway ..> SecretProvider : clave pública JWT, claves gateway→x
+  ApiGateway ..> InternalTokenSigner
+  AuthenticationPolicy ..> ServiceTarget : auth /internal/sessions
+  GraphQLGateway "1" *-- "1" Schema
+  Schema "1" *-- "1..*" Resolver
+  Resolver ..> BatchLoader
+  GraphQLGateway "1" *-- "1" QueryLimits
+  GraphQLGateway ..> SecretProvider
+  GraphQLGateway ..> InternalTokenSigner

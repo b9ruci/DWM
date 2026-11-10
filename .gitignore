@@ -4,3 +4,4 @@ data/
 backend/data/
 *.log
 .tmp/
+entregas/

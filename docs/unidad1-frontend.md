@@ -42,7 +42,7 @@ Diferencias justificadas: en móvil las flechas del carrusel se ocultan (se desl
 
 ## DOM y servicios
 
-Todo el contenido de negocio se genera en tiempo de ejecución con `createElement`/`textContent` (sin `innerHTML` con datos): carrusel, destacados, catálogo, categorías del menú, carrito, pedidos, perfil y administración. Eventos con `addEventListener`, cambios de clases/atributos (`is-invalid`, `active`, `aria-pressed`, `data-state`). En la U1 los datos eran objetos `resAPI` simulados; desde la U2/U3 provienen del **API Gateway real** (`assets/js/core/api.js`). Contenido puramente informativo (equipo, canales, servicios) se lee de `assets/data/*.json` por HTTP.
+Todo el contenido de negocio se genera en tiempo de ejecución con `createElement`/`textContent` (sin `innerHTML` con datos): carrusel, destacados, catálogo, categorías del menú, carrito, pedidos, perfil y administración. Eventos con `addEventListener`, cambios de clases/atributos (`is-invalid`, `active`, `aria-pressed`, `data-state`). Para la entrega U1 los datos provienen de la **API simulada** `frontend/mock-api/` (`node frontend/mock-api/server.js`), que responde desde archivos JSON con el mismo contrato que el backend; en la U2/U3 el mismo código consume el **API Gateway real** (`assets/js/core/api.js`), sin cambios en las páginas. La API simulada permite forzar latencia (`MOCK_DELAY_MS`) y fallos (`MOCK_FAIL=products`) para mostrar los estados. Contenido puramente informativo (equipo, canales, servicios) se lee de `assets/data/*.json` por HTTP.
 
 Estados: `showLoading` (spinner), `showEmpty` (con acción), `showError` (mensaje comprensible, referencia de correlación y botón "Reintentar"), mensajes de formulario y *toasts*.
 

@@ -1,0 +1,24 @@
+sequenceDiagram
+  participant U as Navegador
+  participant G as API Gateway
+  participant O as orders
+  participant I as inventory
+  participant P as payments
+  participant S as Proveedor (sandbox)
+  U->>G: POST /orders (JWT, Idempotency-Key, X-Correlation-Id)
+  G->>G: valida JWT + sesión (auth) + rol
+  G->>O: POST /orders (token interno con sub/rol)
+  O->>I: POST /internal/reservations {orderId, items}
+  I-->>O: 201 precios oficiales, stock descontado
+  O-->>G: 201 pedido PENDIENTE_PAGO (total calculado)
+  U->>G: POST /payments {pedidoId}
+  G->>P: POST /payments
+  P->>O: GET /internal/orders/{id} (dueño, total)
+  P->>S: POST /v1/checkout-sessions (API key)
+  P-->>U: 201 checkoutUrl
+  U->>S: Aprobar
+  S->>G: POST /webhooks/payments (firma HMAC)
+  G->>P: reenvía cuerpo crudo
+  P->>O: POST /internal/orders/{id}/payment-confirmed
+  O->>I: confirmar reserva
+  S-->>U: 303 → pedidos.php (la UI consulta el estado real)
