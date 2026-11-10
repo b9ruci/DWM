@@ -1,7 +1,7 @@
 # Chocolatería Chocomanía — aplicación integrada (Unidades 1, 2 y 3)
 
 Caso: tienda en línea de una chocolatería artesanal (catálogo, carrito, pedidos, pagos, órdenes especiales y administración).
-Integrante registrado: Bruno Martínez (Sección 8481). *Completar con los demás integrantes del equipo.*
+Integrante registrado: Bruno Martínez (Sección 8481).
 
 El diseño parte del mockup hecho a mano: [`docs/diseno/mockup-chocolateria.jpeg`](docs/diseno/mockup-chocolateria.jpeg).
 
