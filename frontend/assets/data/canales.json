@@ -1,0 +1,6 @@
+[
+  { "tipo": "Teléfono", "valor": "+56 2 2345 6789 (ficticio)", "icono": "bi-telephone" },
+  { "tipo": "WhatsApp", "valor": "+56 9 0000 0000 (ficticio)", "icono": "bi-whatsapp" },
+  { "tipo": "Correo", "valor": "hola@chocomania.test", "icono": "bi-envelope" },
+  { "tipo": "Tienda", "valor": "Av. Cacao 100, Santiago (ficticia) · Lun a Sáb 10:00–19:00", "icono": "bi-shop" }
+]

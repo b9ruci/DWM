@@ -1,0 +1,42 @@
+[
+ {
+  "id": "promo-1",
+  "titulo": "Barra Chocolate Dubái Labubu",
+  "subtitulo": "La barra del momento, rellena de pistacho y kataifi.",
+  "productoId": "p-001",
+  "precio": 100000,
+  "unidad": "kg",
+  "imagen": "/assets/img/productos/barra-dubai.svg",
+  "disponible": true
+ },
+ {
+  "id": "promo-2",
+  "titulo": "Bombones Surtidos",
+  "subtitulo": "12 sabores artesanales en una caja para regalar.",
+  "productoId": "p-005",
+  "precio": 12990,
+  "unidad": "unidad",
+  "imagen": "/assets/img/productos/bombones.svg",
+  "disponible": true
+ },
+ {
+  "id": "promo-3",
+  "titulo": "Flor de Chocolate",
+  "subtitulo": "Un ramo que no se marchita: chocolate blanco y de leche.",
+  "productoId": "p-004",
+  "precio": 5490,
+  "unidad": "unidad",
+  "imagen": "/assets/img/productos/flor-chocolate.svg",
+  "disponible": true
+ },
+ {
+  "id": "promo-4",
+  "titulo": "Choco Miau",
+  "subtitulo": "Nuestro gatito de chocolate, favorito de los niños.",
+  "productoId": "p-002",
+  "precio": 3990,
+  "unidad": "unidad",
+  "imagen": "/assets/img/productos/choco-miau.svg",
+  "disponible": true
+ }
+]

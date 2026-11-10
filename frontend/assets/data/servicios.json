@@ -1,0 +1,6 @@
+[
+  { "id": "orden-especial", "nombre": "Órdenes a pedido customizado", "descripcion": "Figuras, cajas y barras personalizadas para cumpleaños, matrimonios y eventos. Coordinamos diseño, sabores y fecha de entrega.", "cta": "/contacto.php?tipo=ORDEN_ESPECIAL" },
+  { "id": "corporativo", "nombre": "Regalos corporativos", "descripcion": "Cajas de bombones con el logo de tu empresa para clientes y colaboradores. Pedidos desde 20 unidades.", "cta": "/contacto.php?tipo=ORDEN_ESPECIAL" },
+  { "id": "despacho", "nombre": "Despacho a domicilio", "descripcion": "Enviamos en Santiago con embalaje térmico. Costo fijo de $3.990 y gratis en compras desde $50.000.", "cta": "/catalogo.php" },
+  { "id": "talleres", "nombre": "Talleres de chocolatería", "descripcion": "Talleres presenciales para aprender a temperar chocolate y crear tus propios bombones.", "cta": "/contacto.php" }
+]

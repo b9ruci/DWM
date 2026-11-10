@@ -1,7 +1,11 @@
 node_modules/
 .secrets/
-data/
+/data/
 backend/data/
 *.log
 .tmp/
 entregas/
+# Los logs del backend de cada ejecución SÍ son evidencia (sin secretos, verificado por P29).
+!evidencias/RUN-*/logs-backend/*.log
+# Logs de la prueba de carga (~65 MB, ~100.000 solicitudes): no se versionan; resultado en RESULTADO.md.
+evidencias/CARGA-01/logs-backend/
