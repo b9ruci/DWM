@@ -1,0 +1,113 @@
+# Despliegue reproducible con separación de red (alternativa al modo local backend/scripts/start-local.js).
+# Publicados al host: frontend :8000, API Gateway :8080 y sandbox de pagos :8090 (doble de prueba).
+# Servicios privados y gestor de secretos: solo en la red interna "privada" (sin puertos publicados).
+# Requisito previo: node backend/scripts/init-secrets.js  (genera ./.secrets, fuera del repositorio)
+# NOTA: este archivo no pudo verificarse en el entorno de desarrollo usado (sin demonio Docker); ver docs.
+x-backend: &backend
+  build: ./backend
+  restart: unless-stopped
+  environment: &env
+    SECRETS_URL: http://secrets:7000
+    AUTH_URL: http://auth:7001
+    GRAPHQL_URL: http://graphql:7002
+    INVENTORY_URL: http://inventory:7003
+    ORDERS_URL: http://orders:7004
+    CLIENTS_URL: http://clients:7005
+    PAYMENTS_URL: http://payments:7006
+  networks: [privada]
+
+services:
+  secrets:
+    <<: *backend
+    environment: { <<: *env, SERVICE: secrets, PORT: "7000", SECRETS_STORE_FILE: /run/secrets/store }
+    secrets: [store]
+  auth:
+    <<: *backend
+    environment: { <<: *env, SERVICE: auth, PORT: "7001", SECRETS_IDENTITY_FILE: /run/secrets/id_auth, SEED_ACCOUNTS_FILE: /run/secrets/seed_accounts }
+    secrets: [id_auth, seed_accounts]
+    volumes: [auth-data:/data]
+    depends_on: [secrets, clients]
+  clients:
+    <<: *backend
+    environment: { <<: *env, SERVICE: clients, PORT: "7005", SECRETS_IDENTITY_FILE: /run/secrets/id_clients }
+    secrets: [id_clients]
+    volumes: [clients-data:/data]
+    depends_on: [secrets]
+  inventory:
+    <<: *backend
+    environment: { <<: *env, SERVICE: inventory, PORT: "7003", SECRETS_IDENTITY_FILE: /run/secrets/id_inventory }
+    secrets: [id_inventory]
+    volumes: [inventory-data:/data]
+    depends_on: [secrets]
+  orders:
+    <<: *backend
+    environment: { <<: *env, SERVICE: orders, PORT: "7004", SECRETS_IDENTITY_FILE: /run/secrets/id_orders }
+    secrets: [id_orders]
+    volumes: [orders-data:/data]
+    depends_on: [secrets, inventory]
+  payments:
+    <<: *backend
+    environment:
+      <<: *env
+      SERVICE: payments
+      PORT: "7006"
+      SECRETS_IDENTITY_FILE: /run/secrets/id_payments
+      PAYMENT_PROVIDER_URL: http://payment-sandbox:8090
+      PAYMENTS_WEBHOOK_URL: http://gateway:8080/api/v1/webhooks/payments
+      PAYMENTS_RETURN_URL: http://localhost:8000/pedidos.php
+    secrets: [id_payments]
+    volumes: [payments-data:/data]
+    networks: [privada, salida-proveedor]
+    depends_on: [secrets, orders]
+  graphql:
+    <<: *backend
+    environment: { <<: *env, SERVICE: graphql, PORT: "7002", SECRETS_IDENTITY_FILE: /run/secrets/id_graphql }
+    secrets: [id_graphql]
+    depends_on: [secrets, orders, inventory, payments, clients]
+  gateway:
+    <<: *backend
+    environment:
+      <<: *env
+      SERVICE: gateway
+      PORT: "8080"
+      SECRETS_IDENTITY_FILE: /run/secrets/id_gateway
+      FRONTEND_ORIGINS: http://localhost:8000,http://127.0.0.1:8000
+    secrets: [id_gateway]
+    ports: ["8080:8080"]
+    networks: [publica, privada]
+    depends_on: [auth, inventory, orders, clients, payments, graphql]
+  payment-sandbox:
+    <<: *backend
+    environment: { SERVICE: payment-sandbox, PORT: "8090", SANDBOX_CONFIG_FILE: /run/secrets/provider, SANDBOX_PUBLIC_URL: http://localhost:8090 }
+    secrets: [provider]
+    ports: ["8090:8090"]
+    networks: [publica, salida-proveedor]
+  frontend:
+    build: ./frontend
+    environment: { API_BASE_URL: http://localhost:8080/api/v1 }
+    ports: ["8000:8000"]
+    networks: [publica]
+
+networks:
+  publica: {}
+  privada: { internal: true }
+  salida-proveedor: { internal: true }
+
+volumes:
+  auth-data: {}
+  clients-data: {}
+  inventory-data: {}
+  orders-data: {}
+  payments-data: {}
+
+secrets:
+  store: { file: ./.secrets/store.json }
+  seed_accounts: { file: ./.secrets/seed-accounts.json }
+  provider: { file: ./.secrets/provider/sandbox.json }
+  id_auth: { file: ./.secrets/identities/auth.token }
+  id_clients: { file: ./.secrets/identities/clients.token }
+  id_inventory: { file: ./.secrets/identities/inventory.token }
+  id_orders: { file: ./.secrets/identities/orders.token }
+  id_payments: { file: ./.secrets/identities/payments.token }
+  id_graphql: { file: ./.secrets/identities/graphql.token }
+  id_gateway: { file: ./.secrets/identities/gateway.token }

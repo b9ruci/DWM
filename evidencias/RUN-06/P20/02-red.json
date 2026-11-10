@@ -1,0 +1,775 @@
+[
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:06:13.210Z",
+    "ms": 3,
+    "method": "GET",
+    "url": "http://127.0.0.1:8080/api/v1/products/p-006",
+    "requestHeaders": {
+      "x-correlation-id": "bd30ea8f-86f1-45eb-a1b9-6ffe33dd47bf"
+    },
+    "status": 200,
+    "responseCid": "bd30ea8f-86f1-45eb-a1b9-6ffe33dd47bf",
+    "responseBody": {
+      "data": {
+        "id": "p-006",
+        "nombre": "Trufas de Pistacho (6 u.)",
+        "descripcion": "Trufas de chocolate amargo con centro de pistacho.",
+        "categoria": "Bombones",
+        "precio": 8990,
+        "unidad": "unidad",
+        "stock": 17,
+        "disponible": true,
+        "imagen": "/assets/img/productos/trufas.svg",
+        "destacado": false
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:06:13.310Z",
+    "ms": 100,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/auth/login",
+    "requestHeaders": {
+      "x-correlation-id": "c186c28e-5ea7-4768-9dde-b956b8ef83ba",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "email": "ana.cliente@chocomania.test",
+      "password": "[ENMASCARADO]"
+    },
+    "status": 200,
+    "responseCid": "c186c28e-5ea7-4768-9dde-b956b8ef83ba",
+    "responseBody": {
+      "data": {
+        "accessToken": "[ENMASCARADO]",
+        "tokenType": "Bearer",
+        "expiresIn": 900,
+        "user": {
+          "id": "00000000-0000-4000-8000-0000000000a1",
+          "nombre": "Ana Pérez (ficticia)",
+          "role": "CLIENTE"
+        }
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:06:13.322Z",
+    "ms": 12,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/orders",
+    "requestHeaders": {
+      "x-correlation-id": "11051eb6-3ac8-425d-b377-a3b582f6f0e5",
+      "idempotency-key": "28a9ceb3-7852-4074-93cf-19bd6772cd41",
+      "content-type": "application/json",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": {
+      "items": [
+        {
+          "productId": "p-006",
+          "cantidad": 2
+        }
+      ],
+      "despacho": {
+        "direccion": "Calle Bombón 123, depto 4",
+        "comuna": "Providencia"
+      }
+    },
+    "status": 201,
+    "responseCid": "11051eb6-3ac8-425d-b377-a3b582f6f0e5",
+    "responseBody": {
+      "data": {
+        "id": "946ca5fb-5f4b-49ec-b9d9-f56865eda263",
+        "clienteId": "00000000-0000-4000-8000-0000000000a1",
+        "estado": "PENDIENTE_PAGO",
+        "subtotal": 17980,
+        "costoDespacho": 3990,
+        "total": 21970,
+        "despacho": {
+          "direccion": "Calle Bombón 123, depto 4",
+          "comuna": "Providencia"
+        },
+        "notas": null,
+        "pagoId": null,
+        "items": [
+          {
+            "productoId": "p-006",
+            "nombre": "Trufas de Pistacho (6 u.)",
+            "precioUnitario": 8990,
+            "unidad": "unidad",
+            "cantidad": 2,
+            "subtotal": 17980
+          }
+        ],
+        "historial": [
+          {
+            "desde": null,
+            "hacia": "PENDIENTE_PAGO",
+            "actor": "cliente",
+            "nota": null,
+            "fecha": "2026-11-09T23:06:13.320Z"
+          }
+        ],
+        "creadoEn": "2026-11-09T23:06:13.320Z",
+        "actualizadoEn": "2026-11-09T23:06:13.320Z"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:06:13.325Z",
+    "ms": 3,
+    "method": "GET",
+    "url": "http://127.0.0.1:8080/api/v1/products/p-006",
+    "requestHeaders": {
+      "x-correlation-id": "51fbe7b8-c54e-4452-8aba-6abb81658429"
+    },
+    "status": 200,
+    "responseCid": "51fbe7b8-c54e-4452-8aba-6abb81658429",
+    "responseBody": {
+      "data": {
+        "id": "p-006",
+        "nombre": "Trufas de Pistacho (6 u.)",
+        "descripcion": "Trufas de chocolate amargo con centro de pistacho.",
+        "categoria": "Bombones",
+        "precio": 8990,
+        "unidad": "unidad",
+        "stock": 15,
+        "disponible": true,
+        "imagen": "/assets/img/productos/trufas.svg",
+        "destacado": false
+      }
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T23:06:13.522Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/categories",
+    "requestHeaders": {
+      "x-correlation-id": "33db4aaa-6b4a-40bd-be51-fbeb5f93a2fe",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "33db4aaa-6b4a-40bd-be51-fbeb5f93a2fe",
+    "responseBody": {
+      "data": [
+        {
+          "nombre": "Barras",
+          "total": 2
+        },
+        {
+          "nombre": "Bebidas",
+          "total": 1
+        },
+        {
+          "nombre": "Bombones",
+          "total": 2
+        },
+        {
+          "nombre": "Figuras",
+          "total": 4
+        }
+      ]
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T23:06:13.522Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/promotions",
+    "requestHeaders": {
+      "x-correlation-id": "3ff0a657-7ded-4878-b66d-c1b6d56df5a5",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "3ff0a657-7ded-4878-b66d-c1b6d56df5a5",
+    "responseBody": {
+      "data": [
+        {
+          "id": "promo-1",
+          "titulo": "Barra Chocolate Dubái Labubu",
+          "subtitulo": "La barra del momento, rellena de pistacho y kataifi.",
+          "productoId": "p-001",
+          "precio": 100000,
+          "unidad": "kg",
+          "imagen": "/assets/img/productos/barra-dubai.svg",
+          "disponible": true
+        },
+        {
+          "id": "promo-2",
+          "titulo": "Bombones Surtidos",
+          "subtitulo": "12 sabores artesanales en una caja para regalar.",
+          "productoId": "p-005",
+          "precio": 12990,
+          "unidad": "unidad",
+          "imagen": "/assets/img/productos/bombones.svg",
+          "disponible": true
+        },
+        {
+          "id": "promo-3",
+          "titulo": "Flor de Chocolate",
+          "subtitulo": "Un ramo que no se marchita: chocolate blanco y de leche.",
+          "productoId": "p-004",
+          "precio": 5490,
+          "unidad": "unidad",
+          "imagen": "/assets/img/productos/flor-chocolate.svg",
+          "disponible": true
+        },
+        {
+          "id": "promo-4",
+          "titulo": "Choco Miau",
+          "subtitulo": "Nuestro gatito de chocolate, favorito de los niños.",
+          "productoId": "p-002",
+          "precio": 3990,
+          "unidad": "unidad",
+          "imagen": "/assets/img/productos/choco-miau.svg",
+          "disponible": true
+        }
+      ]
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T23:06:13.526Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/products?destacado=true",
+    "requestHeaders": {
+      "x-correlation-id": "0a49a236-d57f-4648-ba53-c6332a61e2f6",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "0a49a236-d57f-4648-ba53-c6332a61e2f6",
+    "responseBody": {
+      "data": [
+        {
+          "id": "p-001",
+          "nombre": "Barra Chocolate Dubái Labubu",
+          "descripcion": "Barra de chocolate de leche rellena de crema de pistacho y kataifi crujiente. Venta por kilo.",
+          "categoria": "Barras",
+          "precio": 100000,
+          "unidad": "kg",
+          "stock": 15,
+          "disponible": true,
+          "imagen": "/assets/img/productos/barra-dubai.svg",
+          "destacado": true
+        },
+        {
+          "id": "p-005",
+          "nombre": "Bombones Surtidos (12 u.)",
+          "descripcion": "Caja de 12 bombones artesanales con rellenos de frutos secos, licor y caramelo.",
+          "categoria": "Bombones",
+          "precio": 12990,
+          "unidad": "unidad",
+          "stock": 18,
+          "disponible": true,
+          "imagen": "/assets/img/productos/bombones.svg",
+          "destacado": true
+        },
+        {
+          "id": "p-002",
+          "nombre": "Choco Miau",
+          "descripcion": "Figura de chocolate de leche con forma de gatito, decorada a mano.",
+          "categoria": "Figuras",
+          "precio": 3990,
+          "unidad": "unidad",
+          "stock": 36,
+          "disponible": true,
+          "imagen": "/assets/img/productos/choco-miau.svg",
+          "destacado": true
+        },
+        {
+          "id": "p-003",
+          "nombre": "Choco Wau",
+          "descripcion": "Figura de chocolate semiamargo con forma de perrito.",
+          "categoria": "Figuras",
+          "precio": 3990,
+          "unidad": "unidad",
+          "stock": 32,
+          "disponible": true,
+          "imagen": "/assets/img/productos/choco-wau.svg",
+          "destacado": true
+        },
+        {
+          "id": "p-004",
+          "nombre": "Flor de Chocolate",
+          "descripcion": "Ramo de flores de chocolate blanco y de leche, ideal para regalo.",
+          "categoria": "Figuras",
+          "precio": 5490,
+          "unidad": "unidad",
+          "stock": 24,
+          "disponible": true,
+          "imagen": "/assets/img/productos/flor-chocolate.svg",
+          "destacado": true
+        }
+      ],
+      "total": 5
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T23:06:14.235Z",
+    "method": "POST",
+    "url": "http://localhost:8080/api/v1/auth/login",
+    "requestHeaders": {
+      "x-correlation-id": "3fe4e199-39eb-4afa-a02b-55b13e32833c",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": {
+      "email": "ana.cliente@chocomania.test",
+      "password": "[ENMASCARADO]"
+    },
+    "status": 200,
+    "responseCid": "3fe4e199-39eb-4afa-a02b-55b13e32833c",
+    "responseBody": {
+      "data": {
+        "accessToken": "[ENMASCARADO]",
+        "tokenType": "Bearer",
+        "expiresIn": 900,
+        "user": {
+          "id": "00000000-0000-4000-8000-0000000000a1",
+          "nombre": "Ana Pérez (ficticia)",
+          "role": "CLIENTE"
+        }
+      }
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T23:06:14.522Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/categories",
+    "requestHeaders": {
+      "x-correlation-id": "a97a5f81-825b-48bc-a8a9-fdd3f758eab5",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "a97a5f81-825b-48bc-a8a9-fdd3f758eab5",
+    "responseBody": {
+      "data": [
+        {
+          "nombre": "Barras",
+          "total": 2
+        },
+        {
+          "nombre": "Bebidas",
+          "total": 1
+        },
+        {
+          "nombre": "Bombones",
+          "total": 2
+        },
+        {
+          "nombre": "Figuras",
+          "total": 4
+        }
+      ]
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T23:06:14.552Z",
+    "method": "POST",
+    "url": "http://localhost:8080/api/v1/graphql",
+    "requestHeaders": {
+      "x-correlation-id": "2cdb99e0-5053-4807-8e84-310665907a54",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": {
+      "query": "query MisPedidos($limite: Int!, $desde: Int!) {\n  misPedidos(limite: $limite, desde: $desde) {\n    total limite desde\n    pedidos { id estado creadoEn total completo items { cantidad } pago { estado } }\n  }\n}",
+      "variables": {
+        "limite": 5,
+        "desde": 0
+      }
+    },
+    "status": 200,
+    "responseCid": "2cdb99e0-5053-4807-8e84-310665907a54",
+    "responseBody": {
+      "data": {
+        "misPedidos": {
+          "total": 8,
+          "limite": 5,
+          "desde": 0,
+          "pedidos": [
+            {
+              "id": "946ca5fb-5f4b-49ec-b9d9-f56865eda263",
+              "estado": "PENDIENTE_PAGO",
+              "creadoEn": "2026-11-09T23:06:13.320Z",
+              "total": 21970,
+              "completo": true,
+              "items": [
+                {
+                  "cantidad": 2
+                }
+              ],
+              "pago": null
+            },
+            {
+              "id": "8ce162b5-f7f7-40a0-b499-060a3f3dd9cd",
+              "estado": "PENDIENTE_PAGO",
+              "creadoEn": "2026-11-09T23:06:07.321Z",
+              "total": 12980,
+              "completo": true,
+              "items": [
+                {
+                  "cantidad": 1
+                }
+              ],
+              "pago": null
+            },
+            {
+              "id": "f7c342de-1d38-4f23-9fff-190ec40c227d",
+              "estado": "PENDIENTE_PAGO",
+              "creadoEn": "2026-11-09T23:06:06.874Z",
+              "total": 8580,
+              "completo": true,
+              "items": [
+                {
+                  "cantidad": 1
+                }
+              ],
+              "pago": null
+            },
+            {
+              "id": "f1259756-d523-48b5-a444-a504f0a1be92",
+              "estado": "PENDIENTE_PAGO",
+              "creadoEn": "2026-11-09T23:06:03.447Z",
+              "total": 8580,
+              "completo": true,
+              "items": [
+                {
+                  "cantidad": 1
+                }
+              ],
+              "pago": null
+            },
+            {
+              "id": "40fd6c38-0084-4201-a9b4-d46f4890e46a",
+              "estado": "PAGADO",
+              "creadoEn": "2026-11-09T23:05:59.360Z",
+              "total": 29970,
+              "completo": true,
+              "items": [
+                {
+                  "cantidad": 2
+                }
+              ],
+              "pago": {
+                "estado": "APROBADO"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T23:06:14.553Z",
+    "method": "POST",
+    "url": "http://localhost:8080/api/v1/graphql",
+    "requestHeaders": {
+      "x-correlation-id": "82c142cc-db84-4b02-a9b3-9e9869573f18",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": {
+      "query": "query Pedido($id: ID!) {\n  pedido(id: $id) {\n    id estado creadoEn subtotal costoDespacho total comuna completo advertencias\n    items { productoId nombre cantidad precioUnitario subtotal producto { imagen disponible } }\n    pago { id estado monto actualizadoEn }\n    cliente { nombre email }\n  }\n}",
+      "variables": {
+        "id": "946ca5fb-5f4b-49ec-b9d9-f56865eda263"
+      }
+    },
+    "status": 200,
+    "responseCid": "82c142cc-db84-4b02-a9b3-9e9869573f18",
+    "responseBody": {
+      "data": {
+        "pedido": {
+          "id": "946ca5fb-5f4b-49ec-b9d9-f56865eda263",
+          "estado": "PENDIENTE_PAGO",
+          "creadoEn": "2026-11-09T23:06:13.320Z",
+          "subtotal": 17980,
+          "costoDespacho": 3990,
+          "total": 21970,
+          "comuna": "Providencia",
+          "completo": true,
+          "advertencias": [],
+          "items": [
+            {
+              "productoId": "p-006",
+              "nombre": "Trufas de Pistacho (6 u.)",
+              "cantidad": 2,
+              "precioUnitario": 8990,
+              "subtotal": 17980,
+              "producto": {
+                "imagen": "/assets/img/productos/trufas.svg",
+                "disponible": true
+              }
+            }
+          ],
+          "pago": null,
+          "cliente": {
+            "nombre": "Ana Pérez (ficticia)",
+            "email": "ana.cliente@chocomania.test"
+          }
+        }
+      }
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T23:06:14.620Z",
+    "method": "POST",
+    "url": "http://localhost:8080/api/v1/orders/946ca5fb-5f4b-49ec-b9d9-f56865eda263/cancel",
+    "requestHeaders": {
+      "x-correlation-id": "3c5f0ebd-a5f8-4951-b052-6a802662c715",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "3c5f0ebd-a5f8-4951-b052-6a802662c715",
+    "responseBody": {
+      "data": {
+        "id": "946ca5fb-5f4b-49ec-b9d9-f56865eda263",
+        "clienteId": "00000000-0000-4000-8000-0000000000a1",
+        "estado": "CANCELADO",
+        "subtotal": 17980,
+        "costoDespacho": 3990,
+        "total": 21970,
+        "despacho": {
+          "direccion": "Calle Bombón 123, depto 4",
+          "comuna": "Providencia"
+        },
+        "notas": null,
+        "pagoId": null,
+        "items": [
+          {
+            "productoId": "p-006",
+            "nombre": "Trufas de Pistacho (6 u.)",
+            "precioUnitario": 8990,
+            "unidad": "unidad",
+            "cantidad": 2,
+            "subtotal": 17980
+          }
+        ],
+        "historial": [
+          {
+            "desde": null,
+            "hacia": "PENDIENTE_PAGO",
+            "actor": "cliente",
+            "nota": null,
+            "fecha": "2026-11-09T23:06:13.320Z"
+          },
+          {
+            "desde": "PENDIENTE_PAGO",
+            "hacia": "CANCELADO",
+            "actor": "cliente",
+            "nota": null,
+            "fecha": "2026-11-09T23:06:14.611Z"
+          }
+        ],
+        "creadoEn": "2026-11-09T23:06:13.320Z",
+        "actualizadoEn": "2026-11-09T23:06:14.611Z"
+      }
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T23:06:14.634Z",
+    "method": "POST",
+    "url": "http://localhost:8080/api/v1/graphql",
+    "requestHeaders": {
+      "x-correlation-id": "6c97ef5e-0c6a-4044-8189-a783f0f2b390",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": {
+      "query": "query MisPedidos($limite: Int!, $desde: Int!) {\n  misPedidos(limite: $limite, desde: $desde) {\n    total limite desde\n    pedidos { id estado creadoEn total completo items { cantidad } pago { estado } }\n  }\n}",
+      "variables": {
+        "limite": 5,
+        "desde": 0
+      }
+    },
+    "status": 200,
+    "responseCid": "6c97ef5e-0c6a-4044-8189-a783f0f2b390",
+    "responseBody": {
+      "data": {
+        "misPedidos": {
+          "total": 8,
+          "limite": 5,
+          "desde": 0,
+          "pedidos": [
+            {
+              "id": "946ca5fb-5f4b-49ec-b9d9-f56865eda263",
+              "estado": "CANCELADO",
+              "creadoEn": "2026-11-09T23:06:13.320Z",
+              "total": 21970,
+              "completo": true,
+              "items": [
+                {
+                  "cantidad": 2
+                }
+              ],
+              "pago": null
+            },
+            {
+              "id": "8ce162b5-f7f7-40a0-b499-060a3f3dd9cd",
+              "estado": "PENDIENTE_PAGO",
+              "creadoEn": "2026-11-09T23:06:07.321Z",
+              "total": 12980,
+              "completo": true,
+              "items": [
+                {
+                  "cantidad": 1
+                }
+              ],
+              "pago": null
+            },
+            {
+              "id": "f7c342de-1d38-4f23-9fff-190ec40c227d",
+              "estado": "PENDIENTE_PAGO",
+              "creadoEn": "2026-11-09T23:06:06.874Z",
+              "total": 8580,
+              "completo": true,
+              "items": [
+                {
+                  "cantidad": 1
+                }
+              ],
+              "pago": null
+            },
+            {
+              "id": "f1259756-d523-48b5-a444-a504f0a1be92",
+              "estado": "PENDIENTE_PAGO",
+              "creadoEn": "2026-11-09T23:06:03.447Z",
+              "total": 8580,
+              "completo": true,
+              "items": [
+                {
+                  "cantidad": 1
+                }
+              ],
+              "pago": null
+            },
+            {
+              "id": "40fd6c38-0084-4201-a9b4-d46f4890e46a",
+              "estado": "PAGADO",
+              "creadoEn": "2026-11-09T23:05:59.360Z",
+              "total": 29970,
+              "completo": true,
+              "items": [
+                {
+                  "cantidad": 2
+                }
+              ],
+              "pago": {
+                "estado": "APROBADO"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T23:06:14.634Z",
+    "method": "POST",
+    "url": "http://localhost:8080/api/v1/graphql",
+    "requestHeaders": {
+      "x-correlation-id": "c5d741aa-5b6d-41df-849f-5957d3f59d9a",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": {
+      "query": "query Pedido($id: ID!) {\n  pedido(id: $id) {\n    id estado creadoEn subtotal costoDespacho total comuna completo advertencias\n    items { productoId nombre cantidad precioUnitario subtotal producto { imagen disponible } }\n    pago { id estado monto actualizadoEn }\n    cliente { nombre email }\n  }\n}",
+      "variables": {
+        "id": "946ca5fb-5f4b-49ec-b9d9-f56865eda263"
+      }
+    },
+    "status": 200,
+    "responseCid": "c5d741aa-5b6d-41df-849f-5957d3f59d9a",
+    "responseBody": {
+      "data": {
+        "pedido": {
+          "id": "946ca5fb-5f4b-49ec-b9d9-f56865eda263",
+          "estado": "CANCELADO",
+          "creadoEn": "2026-11-09T23:06:13.320Z",
+          "subtotal": 17980,
+          "costoDespacho": 3990,
+          "total": 21970,
+          "comuna": "Providencia",
+          "completo": true,
+          "advertencias": [],
+          "items": [
+            {
+              "productoId": "p-006",
+              "nombre": "Trufas de Pistacho (6 u.)",
+              "cantidad": 2,
+              "precioUnitario": 8990,
+              "subtotal": 17980,
+              "producto": {
+                "imagen": "/assets/img/productos/trufas.svg",
+                "disponible": true
+              }
+            }
+          ],
+          "pago": null,
+          "cliente": {
+            "nombre": "Ana Pérez (ficticia)",
+            "email": "ana.cliente@chocomania.test"
+          }
+        }
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:06:14.785Z",
+    "ms": 4,
+    "method": "GET",
+    "url": "http://127.0.0.1:8080/api/v1/products/p-006",
+    "requestHeaders": {
+      "x-correlation-id": "129be4c2-b187-43ad-b72b-ef109187a8c0"
+    },
+    "status": 200,
+    "responseCid": "129be4c2-b187-43ad-b72b-ef109187a8c0",
+    "responseBody": {
+      "data": {
+        "id": "p-006",
+        "nombre": "Trufas de Pistacho (6 u.)",
+        "descripcion": "Trufas de chocolate amargo con centro de pistacho.",
+        "categoria": "Bombones",
+        "precio": 8990,
+        "unidad": "unidad",
+        "stock": 17,
+        "disponible": true,
+        "imagen": "/assets/img/productos/trufas.svg",
+        "destacado": false
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:06:14.790Z",
+    "ms": 4,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/orders/946ca5fb-5f4b-49ec-b9d9-f56865eda263/cancel",
+    "requestHeaders": {
+      "x-correlation-id": "9bdba370-5169-4f97-b3cf-e7f2a957cb4d",
+      "authorization": "[ENMASCARADO]"
+    },
+    "status": 409,
+    "responseCid": "9bdba370-5169-4f97-b3cf-e7f2a957cb4d",
+    "responseBody": {
+      "error": {
+        "code": "TRANSICION_INVALIDA",
+        "message": "No se puede cancelar un pedido en estado CANCELADO",
+        "correlationId": "9bdba370-5169-4f97-b3cf-e7f2a957cb4d"
+      }
+    }
+  }
+]

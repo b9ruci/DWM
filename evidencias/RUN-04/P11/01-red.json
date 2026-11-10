@@ -1,0 +1,174 @@
+[
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:03:10.367Z",
+    "ms": 107,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/auth/login",
+    "requestHeaders": {
+      "x-correlation-id": "e7a086c0-aafc-4c93-bd70-60a3371e1ddc",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "email": "bruno.cliente@chocomania.test",
+      "password": "[ENMASCARADO]"
+    },
+    "status": 200,
+    "responseCid": "e7a086c0-aafc-4c93-bd70-60a3371e1ddc",
+    "responseBody": {
+      "data": {
+        "accessToken": "[ENMASCARADO]",
+        "tokenType": "Bearer",
+        "expiresIn": 900,
+        "user": {
+          "id": "00000000-0000-4000-8000-0000000000b2",
+          "nombre": "Bruno Soto (ficticio)",
+          "role": "CLIENTE"
+        }
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:03:10.379Z",
+    "ms": 12,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/orders",
+    "requestHeaders": {
+      "x-correlation-id": "780698e3-25c8-444c-9d75-df3a4aa99048",
+      "idempotency-key": "0cf92d34-36e7-4e09-a57b-1d5333ed92e9",
+      "content-type": "application/json",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": {
+      "items": [
+        {
+          "productId": "p-003",
+          "cantidad": 1
+        }
+      ],
+      "despacho": {
+        "direccion": "Calle Bombón 123, depto 4",
+        "comuna": "Providencia"
+      }
+    },
+    "status": 201,
+    "responseCid": "780698e3-25c8-444c-9d75-df3a4aa99048",
+    "responseBody": {
+      "data": {
+        "id": "5ae3e413-381f-40cd-8b30-023c053bd20e",
+        "clienteId": "00000000-0000-4000-8000-0000000000b2",
+        "estado": "PENDIENTE_PAGO",
+        "subtotal": 3990,
+        "costoDespacho": 3990,
+        "total": 7980,
+        "despacho": {
+          "direccion": "Calle Bombón 123, depto 4",
+          "comuna": "Providencia"
+        },
+        "notas": null,
+        "pagoId": null,
+        "items": [
+          {
+            "productoId": "p-003",
+            "nombre": "Choco Wau",
+            "precioUnitario": 3990,
+            "unidad": "unidad",
+            "cantidad": 1,
+            "subtotal": 3990
+          }
+        ],
+        "historial": [
+          {
+            "desde": null,
+            "hacia": "PENDIENTE_PAGO",
+            "actor": "cliente",
+            "nota": null,
+            "fecha": "2026-11-09T23:03:10.377Z"
+          }
+        ],
+        "creadoEn": "2026-11-09T23:03:10.377Z",
+        "actualizadoEn": "2026-11-09T23:03:10.377Z"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:03:10.390Z",
+    "ms": 10,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/payments",
+    "requestHeaders": {
+      "x-correlation-id": "35ce4885-5368-4abc-8746-adc0a737d8de",
+      "content-type": "application/json",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": {
+      "pedidoId": "5ae3e413-381f-40cd-8b30-023c053bd20e"
+    },
+    "status": 201,
+    "responseCid": "35ce4885-5368-4abc-8746-adc0a737d8de",
+    "responseBody": {
+      "data": {
+        "id": "4076142d-8c75-48fe-bf4a-901258db3576",
+        "pedidoId": "5ae3e413-381f-40cd-8b30-023c053bd20e",
+        "monto": 7980,
+        "estado": "PENDIENTE",
+        "checkoutUrl": "http://localhost:8090/checkout/cs_test_9ced92ae8219f56f84a04e4a",
+        "creadoEn": "2026-11-09T23:03:10.385Z",
+        "actualizadoEn": "2026-11-09T23:03:10.388Z"
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:03:10.402Z",
+    "ms": 12,
+    "method": "POST",
+    "url": "http://127.0.0.1:8090/checkout/cs_test_9ced92ae8219f56f84a04e4a/approve",
+    "requestHeaders": {
+      "x-correlation-id": "e50fa86e-ff14-491f-a22e-949f78f71b2e"
+    },
+    "status": 303,
+    "responseCid": null,
+    "responseBody": null
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:03:10.408Z",
+    "ms": 5,
+    "method": "POST",
+    "url": "http://127.0.0.1:8090/checkout/cs_test_9ced92ae8219f56f84a04e4a/resend",
+    "requestHeaders": {
+      "x-correlation-id": "a5b0648e-7361-4b0d-a7d0-3cd71376ed34"
+    },
+    "status": 200,
+    "responseCid": null,
+    "responseBody": {
+      "reenviado": true,
+      "eventId": "evt_5d245149-e262-4995-8182-d32909d25be2",
+      "statusComercio": 200
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:03:10.412Z",
+    "ms": 3,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/webhooks/payments",
+    "requestHeaders": {
+      "x-correlation-id": "c54bf06d-4937-46ed-9551-abf264e658be",
+      "content-type": "application/json",
+      "x-sandbox-signature": "[ENMASCARADO]"
+    },
+    "status": 401,
+    "responseCid": "c54bf06d-4937-46ed-9551-abf264e658be",
+    "responseBody": {
+      "error": {
+        "code": "FIRMA_INVALIDA",
+        "message": "Firma de la notificación inválida",
+        "correlationId": "c54bf06d-4937-46ed-9551-abf264e658be"
+      }
+    }
+  }
+]

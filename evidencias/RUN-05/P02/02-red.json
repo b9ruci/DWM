@@ -1,0 +1,152 @@
+[
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T23:03:59.149Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/categories",
+    "requestHeaders": {
+      "x-correlation-id": "4c34958f-3a72-4fc6-b320-e2352ead392b",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "4c34958f-3a72-4fc6-b320-e2352ead392b",
+    "responseBody": {
+      "data": [
+        {
+          "nombre": "Barras",
+          "total": 2
+        },
+        {
+          "nombre": "Bebidas",
+          "total": 1
+        },
+        {
+          "nombre": "Bombones",
+          "total": 2
+        },
+        {
+          "nombre": "Figuras",
+          "total": 4
+        }
+      ]
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T23:03:59.150Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/products?categoria=Bombones",
+    "requestHeaders": {
+      "x-correlation-id": "0e3b0b33-dfd7-4ab4-bf85-813038433ff4",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "0e3b0b33-dfd7-4ab4-bf85-813038433ff4",
+    "responseBody": {
+      "data": [
+        {
+          "id": "p-005",
+          "nombre": "Bombones Surtidos (12 u.)",
+          "descripcion": "Caja de 12 bombones artesanales con rellenos de frutos secos, licor y caramelo.",
+          "categoria": "Bombones",
+          "precio": 12990,
+          "unidad": "unidad",
+          "stock": 20,
+          "disponible": true,
+          "imagen": "/assets/img/productos/bombones.svg",
+          "destacado": true
+        },
+        {
+          "id": "p-006",
+          "nombre": "Trufas de Pistacho (6 u.)",
+          "descripcion": "Trufas de chocolate amargo con centro de pistacho.",
+          "categoria": "Bombones",
+          "precio": 8990,
+          "unidad": "unidad",
+          "stock": 18,
+          "disponible": true,
+          "imagen": "/assets/img/productos/trufas.svg",
+          "destacado": false
+        }
+      ],
+      "total": 2
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T23:03:59.150Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/categories",
+    "requestHeaders": {
+      "x-correlation-id": "9a6bea16-78d1-4853-9011-a1976b45aeeb",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "9a6bea16-78d1-4853-9011-a1976b45aeeb",
+    "responseBody": {
+      "data": [
+        {
+          "nombre": "Barras",
+          "total": 2
+        },
+        {
+          "nombre": "Bebidas",
+          "total": 1
+        },
+        {
+          "nombre": "Bombones",
+          "total": 2
+        },
+        {
+          "nombre": "Figuras",
+          "total": 4
+        }
+      ]
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T23:03:59.551Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/products?categoria=Bombones&q=zzzz",
+    "requestHeaders": {
+      "x-correlation-id": "406e64ae-2de4-44bd-b365-4e89d5b6560c",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "406e64ae-2de4-44bd-b365-4e89d5b6560c",
+    "responseBody": {
+      "data": [],
+      "total": 0
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:04:00.034Z",
+    "ms": 5,
+    "method": "GET",
+    "url": "http://127.0.0.1:8080/api/v1/products?categoria=Inventada",
+    "requestHeaders": {
+      "x-correlation-id": "1f89eaa6-b222-4c03-ab45-cc931dec1f63"
+    },
+    "status": 400,
+    "responseCid": "1f89eaa6-b222-4c03-ab45-cc931dec1f63",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "categoria",
+            "message": "Debe ser uno de: Barras, Figuras, Bombones, Bebidas"
+          }
+        ],
+        "correlationId": "1f89eaa6-b222-4c03-ab45-cc931dec1f63"
+      }
+    }
+  }
+]

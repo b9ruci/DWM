@@ -1,0 +1,2848 @@
+{
+  "ejecucion": "RUN-01",
+  "inicio": "2026-11-09T19:46:36−03:00 (America/Santiago)",
+  "ejecutor": "Agente automatizado (Claude Code) en contenedor cloud — revisar y re-ejecutar por el equipo",
+  "version": {
+    "commit": "ac929d3",
+    "rama": "claude/blissful-dirac-hdjhek",
+    "cambiosSinCommit": 0
+  },
+  "entorno": {
+    "so": "Linux 6.18.44-fc-v310",
+    "node": "v22.23.4",
+    "php": "8.3.6",
+    "modo": "local (backend/scripts/stack.js): servicios privados en 127.0.0.1, gateway :8080, frontend :8000, sandbox :8090"
+  },
+  "navegador": "Chromium 153.0.8010.12 (Playwright, headless)",
+  "viewports": {
+    "escritorio": "escritorio 1366x768",
+    "movil": "móvil Pixel 7 emulado 412x839 (DPR 2.625, táctil)"
+  },
+  "estadoInicial": "Bases SQLite nuevas en .tmp/runs/RUN-01/data (migraciones + semillas ficticias). Cuentas: admin, clienteA, clienteB (contraseñas fuera del repositorio).",
+  "configuracion": {
+    "RATE_LIMIT_STRICT": 60,
+    "ACCESS_TOKEN_TTL_SECONDS": 900,
+    "GRAPHQL_MAX_COST": 500,
+    "GRAPHQL_MAX_DEPTH": 5,
+    "timeoutGatewayMs": 4000
+  },
+  "dependencias": {
+    "payment-sandbox": "DOBLE DE PRUEBA del proveedor de pagos (no demuestra interoperabilidad con un proveedor real)",
+    "resto": "servicios propios reales"
+  },
+  "pruebasSeleccionadas": [
+    "P01",
+    "P02",
+    "P03",
+    "P04",
+    "P05",
+    "P06",
+    "P07",
+    "P08",
+    "P09",
+    "P10",
+    "P11",
+    "P12",
+    "P13",
+    "P14",
+    "P15",
+    "P16",
+    "P17",
+    "P18",
+    "P19",
+    "P20",
+    "P21",
+    "P22",
+    "P23",
+    "P24",
+    "P25",
+    "P26",
+    "P27",
+    "P28",
+    "P29"
+  ],
+  "fin": "2026-11-09T19:47:41−03:00 (America/Santiago)",
+  "resumen": {
+    "APROBADA": 28,
+    "FALLIDA": 1
+  },
+  "resultados": [
+    {
+      "id": "P01",
+      "titulo": "Consultar catálogo desde el frontend con datos reales de inventory",
+      "flujo": "F01",
+      "requisito": "R01",
+      "criterio": "CA01",
+      "critico": "C1",
+      "tipo": "éxito",
+      "viewports": [
+        "escritorio",
+        "movil"
+      ],
+      "precondiciones": "Datos semilla (9 productos, 9 activos). Visitante anónimo. inventory disponible.",
+      "pasos": [
+        "Abrir /catalogo.php",
+        "Esperar la grilla de productos",
+        "Leer cantidad de tarjetas y precio de \"Choco Miau\"",
+        "Consultar GET /api/v1/products con un cliente API independiente",
+        "Repetir en móvil"
+      ],
+      "esperado": "La grilla muestra la misma cantidad de productos que devuelve inventory y el precio de Choco Miau ($3.990) coincide; la solicitud pasa por el API Gateway (ruta GW01) con correlación registrada en gateway e inventory.",
+      "verificacion": "Captura + red del navegador + respuesta de cliente API + traza backend por X-Correlation-Id.",
+      "restauracion": "Solo lectura; no requiere.",
+      "inicio": "2026-11-09T19:46:39−03:00 (America/Santiago)",
+      "duracionS": 0.9,
+      "estado": "APROBADA",
+      "error": null,
+      "comprobaciones": [
+        {
+          "label": "[escritorio] tarjetas en pantalla = productos de la API",
+          "expected": 9,
+          "observed": 9,
+          "pass": true
+        },
+        {
+          "label": "[escritorio] precio Choco Miau en pantalla",
+          "expected": "$3.990",
+          "observed": "$3.990",
+          "pass": true
+        },
+        {
+          "label": "[movil] tarjetas en pantalla = productos de la API",
+          "expected": 9,
+          "observed": 9,
+          "pass": true
+        },
+        {
+          "label": "[movil] precio Choco Miau en pantalla",
+          "expected": "$3.990",
+          "observed": "$3.990",
+          "pass": true
+        },
+        {
+          "label": "API devuelve solo campos públicos (sin sku/activo)",
+          "expected": false,
+          "observed": false,
+          "pass": true
+        }
+      ],
+      "evidencias": [
+        {
+          "id": "P01-E01",
+          "kind": "captura",
+          "file": "P01/01-escritorio-catalogo.png",
+          "description": "Catálogo cargado desde inventory (escritorio 1366x768)"
+        },
+        {
+          "id": "P01-E02",
+          "kind": "captura",
+          "file": "P01/02-movil-catalogo.png",
+          "description": "Catálogo cargado desde inventory (móvil Pixel 7 emulado 412x839 (DPR 2.625, táctil))"
+        },
+        {
+          "id": "P01-E03",
+          "kind": "red",
+          "file": "P01/03-red.json",
+          "description": "Solicitudes y respuestas (navegador y cliente API) con credenciales enmascaradas"
+        },
+        {
+          "id": "P01-E04",
+          "kind": "traza",
+          "file": "P01/04-traza-backend.jsonl",
+          "description": "Logs de gateway y servicios con los mismos identificadores de correlación (14 líneas)"
+        }
+      ],
+      "notas": [],
+      "correlaciones": 7
+    },
+    {
+      "id": "P02",
+      "titulo": "Filtro por categoría y búsqueda sin resultados (estado vacío)",
+      "flujo": "F01",
+      "requisito": "R01",
+      "criterio": "CA02",
+      "critico": "C1",
+      "tipo": "límite",
+      "viewports": [
+        "escritorio"
+      ],
+      "precondiciones": "Datos semilla. Visitante anónimo.",
+      "pasos": [
+        "Abrir /catalogo.php?categoria=Bombones",
+        "Contar tarjetas",
+        "Buscar \"zzzz\" en el campo de búsqueda",
+        "Observar estado vacío",
+        "Consultar GET /products?categoria=Inválida"
+      ],
+      "esperado": "Bombones muestra 2 productos; búsqueda sin coincidencias muestra estado vacío con acción \"Limpiar filtros\"; una categoría inválida es rechazada con 400 por inventory.",
+      "verificacion": "Capturas + red + respuesta 400 del cliente API.",
+      "restauracion": "No requiere.",
+      "inicio": "2026-11-09T19:46:39−03:00 (America/Santiago)",
+      "duracionS": 1.4,
+      "estado": "APROBADA",
+      "error": null,
+      "comprobaciones": [
+        {
+          "label": "tarjetas en categoría Bombones",
+          "expected": 2,
+          "observed": 2,
+          "pass": true
+        },
+        {
+          "label": "estado vacío visible",
+          "expected": true,
+          "observed": true,
+          "pass": true
+        },
+        {
+          "label": "categoría inválida rechazada",
+          "expected": 400,
+          "observed": 400,
+          "pass": true
+        }
+      ],
+      "evidencias": [
+        {
+          "id": "P02-E01",
+          "kind": "captura",
+          "file": "P02/01-escritorio-vacio.png",
+          "description": "Estado vacío al buscar sin coincidencias (escritorio 1366x768)"
+        },
+        {
+          "id": "P02-E02",
+          "kind": "red",
+          "file": "P02/02-red.json",
+          "description": "Solicitudes y respuestas (navegador y cliente API) con credenciales enmascaradas"
+        },
+        {
+          "id": "P02-E03",
+          "kind": "traza",
+          "file": "P02/03-traza-backend.jsonl",
+          "description": "Logs de gateway y servicios con los mismos identificadores de correlación (10 líneas)"
+        }
+      ],
+      "notas": [],
+      "correlaciones": 5
+    },
+    {
+      "id": "P03",
+      "titulo": "inventory indisponible: mensaje comprensible y recuperación con \"Reintentar\"",
+      "flujo": "F01",
+      "requisito": "R12",
+      "criterio": "CA03",
+      "critico": "C1",
+      "tipo": "fallo y recuperación",
+      "viewports": [
+        "escritorio"
+      ],
+      "precondiciones": "Sistema completo en ejecución. Se detiene el proceso inventory (fallo controlado).",
+      "pasos": [
+        "Detener inventory",
+        "Abrir /catalogo.php",
+        "Observar estado de error",
+        "Reiniciar inventory",
+        "Pulsar \"Reintentar\""
+      ],
+      "esperado": "Con inventory detenido la pantalla muestra \"El servicio no está disponible…\" con referencia de correlación (HTTP 503 SERVICE_UNAVAILABLE), sin datos falsos; tras reiniciar, \"Reintentar\" carga la grilla.",
+      "verificacion": "Capturas antes/después + red (503 y luego 200) + traza gateway (downstream_failure).",
+      "restauracion": "inventory reiniciado al final de la prueba (también en caso de error).",
+      "inicio": "2026-11-09T19:46:41−03:00 (America/Santiago)",
+      "duracionS": 0.9,
+      "estado": "APROBADA",
+      "error": null,
+      "comprobaciones": [
+        {
+          "label": "código de error presentado",
+          "expected": "SERVICE_UNAVAILABLE",
+          "observed": "SERVICE_UNAVAILABLE",
+          "pass": true
+        },
+        {
+          "label": "referencia de correlación visible",
+          "expected": true,
+          "observed": true,
+          "pass": true
+        },
+        {
+          "label": "no se muestran productos",
+          "expected": 0,
+          "observed": 0,
+          "pass": true
+        },
+        {
+          "label": "recupera la grilla tras reintentar",
+          "expected": true,
+          "observed": true,
+          "pass": true
+        }
+      ],
+      "evidencias": [
+        {
+          "id": "P03-E01",
+          "kind": "captura",
+          "file": "P03/01-escritorio-error.png",
+          "description": "Catálogo con inventory detenido (escritorio 1366x768)"
+        },
+        {
+          "id": "P03-E02",
+          "kind": "captura",
+          "file": "P03/02-escritorio-recuperado.png",
+          "description": "Catálogo recuperado tras reiniciar inventory (escritorio 1366x768)"
+        },
+        {
+          "id": "P03-E03",
+          "kind": "red",
+          "file": "P03/03-red.json",
+          "description": "Solicitudes y respuestas (navegador y cliente API) con credenciales enmascaradas"
+        },
+        {
+          "id": "P03-E04",
+          "kind": "traza",
+          "file": "P03/04-traza-backend.jsonl",
+          "description": "Logs de gateway y servicios con los mismos identificadores de correlación (8 líneas)"
+        }
+      ],
+      "notas": [],
+      "correlaciones": 4
+    },
+    {
+      "id": "P04",
+      "titulo": "Registro de cuenta desde el frontend y persistencia en auth y clients",
+      "flujo": "F03",
+      "requisito": "R02",
+      "criterio": "CA04",
+      "critico": null,
+      "tipo": "éxito",
+      "viewports": [
+        "escritorio"
+      ],
+      "precondiciones": "Correo no registrado (generado por ejecución).",
+      "pasos": [
+        "Abrir inicio, menú de usuario → Crear cuenta",
+        "Completar nombre, correo y contraseña válida",
+        "Enviar",
+        "En sesión nueva (cliente API) iniciar sesión con la cuenta",
+        "Leer perfil GET /me/profile",
+        "Inspeccionar auth.db (hash) y clients.db (perfil)"
+      ],
+      "esperado": "La interfaz confirma la cuenta y muestra el nombre en el menú; un login independiente funciona; auth guarda hash scrypt (no la contraseña) y clients guarda el perfil con el mismo id.",
+      "verificacion": "Captura + red + login independiente + lectura SQLite de solo lectura.",
+      "restauracion": "La cuenta queda creada; el reinicio de datos (base nueva por ejecución) la elimina.",
+      "inicio": "2026-11-09T19:46:42−03:00 (America/Santiago)",
+      "duracionS": 2.1,
+      "estado": "APROBADA",
+      "error": null,
+      "comprobaciones": [
+        {
+          "label": "nombre visible en el menú",
+          "expected": "Carla Prueba (ficticia)",
+          "observed": "Carla Prueba (ficticia)",
+          "pass": true
+        },
+        {
+          "label": "perfil disponible en clients",
+          "expected": 200,
+          "observed": 200,
+          "pass": true
+        },
+        {
+          "label": "auth guarda hash scrypt, no la contraseña",
+          "expected": true,
+          "observed": true,
+          "pass": true
+        },
+        {
+          "label": "rol asignado por el servidor",
+          "expected": "CLIENTE",
+          "observed": "CLIENTE",
+          "pass": true
+        },
+        {
+          "label": "clients usa el mismo id que auth",
+          "expected": "f94f3ea7-8d87-414c-a17d-7d362947106f",
+          "observed": "f94f3ea7-8d87-414c-a17d-7d362947106f",
+          "pass": true
+        }
+      ],
+      "evidencias": [
+        {
+          "id": "P04-E01",
+          "kind": "captura",
+          "file": "P04/01-escritorio-registrado.png",
+          "description": "Sesión iniciada tras el registro (escritorio 1366x768)"
+        },
+        {
+          "id": "P04-E02",
+          "kind": "datos",
+          "file": "P04/02-persistencia.json",
+          "description": "Lectura SQLite de auth.db y clients.db (sin hash ni contraseña)"
+        },
+        {
+          "id": "P04-E03",
+          "kind": "red",
+          "file": "P04/03-red.json",
+          "description": "Solicitudes y respuestas (navegador y cliente API) con credenciales enmascaradas"
+        },
+        {
+          "id": "P04-E04",
+          "kind": "traza",
+          "file": "P04/04-traza-backend.jsonl",
+          "description": "Logs de gateway y servicios con los mismos identificadores de correlación (20 líneas)"
+        }
+      ],
+      "notas": [],
+      "correlaciones": 7
+    },
+    {
+      "id": "P05",
+      "titulo": "Credenciales inválidas y contraseña débil",
+      "flujo": "F03",
+      "requisito": "R02",
+      "criterio": "CA05",
+      "critico": null,
+      "tipo": "rechazo",
+      "viewports": [
+        "escritorio"
+      ],
+      "precondiciones": "Cuenta semilla clienteA existente.",
+      "pasos": [
+        "Intentar login en la interfaz con contraseña errónea",
+        "Observar mensaje",
+        "POST /auth/register con contraseña \"abc\" (cliente API)",
+        "POST /auth/register con correo existente"
+      ],
+      "esperado": "Mensaje genérico \"Correo o contraseña incorrectos\" (401) sin token; registro débil 400 VALIDATION_ERROR; correo existente 409.",
+      "verificacion": "Captura + red + respuestas API.",
+      "restauracion": "Un intento fallido queda contado (se reinicia al siguiente login correcto).",
+      "inicio": "2026-11-09T19:46:44−03:00 (America/Santiago)",
+      "duracionS": 1.5,
+      "estado": "APROBADA",
+      "error": null,
+      "comprobaciones": [
+        {
+          "label": "mensaje genérico",
+          "expected": true,
+          "observed": true,
+          "pass": true
+        },
+        {
+          "label": "no se guarda sesión",
+          "expected": null,
+          "observed": null,
+          "pass": true
+        },
+        {
+          "label": "contraseña débil rechazada",
+          "expected": 400,
+          "observed": 400,
+          "pass": true
+        },
+        {
+          "label": "correo duplicado rechazado",
+          "expected": 409,
+          "observed": 409,
+          "pass": true
+        }
+      ],
+      "evidencias": [
+        {
+          "id": "P05-E01",
+          "kind": "captura",
+          "file": "P05/01-escritorio-login-fallido.png",
+          "description": "Login con contraseña incorrecta (escritorio 1366x768)"
+        },
+        {
+          "id": "P05-E02",
+          "kind": "red",
+          "file": "P05/02-red.json",
+          "description": "Solicitudes y respuestas (navegador y cliente API) con credenciales enmascaradas"
+        },
+        {
+          "id": "P05-E03",
+          "kind": "traza",
+          "file": "P05/03-traza-backend.jsonl",
+          "description": "Logs de gateway y servicios con los mismos identificadores de correlación (16 líneas)"
+        }
+      ],
+      "notas": [],
+      "correlaciones": 7
+    },
+    {
+      "id": "P06",
+      "titulo": "Compra completa: carrito → pedido → pago aprobado en sandbox → PAGADO",
+      "flujo": "F04-F05",
+      "requisito": "R03,R04",
+      "criterio": "CA06",
+      "critico": "C2",
+      "tipo": "éxito",
+      "viewports": [
+        "escritorio",
+        "movil"
+      ],
+      "precondiciones": "clienteA; stock de Choco Miau (p-002) ≥ 2; payments y sandbox disponibles (sandbox = doble de prueba declarado).",
+      "pasos": [
+        "Abrir catálogo e iniciar sesión como clienteA",
+        "Cantidad 2 en Choco Miau → Agregar",
+        "Ir al carrito, completar despacho",
+        "Confirmar pedido y pagar",
+        "En la pasarela sandbox verificar monto y aprobar",
+        "Volver a Mis pedidos y esperar confirmación",
+        "Verificar en sesión nueva (GraphQL) y en SQLite de orders, payments e inventory"
+      ],
+      "esperado": "Monto en pasarela $11.970 (2×3.990 + despacho 3.990, calculado por el servidor); la interfaz muestra \"¡Pago confirmado!\"; consulta independiente: pedido PAGADO, pago APROBADO; stock de p-002 disminuye exactamente 2 y la reserva queda CONFIRMADA.",
+      "verificacion": "Capturas por paso + red (POST /orders, POST /payments, webhook) + traza por correlación + consulta GraphQL en sesión nueva + lectura SQLite.",
+      "restauracion": "Base nueva por ejecución (scripts/reset-data.js).",
+      "inicio": "2026-11-09T19:46:45−03:00 (America/Santiago)",
+      "duracionS": 7.1,
+      "estado": "APROBADA",
+      "error": null,
+      "comprobaciones": [
+        {
+          "label": "[escritorio] total estimado en carrito",
+          "expected": "$11.970",
+          "observed": "$11.970",
+          "pass": true
+        },
+        {
+          "label": "[escritorio] monto informado por el proveedor",
+          "expected": "$11.970 CLP",
+          "observed": "$11.970 CLP",
+          "pass": true
+        },
+        {
+          "label": "[escritorio] la interfaz informa pago aprobado",
+          "expected": "approved",
+          "observed": "approved",
+          "pass": true
+        },
+        {
+          "label": "[escritorio] GraphQL (sesión nueva): estado",
+          "expected": "PAGADO",
+          "observed": "PAGADO",
+          "pass": true
+        },
+        {
+          "label": "[escritorio] GraphQL: pago",
+          "expected": "APROBADO",
+          "observed": "APROBADO",
+          "pass": true
+        },
+        {
+          "label": "[escritorio] GraphQL: total",
+          "expected": 11970,
+          "observed": 11970,
+          "pass": true
+        },
+        {
+          "label": "[escritorio] orders.db estado",
+          "expected": "PAGADO",
+          "observed": "PAGADO",
+          "pass": true
+        },
+        {
+          "label": "[escritorio] payments.db estado y monto",
+          "expected": [
+            "APROBADO",
+            11970
+          ],
+          "observed": [
+            "APROBADO",
+            11970
+          ],
+          "pass": true
+        },
+        {
+          "label": "[escritorio] inventory.db reserva",
+          "expected": [
+            "CONFIRMADA",
+            2
+          ],
+          "observed": [
+            "CONFIRMADA",
+            2
+          ],
+          "pass": true
+        },
+        {
+          "label": "[escritorio] stock p-002 disminuye en 2",
+          "expected": 38,
+          "observed": 38,
+          "pass": true
+        },
+        {
+          "label": "[movil] total estimado en carrito",
+          "expected": "$11.970",
+          "observed": "$11.970",
+          "pass": true
+        },
+        {
+          "label": "[movil] monto informado por el proveedor",
+          "expected": "$11.970 CLP",
+          "observed": "$11.970 CLP",
+          "pass": true
+        },
+        {
+          "label": "[movil] la interfaz informa pago aprobado",
+          "expected": "approved",
+          "observed": "approved",
+          "pass": true
+        },
+        {
+          "label": "[movil] GraphQL (sesión nueva): estado",
+          "expected": "PAGADO",
+          "observed": "PAGADO",
+          "pass": true
+        },
+        {
+          "label": "[movil] GraphQL: pago",
+          "expected": "APROBADO",
+          "observed": "APROBADO",
+          "pass": true
+        },
+        {
+          "label": "[movil] GraphQL: total",
+          "expected": 11970,
+          "observed": 11970,
+          "pass": true
+        },
+        {
+          "label": "[movil] orders.db estado",
+          "expected": "PAGADO",
+          "observed": "PAGADO",
+          "pass": true
+        },
+        {
+          "label": "[movil] payments.db estado y monto",
+          "expected": [
+            "APROBADO",
+            11970
+          ],
+          "observed": [
+            "APROBADO",
+            11970
+          ],
+          "pass": true
+        },
+        {
+          "label": "[movil] inventory.db reserva",
+          "expected": [
+            "CONFIRMADA",
+            2
+          ],
+          "observed": [
+            "CONFIRMADA",
+            2
+          ],
+          "pass": true
+        },
+        {
+          "label": "[movil] stock p-002 disminuye en 2",
+          "expected": 36,
+          "observed": 36,
+          "pass": true
+        }
+      ],
+      "evidencias": [
+        {
+          "id": "P06-E01",
+          "kind": "captura",
+          "file": "P06/01-escritorio-carrito.png",
+          "description": "Carrito con 2 Choco Miau (escritorio 1366x768)"
+        },
+        {
+          "id": "P06-E02",
+          "kind": "captura",
+          "file": "P06/02-escritorio-pasarela.png",
+          "description": "Pasarela sandbox con monto calculado por el servidor (escritorio 1366x768)"
+        },
+        {
+          "id": "P06-E03",
+          "kind": "captura",
+          "file": "P06/03-escritorio-confirmado.png",
+          "description": "Pedido confirmado en Mis pedidos (escritorio 1366x768)"
+        },
+        {
+          "id": "P06-E04",
+          "kind": "datos",
+          "file": "P06/04-persistencia-escritorio.json",
+          "description": "Comprobación independiente (escritorio)"
+        },
+        {
+          "id": "P06-E05",
+          "kind": "captura",
+          "file": "P06/05-movil-carrito.png",
+          "description": "Carrito con 2 Choco Miau (móvil Pixel 7 emulado 412x839 (DPR 2.625, táctil))"
+        },
+        {
+          "id": "P06-E06",
+          "kind": "captura",
+          "file": "P06/06-movil-pasarela.png",
+          "description": "Pasarela sandbox con monto calculado por el servidor (móvil Pixel 7 emulado 412x839 (DPR 2.625, táctil))"
+        },
+        {
+          "id": "P06-E07",
+          "kind": "captura",
+          "file": "P06/07-movil-confirmado.png",
+          "description": "Pedido confirmado en Mis pedidos (móvil Pixel 7 emulado 412x839 (DPR 2.625, táctil))"
+        },
+        {
+          "id": "P06-E08",
+          "kind": "datos",
+          "file": "P06/08-persistencia-movil.json",
+          "description": "Comprobación independiente (movil)"
+        },
+        {
+          "id": "P06-E09",
+          "kind": "red",
+          "file": "P06/09-red.json",
+          "description": "Solicitudes y respuestas (navegador y cliente API) con credenciales enmascaradas"
+        },
+        {
+          "id": "P06-E10",
+          "kind": "traza",
+          "file": "P06/10-traza-backend.jsonl",
+          "description": "Logs de gateway y servicios con los mismos identificadores de correlación (122 líneas)"
+        }
+      ],
+      "notas": [
+        "[escritorio] pedido d680ebca-1fa2-48da-ab65-1a4cbc972bb3",
+        "[movil] pedido bb42a698-d3a0-4b06-98a5-869110ac513b"
+      ],
+      "correlaciones": 34
+    },
+    {
+      "id": "P07",
+      "titulo": "Stock insuficiente: el servidor rechaza y no crea pedido ni descuenta stock",
+      "flujo": "F04",
+      "requisito": "R03",
+      "criterio": "CA07",
+      "critico": "C2",
+      "tipo": "rechazo / límite",
+      "viewports": [
+        "escritorio"
+      ],
+      "precondiciones": "Mezcla Chocolate Caliente (p-008) con stock 3. Carrito local con 5 unidades (carrito desactualizado; la UI limita a 3, por eso se precarga en localStorage).",
+      "pasos": [
+        "Iniciar sesión como clienteB",
+        "Precargar carrito {p-008: 5}",
+        "Abrir carrito, completar despacho y confirmar"
+      ],
+      "esperado": "HTTP 409 STOCK_INSUFICIENTE; mensaje \"No hay stock suficiente…\" con detalle disponible=3; no se crea pedido para clienteB y el stock sigue en 3.",
+      "verificacion": "Captura + red + conteo SQLite de pedidos de clienteB + stock vía API.",
+      "restauracion": "No modifica datos.",
+      "inicio": "2026-11-09T19:46:52−03:00 (America/Santiago)",
+      "duracionS": 1.6,
+      "estado": "APROBADA",
+      "error": null,
+      "comprobaciones": [
+        {
+          "label": "mensaje de stock insuficiente",
+          "expected": true,
+          "observed": true,
+          "pass": true
+        },
+        {
+          "label": "no se crea pedido",
+          "expected": 0,
+          "observed": 0,
+          "pass": true
+        },
+        {
+          "label": "stock sin cambios",
+          "expected": 3,
+          "observed": 3,
+          "pass": true
+        }
+      ],
+      "evidencias": [
+        {
+          "id": "P07-E01",
+          "kind": "captura",
+          "file": "P07/01-escritorio-sin-stock.png",
+          "description": "Rechazo por stock insuficiente (escritorio 1366x768)"
+        },
+        {
+          "id": "P07-E02",
+          "kind": "red",
+          "file": "P07/02-red.json",
+          "description": "Solicitudes y respuestas (navegador y cliente API) con credenciales enmascaradas"
+        },
+        {
+          "id": "P07-E03",
+          "kind": "traza",
+          "file": "P07/03-traza-backend.jsonl",
+          "description": "Logs de gateway y servicios con los mismos identificadores de correlación (25 líneas)"
+        }
+      ],
+      "notas": [],
+      "correlaciones": 11
+    },
+    {
+      "id": "P08",
+      "titulo": "Reintento tras perder la respuesta de POST /orders no duplica el pedido",
+      "flujo": "F04",
+      "requisito": "R03",
+      "criterio": "CA08",
+      "critico": "C2",
+      "tipo": "recuperación (reintento)",
+      "viewports": [
+        "escritorio"
+      ],
+      "precondiciones": "clienteB; Tableta 70% (p-007) con stock ≥ 1. Se intercepta la primera respuesta de POST /orders en el navegador: el servidor la procesa pero el navegador recibe un error de red (fallo controlado).",
+      "pasos": [
+        "Iniciar sesión y agregar 1 Tableta 70%",
+        "Confirmar pedido (la respuesta se pierde)",
+        "Observar mensaje de error de red",
+        "Pulsar nuevamente \"Confirmar pedido y pagar\""
+      ],
+      "esperado": "El segundo intento reutiliza la misma Idempotency-Key: el gateway responde 200 con idempotent-replay=true y el mismo pedido; existe un único pedido nuevo y el stock baja una sola vez.",
+      "verificacion": "Red (dos POST con la misma clave) + traza (order_created una vez, order_replay una vez) + SQLite.",
+      "restauracion": "Base nueva por ejecución.",
+      "inicio": "2026-11-09T19:46:54−03:00 (America/Santiago)",
+      "duracionS": 2.6,
+      "estado": "APROBADA",
+      "error": null,
+      "comprobaciones": [
+        {
+          "label": "misma Idempotency-Key en ambos intentos",
+          "expected": true,
+          "observed": true,
+          "pass": true
+        },
+        {
+          "label": "un único pedido nuevo",
+          "expected": 1,
+          "observed": 1,
+          "pass": true
+        },
+        {
+          "label": "stock descontado una vez",
+          "expected": 49,
+          "observed": 49,
+          "pass": true
+        }
+      ],
+      "evidencias": [
+        {
+          "id": "P08-E01",
+          "kind": "captura",
+          "file": "P08/01-escritorio-respuesta-perdida.png",
+          "description": "Error de red tras el primer envío (escritorio 1366x768)"
+        },
+        {
+          "id": "P08-E02",
+          "kind": "captura",
+          "file": "P08/02-escritorio-pasarela.png",
+          "description": "El reintento continúa al pago (escritorio 1366x768)"
+        },
+        {
+          "id": "P08-E03",
+          "kind": "red",
+          "file": "P08/03-red.json",
+          "description": "Solicitudes y respuestas (navegador y cliente API) con credenciales enmascaradas"
+        },
+        {
+          "id": "P08-E04",
+          "kind": "traza",
+          "file": "P08/04-traza-backend.jsonl",
+          "description": "Logs de gateway y servicios con los mismos identificadores de correlación (32 líneas)"
+        }
+      ],
+      "notas": [],
+      "correlaciones": 12
+    },
+    {
+      "id": "P09",
+      "titulo": "Datos alterados por el navegador: precio, monto y estado de pago no son confiables",
+      "flujo": "F04-F05",
+      "requisito": "R03,R04,R11",
+      "criterio": "CA09",
+      "critico": null,
+      "tipo": "rechazo",
+      "viewports": [],
+      "precondiciones": "clienteA con sesión (cliente API, equivalente a modificar la solicitud desde las herramientas del navegador).",
+      "pasos": [
+        "POST /orders con items[].precio = 1",
+        "POST /payments con monto = 1",
+        "PUT /admin/orders/{id}/status {estado: PAGADO} como cliente",
+        "Consultar el pedido"
+      ],
+      "esperado": "El total del pedido usa el precio de inventory (2×3.990+3.990 = 11.970); monto en POST /payments → 400 (campo no permitido); cambio de estado → 403; el pedido sigue PENDIENTE_PAGO.",
+      "verificacion": "Respuestas API + SQLite orders.",
+      "restauracion": "Deja un pedido PENDIENTE_PAGO (base nueva por ejecución).",
+      "inicio": "2026-11-09T19:46:57−03:00 (America/Santiago)",
+      "duracionS": 0.4,
+      "estado": "APROBADA",
+      "error": null,
+      "comprobaciones": [
+        {
+          "label": "pedido creado con precio del servidor",
+          "expected": [
+            201,
+            11970
+          ],
+          "observed": [
+            201,
+            11970
+          ],
+          "pass": true
+        },
+        {
+          "label": "monto enviado por el navegador rechazado",
+          "expected": 400,
+          "observed": 400,
+          "pass": true
+        },
+        {
+          "label": "cliente no puede marcar PAGADO",
+          "expected": 403,
+          "observed": 403,
+          "pass": true
+        },
+        {
+          "label": "pedido sigue pendiente",
+          "expected": "PENDIENTE_PAGO",
+          "observed": "PENDIENTE_PAGO",
+          "pass": true
+        }
+      ],
+      "evidencias": [
+        {
+          "id": "P09-E01",
+          "kind": "red",
+          "file": "P09/01-red.json",
+          "description": "Solicitudes y respuestas (navegador y cliente API) con credenciales enmascaradas"
+        },
+        {
+          "id": "P09-E02",
+          "kind": "traza",
+          "file": "P09/02-traza-backend.jsonl",
+          "description": "Logs de gateway y servicios con los mismos identificadores de correlación (12 líneas)"
+        }
+      ],
+      "notas": [],
+      "correlaciones": 4
+    },
+    {
+      "id": "P10",
+      "titulo": "Pago rechazado por el proveedor y nuevo intento aprobado",
+      "flujo": "F05",
+      "requisito": "R04",
+      "criterio": "CA10",
+      "critico": "C2",
+      "tipo": "rechazo y recuperación",
+      "viewports": [
+        "escritorio"
+      ],
+      "precondiciones": "clienteB; Flor de Chocolate (p-004) con stock.",
+      "pasos": [
+        "Comprar 1 Flor de Chocolate desde la interfaz",
+        "En la pasarela pulsar \"Rechazar pago\"",
+        "Observar resultado en Mis pedidos",
+        "Pulsar \"Pagar ahora\" y aprobar"
+      ],
+      "esperado": "Tras el rechazo la interfaz informa \"El pago fue rechazado\"; pedido PENDIENTE_PAGO y pago RECHAZADO en la base; tras el nuevo intento el pedido queda PAGADO con un segundo pago APROBADO.",
+      "verificacion": "Capturas + red + SQLite payments/orders.",
+      "restauracion": "Base nueva por ejecución.",
+      "inicio": "2026-11-09T19:46:57−03:00 (America/Santiago)",
+      "duracionS": 3,
+      "estado": "APROBADA",
+      "error": null,
+      "comprobaciones": [
+        {
+          "label": "interfaz informa rechazo",
+          "expected": "rejected",
+          "observed": "rejected",
+          "pass": true
+        },
+        {
+          "label": "pedido sigue PENDIENTE_PAGO",
+          "expected": "PENDIENTE_PAGO",
+          "observed": "PENDIENTE_PAGO",
+          "pass": true
+        },
+        {
+          "label": "pago RECHAZADO registrado",
+          "expected": [
+            "RECHAZADO"
+          ],
+          "observed": [
+            "RECHAZADO"
+          ],
+          "pass": true
+        },
+        {
+          "label": "pedido PAGADO",
+          "expected": "PAGADO",
+          "observed": "PAGADO",
+          "pass": true
+        },
+        {
+          "label": "historial de pagos",
+          "expected": [
+            "APROBADO",
+            "RECHAZADO"
+          ],
+          "observed": [
+            "APROBADO",
+            "RECHAZADO"
+          ],
+          "pass": true
+        }
+      ],
+      "evidencias": [
+        {
+          "id": "P10-E01",
+          "kind": "captura",
+          "file": "P10/01-escritorio-rechazado.png",
+          "description": "Pago rechazado (escritorio 1366x768)"
+        },
+        {
+          "id": "P10-E02",
+          "kind": "captura",
+          "file": "P10/02-escritorio-aprobado.png",
+          "description": "Segundo intento aprobado (escritorio 1366x768)"
+        },
+        {
+          "id": "P10-E03",
+          "kind": "red",
+          "file": "P10/03-red.json",
+          "description": "Solicitudes y respuestas (navegador y cliente API) con credenciales enmascaradas"
+        },
+        {
+          "id": "P10-E04",
+          "kind": "traza",
+          "file": "P10/04-traza-backend.jsonl",
+          "description": "Logs de gateway y servicios con los mismos identificadores de correlación (71 líneas)"
+        }
+      ],
+      "notas": [],
+      "correlaciones": 18
+    },
+    {
+      "id": "P11",
+      "titulo": "Notificación duplicada del proveedor y notificación con firma inválida",
+      "flujo": "F05",
+      "requisito": "R04,R11",
+      "criterio": "CA11",
+      "critico": null,
+      "tipo": "rechazo / duplicado",
+      "viewports": [],
+      "precondiciones": "Pedido de clienteB pagado mediante el sandbox (precondición por API).",
+      "pasos": [
+        "Crear pedido y aprobar el pago en el sandbox",
+        "Solicitar al sandbox reenviar el MISMO evento",
+        "Enviar al webhook una notificación con firma falsa"
+      ],
+      "esperado": "El reenvío responde 200 con duplicado=true; webhook_events tiene un único registro y el historial del pedido una sola transición a PAGADO; firma falsa → 401 sin cambios.",
+      "verificacion": "Respuestas + SQLite payments.webhook_events + orders.order_events + traza (webhook_duplicate).",
+      "restauracion": "Base nueva por ejecución.",
+      "inicio": "2026-11-09T19:47:00−03:00 (America/Santiago)",
+      "duracionS": 0.5,
+      "estado": "APROBADA",
+      "error": null,
+      "comprobaciones": [
+        {
+          "label": "sandbox reenvía el evento",
+          "expected": 200,
+          "observed": 200,
+          "pass": true
+        },
+        {
+          "label": "eventos registrados para el pago",
+          "expected": 1,
+          "observed": 1,
+          "pass": true
+        },
+        {
+          "label": "transiciones a PAGADO",
+          "expected": 1,
+          "observed": 1,
+          "pass": true
+        },
+        {
+          "label": "firma falsa rechazada",
+          "expected": 401,
+          "observed": 401,
+          "pass": true
+        }
+      ],
+      "evidencias": [
+        {
+          "id": "P11-E01",
+          "kind": "red",
+          "file": "P11/01-red.json",
+          "description": "Solicitudes y respuestas (navegador y cliente API) con credenciales enmascaradas"
+        },
+        {
+          "id": "P11-E02",
+          "kind": "traza",
+          "file": "P11/02-traza-backend.jsonl",
+          "description": "Logs de gateway y servicios con los mismos identificadores de correlación (16 líneas)"
+        }
+      ],
+      "notas": [],
+      "correlaciones": 6
+    },
+    {
+      "id": "P12",
+      "titulo": "Mis pedidos: agregación GraphQL (orders + inventory + payments + clients) en pantalla real",
+      "flujo": "F06",
+      "requisito": "R05",
+      "criterio": "CA12",
+      "critico": "C3",
+      "tipo": "éxito",
+      "viewports": [
+        "escritorio",
+        "movil"
+      ],
+      "precondiciones": "clienteA con un pedido pagado creado en la prueba (por API).",
+      "pasos": [
+        "Crear pedido (2 Bombones) y aprobar pago (precondición)",
+        "Abrir /pedidos.php?pedido={id} con sesión de clienteA",
+        "Leer total, estados y titular",
+        "Comparar con GET /orders/{id} (REST) y con la traza del backend"
+      ],
+      "esperado": "La pantalla muestra total $29.970 (2×12.990 + despacho 3.990), estado Pagado, pago aprobado y titular \"Ana Pérez (ficticia)\"; coincide con orders; la traza muestra que, con el mismo identificador de correlación, el gateway validó la sesión en auth y graphql consultó orders, inventory, payments y clients.",
+      "verificacion": "Capturas + red (POST /graphql) + REST independiente + traza backend.",
+      "restauracion": "Base nueva por ejecución.",
+      "inicio": "2026-11-09T19:47:01−03:00 (America/Santiago)",
+      "duracionS": 3.8,
+      "estado": "APROBADA",
+      "error": null,
+      "comprobaciones": [
+        {
+          "label": "[escritorio] total en pantalla = orders",
+          "expected": "$29.970",
+          "observed": "$29.970",
+          "pass": true
+        },
+        {
+          "label": "[escritorio] estados visibles",
+          "expected": [
+            "PAGADO",
+            "APROBADO"
+          ],
+          "observed": [
+            "PAGADO",
+            "APROBADO"
+          ],
+          "pass": true
+        },
+        {
+          "label": "[escritorio] titular desde clients",
+          "expected": true,
+          "observed": true,
+          "pass": true
+        },
+        {
+          "label": "[escritorio] servicios en la traza de la consulta GraphQL (cid 0b210314)",
+          "expected": [
+            "auth",
+            "clients",
+            "gateway",
+            "graphql",
+            "inventory",
+            "orders",
+            "payments"
+          ],
+          "observed": [
+            "auth",
+            "clients",
+            "gateway",
+            "graphql",
+            "inventory",
+            "orders",
+            "payments"
+          ],
+          "pass": true
+        },
+        {
+          "label": "[movil] total en pantalla = orders",
+          "expected": "$29.970",
+          "observed": "$29.970",
+          "pass": true
+        },
+        {
+          "label": "[movil] estados visibles",
+          "expected": [
+            "PAGADO",
+            "APROBADO"
+          ],
+          "observed": [
+            "PAGADO",
+            "APROBADO"
+          ],
+          "pass": true
+        },
+        {
+          "label": "[movil] titular desde clients",
+          "expected": true,
+          "observed": true,
+          "pass": true
+        },
+        {
+          "label": "[movil] servicios en la traza de la consulta GraphQL (cid f4da4b2b)",
+          "expected": [
+            "auth",
+            "clients",
+            "gateway",
+            "graphql",
+            "inventory",
+            "orders",
+            "payments"
+          ],
+          "observed": [
+            "auth",
+            "clients",
+            "gateway",
+            "graphql",
+            "inventory",
+            "orders",
+            "payments"
+          ],
+          "pass": true
+        },
+        {
+          "label": "total REST",
+          "expected": 29970,
+          "observed": 29970,
+          "pass": true
+        }
+      ],
+      "evidencias": [
+        {
+          "id": "P12-E01",
+          "kind": "captura",
+          "file": "P12/01-escritorio-detalle.png",
+          "description": "Detalle agregado del pedido (escritorio 1366x768)"
+        },
+        {
+          "id": "P12-E02",
+          "kind": "captura",
+          "file": "P12/02-movil-detalle.png",
+          "description": "Detalle agregado del pedido (móvil Pixel 7 emulado 412x839 (DPR 2.625, táctil))"
+        },
+        {
+          "id": "P12-E03",
+          "kind": "red",
+          "file": "P12/03-red.json",
+          "description": "Solicitudes y respuestas (navegador y cliente API) con credenciales enmascaradas"
+        },
+        {
+          "id": "P12-E04",
+          "kind": "traza",
+          "file": "P12/04-traza-backend.jsonl",
+          "description": "Logs de gateway y servicios con los mismos identificadores de correlación (67 líneas)"
+        }
+      ],
+      "notas": [],
+      "correlaciones": 19
+    },
+    {
+      "id": "P13",
+      "titulo": "Un cliente no puede ver, pagar ni cancelar el pedido de otro cliente",
+      "flujo": "F06",
+      "requisito": "R05,R11",
+      "criterio": "CA13",
+      "critico": "C3",
+      "tipo": "rechazo (recurso ajeno)",
+      "viewports": [
+        "escritorio",
+        "movil"
+      ],
+      "precondiciones": "Pedido PENDIENTE_PAGO de clienteA (creado por API). clienteB con sesión.",
+      "pasos": [
+        "clienteA crea un pedido",
+        "clienteB abre /pedidos.php?pedido={id de A}",
+        "clienteB intenta GET /orders/{id}, POST /payments y POST /orders/{id}/cancel",
+        "Verificar que el pedido no cambió"
+      ],
+      "esperado": "La interfaz muestra \"Pedido no encontrado\" sin dirección ni nombre de A; GraphQL devuelve pedido=null; REST 404 en las tres operaciones; el pedido sigue PENDIENTE_PAGO.",
+      "verificacion": "Capturas + red (respuesta GraphQL) + respuestas API + SQLite.",
+      "restauracion": "Base nueva por ejecución.",
+      "inicio": "2026-11-09T19:47:04−03:00 (America/Santiago)",
+      "duracionS": 3.1,
+      "estado": "APROBADA",
+      "error": null,
+      "comprobaciones": [
+        {
+          "label": "[escritorio] GraphQL devuelve pedido null",
+          "expected": null,
+          "observed": null,
+          "pass": true
+        },
+        {
+          "label": "[escritorio] mensaje \"Pedido no encontrado\"",
+          "expected": true,
+          "observed": true,
+          "pass": true
+        },
+        {
+          "label": "[escritorio] no se revelan datos de A",
+          "expected": false,
+          "observed": false,
+          "pass": true
+        },
+        {
+          "label": "[movil] GraphQL devuelve pedido null",
+          "expected": null,
+          "observed": null,
+          "pass": true
+        },
+        {
+          "label": "[movil] mensaje \"Pedido no encontrado\"",
+          "expected": true,
+          "observed": true,
+          "pass": true
+        },
+        {
+          "label": "[movil] no se revelan datos de A",
+          "expected": false,
+          "observed": false,
+          "pass": true
+        },
+        {
+          "label": "GET pedido ajeno",
+          "expected": 404,
+          "observed": 404,
+          "pass": true
+        },
+        {
+          "label": "pagar pedido ajeno",
+          "expected": 404,
+          "observed": 404,
+          "pass": true
+        },
+        {
+          "label": "cancelar pedido ajeno",
+          "expected": 404,
+          "observed": 404,
+          "pass": true
+        },
+        {
+          "label": "pedido sin modificaciones",
+          "expected": "PENDIENTE_PAGO",
+          "observed": "PENDIENTE_PAGO",
+          "pass": true
+        }
+      ],
+      "evidencias": [
+        {
+          "id": "P13-E01",
+          "kind": "captura",
+          "file": "P13/01-escritorio-ajeno.png",
+          "description": "clienteB intentando ver un pedido de clienteA (escritorio 1366x768)"
+        },
+        {
+          "id": "P13-E02",
+          "kind": "captura",
+          "file": "P13/02-movil-ajeno.png",
+          "description": "clienteB intentando ver un pedido de clienteA (móvil Pixel 7 emulado 412x839 (DPR 2.625, táctil))"
+        },
+        {
+          "id": "P13-E03",
+          "kind": "red",
+          "file": "P13/03-red.json",
+          "description": "Solicitudes y respuestas (navegador y cliente API) con credenciales enmascaradas"
+        },
+        {
+          "id": "P13-E04",
+          "kind": "traza",
+          "file": "P13/04-traza-backend.jsonl",
+          "description": "Logs de gateway y servicios con los mismos identificadores de correlación (65 líneas)"
+        }
+      ],
+      "notas": [],
+      "correlaciones": 20
+    },
+    {
+      "id": "P14",
+      "titulo": "Límites y autorización por campo en GraphQL",
+      "flujo": "F06",
+      "requisito": "R05,R11",
+      "criterio": "CA14",
+      "critico": "C3",
+      "tipo": "límite",
+      "viewports": [],
+      "precondiciones": "Sesiones de clienteA y admin. Límites configurados: costo 500, profundidad 5, 4000 caracteres, limite ≤ 20, introspección deshabilitada.",
+      "pasos": [
+        "Consulta con 2 alias de misPedidos(limite:20) (amplificación)",
+        "Consulta de introspección",
+        "Campo notasInternas como cliente y como admin",
+        "resumenVentas como cliente",
+        "misPedidos(limite: 50)",
+        "Consulta de más de 4000 caracteres"
+      ],
+      "esperado": "400 QUERY_TOO_COMPLEX; 400 por introspección; cliente recibe notasInternas=null con error FORBIDDEN y admin sin error; resumenVentas FORBIDDEN para cliente; BAD_USER_INPUT; 400 QUERY_TOO_LARGE.",
+      "verificacion": "Respuestas API + traza graphql (graphql_limit).",
+      "restauracion": "No modifica datos.",
+      "inicio": "2026-11-09T19:47:07−03:00 (America/Santiago)",
+      "duracionS": 0.5,
+      "estado": "APROBADA",
+      "error": null,
+      "comprobaciones": [
+        {
+          "label": "amplificación por alias rechazada",
+          "expected": [
+            400,
+            "QUERY_TOO_COMPLEX"
+          ],
+          "observed": [
+            400,
+            "QUERY_TOO_COMPLEX"
+          ],
+          "pass": true
+        },
+        {
+          "label": "introspección deshabilitada",
+          "expected": 400,
+          "observed": 400,
+          "pass": true
+        },
+        {
+          "label": "cliente: notasInternas null + FORBIDDEN",
+          "expected": [
+            null,
+            "FORBIDDEN"
+          ],
+          "observed": [
+            null,
+            "FORBIDDEN"
+          ],
+          "pass": true
+        },
+        {
+          "label": "admin: campo autorizado sin errores",
+          "expected": [
+            "81db0685-4658-4e69-ae89-5576cb0fc3df",
+            null
+          ],
+          "observed": [
+            "81db0685-4658-4e69-ae89-5576cb0fc3df",
+            null
+          ],
+          "pass": true
+        },
+        {
+          "label": "resumenVentas denegado a cliente",
+          "expected": [
+            null,
+            "FORBIDDEN"
+          ],
+          "observed": [
+            null,
+            "FORBIDDEN"
+          ],
+          "pass": true
+        },
+        {
+          "label": "paginación acotada",
+          "expected": "BAD_USER_INPUT",
+          "observed": "BAD_USER_INPUT",
+          "pass": true
+        },
+        {
+          "label": "consulta demasiado grande",
+          "expected": [
+            400,
+            "QUERY_TOO_LARGE"
+          ],
+          "observed": [
+            400,
+            "QUERY_TOO_LARGE"
+          ],
+          "pass": true
+        }
+      ],
+      "evidencias": [
+        {
+          "id": "P14-E01",
+          "kind": "red",
+          "file": "P14/01-red.json",
+          "description": "Solicitudes y respuestas (navegador y cliente API) con credenciales enmascaradas"
+        },
+        {
+          "id": "P14-E02",
+          "kind": "traza",
+          "file": "P14/02-traza-backend.jsonl",
+          "description": "Logs de gateway y servicios con los mismos identificadores de correlación (34 líneas)"
+        }
+      ],
+      "notas": [],
+      "correlaciones": 10
+    },
+    {
+      "id": "P15",
+      "titulo": "GraphQL con inventory caído: información parcial advertida y recuperación",
+      "flujo": "F06",
+      "requisito": "R05,R12",
+      "criterio": "CA15",
+      "critico": "C3",
+      "tipo": "fallo y recuperación",
+      "viewports": [
+        "escritorio"
+      ],
+      "precondiciones": "Pedido de clienteA (por API). Se detiene inventory.",
+      "pasos": [
+        "Crear pedido",
+        "Detener inventory",
+        "Abrir /pedidos.php?pedido={id}",
+        "Observar advertencia",
+        "Reiniciar inventory y pulsar \"Actualizar\""
+      ],
+      "esperado": "Pantalla muestra \"Información parcial\" y el nombre del producto guardado en el pedido; GraphQL responde completo=false con error DEPENDENCY_UNAVAILABLE en items.producto; tras reiniciar, la advertencia desaparece (completo=true).",
+      "verificacion": "Capturas + red GraphQL + traza (downstream_failure en graphql).",
+      "restauracion": "inventory reiniciado (también en caso de error).",
+      "inicio": "2026-11-09T19:47:08−03:00 (America/Santiago)",
+      "duracionS": 2.1,
+      "estado": "APROBADA",
+      "error": null,
+      "comprobaciones": [
+        {
+          "label": "GraphQL marca completo=false",
+          "expected": false,
+          "observed": false,
+          "pass": true
+        },
+        {
+          "label": "error parcial tipificado",
+          "expected": true,
+          "observed": true,
+          "pass": true
+        },
+        {
+          "label": "nombre del producto (instantánea de orders) visible",
+          "expected": true,
+          "observed": true,
+          "pass": true
+        },
+        {
+          "label": "advertencia desaparece tras recuperación",
+          "expected": 0,
+          "observed": 0,
+          "pass": true
+        }
+      ],
+      "evidencias": [
+        {
+          "id": "P15-E01",
+          "kind": "captura",
+          "file": "P15/01-escritorio-parcial.png",
+          "description": "Detalle con advertencia de información parcial (escritorio 1366x768)"
+        },
+        {
+          "id": "P15-E02",
+          "kind": "captura",
+          "file": "P15/02-escritorio-recuperado.png",
+          "description": "Detalle completo tras reiniciar inventory (escritorio 1366x768)"
+        },
+        {
+          "id": "P15-E03",
+          "kind": "red",
+          "file": "P15/03-red.json",
+          "description": "Solicitudes y respuestas (navegador y cliente API) con credenciales enmascaradas"
+        },
+        {
+          "id": "P15-E04",
+          "kind": "traza",
+          "file": "P15/04-traza-backend.jsonl",
+          "description": "Logs de gateway y servicios con los mismos identificadores de correlación (48 líneas)"
+        }
+      ],
+      "notas": [],
+      "correlaciones": 11
+    },
+    {
+      "id": "P16",
+      "titulo": "Operaciones protegidas sin sesión",
+      "flujo": "F12",
+      "requisito": "R11",
+      "criterio": "CA16",
+      "critico": null,
+      "tipo": "rechazo",
+      "viewports": [
+        "escritorio"
+      ],
+      "precondiciones": "Visitante sin sesión.",
+      "pasos": [
+        "GET /orders, POST /orders y POST /graphql sin token",
+        "Abrir /pedidos.php sin sesión",
+        "Intentar confirmar un carrito sin sesión"
+      ],
+      "esperado": "401 AUTH_REQUIRED en las tres; la interfaz pide iniciar sesión y abre el modal al confirmar el carrito; no se crea pedido.",
+      "verificacion": "Respuestas API + capturas.",
+      "restauracion": "No modifica datos.",
+      "inicio": "2026-11-09T19:47:10−03:00 (America/Santiago)",
+      "duracionS": 0.9,
+      "estado": "APROBADA",
+      "error": null,
+      "comprobaciones": [
+        {
+          "label": "GET /orders sin sesión",
+          "expected": [
+            401,
+            "AUTH_REQUIRED"
+          ],
+          "observed": [
+            401,
+            "AUTH_REQUIRED"
+          ],
+          "pass": true
+        },
+        {
+          "label": "POST /orders sin sesión",
+          "expected": [
+            401,
+            "AUTH_REQUIRED"
+          ],
+          "observed": [
+            401,
+            "AUTH_REQUIRED"
+          ],
+          "pass": true
+        },
+        {
+          "label": "POST /graphql sin sesión",
+          "expected": [
+            401,
+            "AUTH_REQUIRED"
+          ],
+          "observed": [
+            401,
+            "AUTH_REQUIRED"
+          ],
+          "pass": true
+        },
+        {
+          "label": "pedidos.php pide iniciar sesión",
+          "expected": true,
+          "observed": true,
+          "pass": true
+        },
+        {
+          "label": "se abre modal de inicio de sesión",
+          "expected": true,
+          "observed": true,
+          "pass": true
+        },
+        {
+          "label": "no se crearon pedidos",
+          "expected": 10,
+          "observed": 10,
+          "pass": true
+        }
+      ],
+      "evidencias": [
+        {
+          "id": "P16-E01",
+          "kind": "captura",
+          "file": "P16/01-escritorio-requiere-login.png",
+          "description": "Confirmación de carrito sin sesión (escritorio 1366x768)"
+        },
+        {
+          "id": "P16-E02",
+          "kind": "red",
+          "file": "P16/02-red.json",
+          "description": "Solicitudes y respuestas (navegador y cliente API) con credenciales enmascaradas"
+        },
+        {
+          "id": "P16-E03",
+          "kind": "traza",
+          "file": "P16/03-traza-backend.jsonl",
+          "description": "Logs de gateway y servicios con los mismos identificadores de correlación (9 líneas)"
+        }
+      ],
+      "notas": [],
+      "correlaciones": 6
+    },
+    {
+      "id": "P17",
+      "titulo": "Sesión expirada y sesión cerrada (revocada)",
+      "flujo": "F12",
+      "requisito": "R02,R11",
+      "criterio": "CA17",
+      "critico": null,
+      "tipo": "rechazo (sesión expirada/revocada)",
+      "viewports": [
+        "escritorio"
+      ],
+      "precondiciones": "Token expirado FABRICADO por el arnés con la clave del entorno de prueba (declarado: evita esperar 15 min). Cuenta clienteA.",
+      "pasos": [
+        "GET /orders con token expirado",
+        "Cargar el token expirado en la sesión del navegador y abrir /pedidos.php",
+        "Iniciar sesión por API, cerrar sesión (logout) y reutilizar el mismo token inmediatamente"
+      ],
+      "esperado": "401 TOKEN_EXPIRED; la interfaz limpia la sesión y abre el modal \"Tu sesión expiró…\"; tras logout, el token reutilizado recibe 401 SESSION_REVOKED de inmediato.",
+      "verificacion": "Respuestas API + captura + traza.",
+      "restauracion": "No modifica datos de negocio.",
+      "inicio": "2026-11-09T19:47:11−03:00 (America/Santiago)",
+      "duracionS": 0.9,
+      "estado": "FALLIDA",
+      "error": null,
+      "comprobaciones": [
+        {
+          "label": "token expirado rechazado",
+          "expected": [
+            401,
+            "TOKEN_EXPIRED"
+          ],
+          "observed": [
+            401,
+            "TOKEN_EXPIRED"
+          ],
+          "pass": true
+        },
+        {
+          "label": "aviso de sesión expirada",
+          "expected": true,
+          "observed": true,
+          "pass": true
+        },
+        {
+          "label": "sesión local eliminada",
+          "expected": null,
+          "observed": null,
+          "pass": true
+        },
+        {
+          "label": "token válido antes de logout",
+          "expected": 200,
+          "observed": 200,
+          "pass": true
+        },
+        {
+          "label": "logout",
+          "expected": 200,
+          "observed": 200,
+          "pass": true
+        },
+        {
+          "label": "token revocado rechazado inmediatamente",
+          "expected": [
+            401,
+            "SESSION_REVOKED"
+          ],
+          "observed": [
+            200,
+            null
+          ],
+          "pass": false
+        }
+      ],
+      "evidencias": [
+        {
+          "id": "P17-E01",
+          "kind": "captura",
+          "file": "P17/01-escritorio-expirada.png",
+          "description": "Aviso de sesión expirada (escritorio 1366x768)"
+        },
+        {
+          "id": "P17-E02",
+          "kind": "red",
+          "file": "P17/02-red.json",
+          "description": "Solicitudes y respuestas (navegador y cliente API) con credenciales enmascaradas"
+        },
+        {
+          "id": "P17-E03",
+          "kind": "traza",
+          "file": "P17/03-traza-backend.jsonl",
+          "description": "Logs de gateway y servicios con los mismos identificadores de correlación (21 líneas)"
+        }
+      ],
+      "notas": [],
+      "correlaciones": 10
+    },
+    {
+      "id": "P18",
+      "titulo": "Cliente intenta operaciones de administración",
+      "flujo": "F10-F11",
+      "requisito": "R09,R10,R11",
+      "criterio": "CA18",
+      "critico": null,
+      "tipo": "rechazo (rol sin permiso)",
+      "viewports": [
+        "escritorio"
+      ],
+      "precondiciones": "Sesión de clienteA.",
+      "pasos": [
+        "POST /admin/products",
+        "DELETE /admin/products/p-002",
+        "GET /admin/orders y GET /admin/clients",
+        "Abrir /admin.php con sesión de cliente"
+      ],
+      "esperado": "403 FORBIDDEN en todas; p-002 sigue activo; la página muestra \"No tienes permisos…\" sin datos administrativos.",
+      "verificacion": "Respuestas API + SQLite inventory + captura.",
+      "restauracion": "No modifica datos.",
+      "inicio": "2026-11-09T19:47:12−03:00 (America/Santiago)",
+      "duracionS": 1.6,
+      "estado": "APROBADA",
+      "error": null,
+      "comprobaciones": [
+        {
+          "label": "POST /admin/products como cliente",
+          "expected": 403,
+          "observed": 403,
+          "pass": true
+        },
+        {
+          "label": "DELETE /admin/products/p-002 como cliente",
+          "expected": 403,
+          "observed": 403,
+          "pass": true
+        },
+        {
+          "label": "GET /admin/orders como cliente",
+          "expected": 403,
+          "observed": 403,
+          "pass": true
+        },
+        {
+          "label": "GET /admin/clients como cliente",
+          "expected": 403,
+          "observed": 403,
+          "pass": true
+        },
+        {
+          "label": "p-002 sigue activo",
+          "expected": 1,
+          "observed": 1,
+          "pass": true
+        },
+        {
+          "label": "no se creó HACK-1",
+          "pass": true
+        },
+        {
+          "label": "admin.php denegado en la interfaz",
+          "expected": "FORBIDDEN",
+          "observed": "FORBIDDEN",
+          "pass": true
+        }
+      ],
+      "evidencias": [
+        {
+          "id": "P18-E01",
+          "kind": "captura",
+          "file": "P18/01-escritorio-admin-denegado.png",
+          "description": "Cliente en /admin.php (escritorio 1366x768)"
+        },
+        {
+          "id": "P18-E02",
+          "kind": "red",
+          "file": "P18/02-red.json",
+          "description": "Solicitudes y respuestas (navegador y cliente API) con credenciales enmascaradas"
+        },
+        {
+          "id": "P18-E03",
+          "kind": "traza",
+          "file": "P18/03-traza-backend.jsonl",
+          "description": "Logs de gateway y servicios con los mismos identificadores de correlación (19 líneas)"
+        }
+      ],
+      "notas": [],
+      "correlaciones": 10
+    },
+    {
+      "id": "P19",
+      "titulo": "Acceso directo a servicios privados y al administrador de secretos",
+      "flujo": "F12",
+      "requisito": "R11",
+      "criterio": "CA19",
+      "critico": null,
+      "tipo": "rechazo (acceso directo)",
+      "viewports": [],
+      "precondiciones": "Servicios privados en 127.0.0.1:7000-7006 (modo local). El arnés actúa como atacante en la red interna.",
+      "pasos": [
+        "GET directo a cada servicio privado sin identidad de servicio",
+        "Llamada con x-internal-auth falsificado",
+        "GET /v1/secrets/... sin identidad",
+        "GET de la clave de firma JWT presentando la identidad del gateway (consumidor no autorizado para esa referencia)",
+        "Enviar al gateway cabeceras x-internal-auth/x-user falsas sin JWT"
+      ],
+      "esperado": "401 SERVICE_AUTH_REQUIRED en cada servicio; 401 en secretos sin identidad; 403 por ACL; el gateway responde 401 AUTH_REQUIRED (ignora cabeceras de identidad del navegador).",
+      "verificacion": "Respuestas + traza (internal_auth_rejected, secret_access denied).",
+      "restauracion": "No modifica datos.",
+      "inicio": "2026-11-09T19:47:14−03:00 (America/Santiago)",
+      "duracionS": 0.3,
+      "estado": "APROBADA",
+      "error": null,
+      "comprobaciones": [
+        {
+          "label": "inventory sin identidad de servicio",
+          "expected": 401,
+          "observed": 401,
+          "pass": true
+        },
+        {
+          "label": "orders sin identidad de servicio",
+          "expected": 401,
+          "observed": 401,
+          "pass": true
+        },
+        {
+          "label": "clients sin identidad de servicio",
+          "expected": 401,
+          "observed": 401,
+          "pass": true
+        },
+        {
+          "label": "payments sin identidad de servicio",
+          "expected": 401,
+          "observed": 401,
+          "pass": true
+        },
+        {
+          "label": "graphql sin identidad de servicio",
+          "expected": 401,
+          "observed": 401,
+          "pass": true
+        },
+        {
+          "label": "auth sin identidad de servicio",
+          "expected": 401,
+          "observed": 401,
+          "pass": true
+        },
+        {
+          "label": "token interno falsificado",
+          "expected": 401,
+          "observed": 401,
+          "pass": true
+        },
+        {
+          "label": "secretos sin identidad",
+          "expected": 401,
+          "observed": 401,
+          "pass": true
+        },
+        {
+          "label": "ACL impide al gateway leer la clave de firma",
+          "expected": 403,
+          "observed": 403,
+          "pass": true
+        },
+        {
+          "label": "gateway ignora cabeceras de identidad del cliente",
+          "expected": [
+            401,
+            "AUTH_REQUIRED"
+          ],
+          "observed": [
+            401,
+            "AUTH_REQUIRED"
+          ],
+          "pass": true
+        }
+      ],
+      "evidencias": [
+        {
+          "id": "P19-E01",
+          "kind": "red",
+          "file": "P19/01-red.json",
+          "description": "Solicitudes y respuestas (navegador y cliente API) con credenciales enmascaradas"
+        },
+        {
+          "id": "P19-E02",
+          "kind": "traza",
+          "file": "P19/02-traza-backend.jsonl",
+          "description": "Logs de gateway y servicios con los mismos identificadores de correlación (15 líneas)"
+        }
+      ],
+      "notas": [],
+      "correlaciones": 10
+    },
+    {
+      "id": "P20",
+      "titulo": "Cancelar un pedido pendiente desde la interfaz libera el stock",
+      "flujo": "F07",
+      "requisito": "R06",
+      "criterio": "CA20",
+      "critico": null,
+      "tipo": "éxito",
+      "viewports": [
+        "escritorio"
+      ],
+      "precondiciones": "Pedido PENDIENTE_PAGO de clienteA con 2 Trufas (p-006), creado por API.",
+      "pasos": [
+        "Registrar stock de p-006",
+        "Crear pedido",
+        "Abrir el detalle y pulsar \"Cancelar pedido\" (aceptar confirmación)",
+        "Intentar cancelar nuevamente por API"
+      ],
+      "esperado": "La interfaz muestra estado Cancelado; stock vuelve al valor inicial; reserva LIBERADA; segundo intento 409 TRANSICION_INVALIDA; el pedido no se borra (historial conservado).",
+      "verificacion": "Captura + red + SQLite (orders, order_events, reservations) + stock API.",
+      "restauracion": "Base nueva por ejecución.",
+      "inicio": "2026-11-09T19:47:14−03:00 (America/Santiago)",
+      "duracionS": 1.8,
+      "estado": "APROBADA",
+      "error": null,
+      "comprobaciones": [
+        {
+          "label": "stock reservado",
+          "expected": 15,
+          "observed": 15,
+          "pass": true
+        },
+        {
+          "label": "stock restaurado",
+          "expected": 17,
+          "observed": 17,
+          "pass": true
+        },
+        {
+          "label": "reserva liberada",
+          "expected": "LIBERADA",
+          "observed": "LIBERADA",
+          "pass": true
+        },
+        {
+          "label": "historial conservado",
+          "expected": [
+            "PENDIENTE_PAGO",
+            "CANCELADO"
+          ],
+          "observed": [
+            "PENDIENTE_PAGO",
+            "CANCELADO"
+          ],
+          "pass": true
+        },
+        {
+          "label": "segunda cancelación rechazada",
+          "expected": [
+            409,
+            "TRANSICION_INVALIDA"
+          ],
+          "observed": [
+            409,
+            "TRANSICION_INVALIDA"
+          ],
+          "pass": true
+        }
+      ],
+      "evidencias": [
+        {
+          "id": "P20-E01",
+          "kind": "captura",
+          "file": "P20/01-escritorio-cancelado.png",
+          "description": "Pedido cancelado (escritorio 1366x768)"
+        },
+        {
+          "id": "P20-E02",
+          "kind": "red",
+          "file": "P20/02-red.json",
+          "description": "Solicitudes y respuestas (navegador y cliente API) con credenciales enmascaradas"
+        },
+        {
+          "id": "P20-E03",
+          "kind": "traza",
+          "file": "P20/03-traza-backend.jsonl",
+          "description": "Logs de gateway y servicios con los mismos identificadores de correlación (61 líneas)"
+        }
+      ],
+      "notas": [],
+      "correlaciones": 16
+    },
+    {
+      "id": "P21",
+      "titulo": "Perfil: validación de RUT en servidor y datos personales cifrados en reposo",
+      "flujo": "F08",
+      "requisito": "R07",
+      "criterio": "CA21",
+      "critico": null,
+      "tipo": "rechazo y éxito",
+      "viewports": [
+        "escritorio"
+      ],
+      "precondiciones": "clienteB con sesión.",
+      "pasos": [
+        "Abrir /perfil.php",
+        "Ingresar RUT 12.345.678-9 (dígito verificador inválido) y guardar",
+        "Corregir a 12.345.678-5 y teléfono +56 9 3333 4444, guardar",
+        "Recargar la página",
+        "Leer clients.db"
+      ],
+      "esperado": "Primer guardado: mensaje de error del servidor (rut: RUT inválido); segundo: \"Perfil actualizado\"; tras recargar se muestran los valores; en la base rut/teléfono están cifrados (prefijo v1:, sin texto plano).",
+      "verificacion": "Capturas + red + SQLite.",
+      "restauracion": "Base nueva por ejecución.",
+      "inicio": "2026-11-09T19:47:16−03:00 (America/Santiago)",
+      "duracionS": 1.8,
+      "estado": "APROBADA",
+      "error": null,
+      "comprobaciones": [
+        {
+          "label": "servidor rechaza RUT inválido",
+          "expected": true,
+          "observed": true,
+          "pass": true
+        },
+        {
+          "label": "valores persistidos tras recargar",
+          "expected": [
+            "12.345.678-5",
+            "+56 9 3333 4444"
+          ],
+          "observed": [
+            "12.345.678-5",
+            "+56 9 3333 4444"
+          ],
+          "pass": true
+        },
+        {
+          "label": "RUT y teléfono cifrados en reposo",
+          "expected": true,
+          "observed": true,
+          "pass": true
+        }
+      ],
+      "evidencias": [
+        {
+          "id": "P21-E01",
+          "kind": "captura",
+          "file": "P21/01-escritorio-rut-invalido.png",
+          "description": "RUT con dígito verificador inválido (escritorio 1366x768)"
+        },
+        {
+          "id": "P21-E02",
+          "kind": "captura",
+          "file": "P21/02-escritorio-perfil-guardado.png",
+          "description": "Perfil tras recargar (escritorio 1366x768)"
+        },
+        {
+          "id": "P21-E03",
+          "kind": "red",
+          "file": "P21/03-red.json",
+          "description": "Solicitudes y respuestas (navegador y cliente API) con credenciales enmascaradas"
+        },
+        {
+          "id": "P21-E04",
+          "kind": "traza",
+          "file": "P21/04-traza-backend.jsonl",
+          "description": "Logs de gateway y servicios con los mismos identificadores de correlación (23 líneas)"
+        }
+      ],
+      "notas": [],
+      "correlaciones": 10
+    },
+    {
+      "id": "P22",
+      "titulo": "Solicitud de orden especial desde \"¡Contáctanos!\" (móvil)",
+      "flujo": "F09",
+      "requisito": "R08",
+      "criterio": "CA22",
+      "critico": null,
+      "tipo": "éxito y validación",
+      "viewports": [
+        "movil"
+      ],
+      "precondiciones": "Visitante anónimo. Admin para la verificación.",
+      "pasos": [
+        "Desde el inicio pulsar \"¡Contáctanos!\"",
+        "Enviar con mensaje de 5 caracteres",
+        "Completar mensaje válido y enviar",
+        "Admin consulta GET /admin/contact-requests",
+        "POST directo con mensaje corto"
+      ],
+      "esperado": "Tipo preseleccionado ORDEN_ESPECIAL; el mensaje corto no se envía (validación de interfaz); el válido muestra N° de solicitud; el admin la ve con estado NUEVA; el POST directo corto recibe 400.",
+      "verificacion": "Capturas + red + respuesta admin.",
+      "restauracion": "Base nueva por ejecución.",
+      "inicio": "2026-11-09T19:47:18−03:00 (America/Santiago)",
+      "duracionS": 1.1,
+      "estado": "APROBADA",
+      "error": null,
+      "comprobaciones": [
+        {
+          "label": "tipo preseleccionado",
+          "expected": "ORDEN_ESPECIAL",
+          "observed": "ORDEN_ESPECIAL",
+          "pass": true
+        },
+        {
+          "label": "validación de interfaz bloquea mensaje corto",
+          "expected": [
+            true,
+            0
+          ],
+          "observed": [
+            true,
+            0
+          ],
+          "pass": true
+        },
+        {
+          "label": "admin ve la solicitud",
+          "expected": [
+            "ORDEN_ESPECIAL",
+            "NUEVA"
+          ],
+          "observed": [
+            "ORDEN_ESPECIAL",
+            "NUEVA"
+          ],
+          "pass": true
+        },
+        {
+          "label": "servidor también valida",
+          "expected": 400,
+          "observed": 400,
+          "pass": true
+        }
+      ],
+      "evidencias": [
+        {
+          "id": "P22-E01",
+          "kind": "captura",
+          "file": "P22/01-movil-validacion.png",
+          "description": "Mensaje demasiado corto (móvil Pixel 7 emulado 412x839 (DPR 2.625, táctil))"
+        },
+        {
+          "id": "P22-E02",
+          "kind": "captura",
+          "file": "P22/02-movil-enviado.png",
+          "description": "Solicitud enviada (móvil Pixel 7 emulado 412x839 (DPR 2.625, táctil))"
+        },
+        {
+          "id": "P22-E03",
+          "kind": "red",
+          "file": "P22/03-red.json",
+          "description": "Solicitudes y respuestas (navegador y cliente API) con credenciales enmascaradas"
+        },
+        {
+          "id": "P22-E04",
+          "kind": "traza",
+          "file": "P22/04-traza-backend.jsonl",
+          "description": "Logs de gateway y servicios con los mismos identificadores de correlación (19 líneas)"
+        }
+      ],
+      "notas": [],
+      "correlaciones": 8
+    },
+    {
+      "id": "P23",
+      "titulo": "Administración de productos: alta y baja lógica reflejadas en el catálogo público",
+      "flujo": "F10",
+      "requisito": "R09",
+      "criterio": "CA23",
+      "critico": null,
+      "tipo": "éxito",
+      "viewports": [
+        "escritorio"
+      ],
+      "precondiciones": "Cuenta admin. SKU único por ejecución.",
+      "pasos": [
+        "Admin abre /admin.php → Productos → Nuevo producto",
+        "Completa y guarda",
+        "Visitante consulta catálogo (API sin sesión)",
+        "Admin da de baja el producto",
+        "Visitante vuelve a consultar"
+      ],
+      "esperado": "El producto aparece en la tabla y en el catálogo público; tras la baja deja de aparecer en el catálogo, pero sigue en la base con activo=0.",
+      "verificacion": "Capturas + red + API anónima + SQLite.",
+      "restauracion": "Producto queda inactivo (base nueva por ejecución).",
+      "inicio": "2026-11-09T19:47:19−03:00 (America/Santiago)",
+      "duracionS": 2.5,
+      "estado": "APROBADA",
+      "error": null,
+      "comprobaciones": [
+        {
+          "label": "visible en catálogo público",
+          "expected": 1,
+          "observed": 1,
+          "pass": true
+        },
+        {
+          "label": "oculto del catálogo tras la baja",
+          "expected": 0,
+          "observed": 0,
+          "pass": true
+        },
+        {
+          "label": "conservado en la base como inactivo",
+          "expected": 0,
+          "observed": 0,
+          "pass": true
+        }
+      ],
+      "evidencias": [
+        {
+          "id": "P23-E01",
+          "kind": "captura",
+          "file": "P23/01-escritorio-creado.png",
+          "description": "Producto creado en administración (escritorio 1366x768)"
+        },
+        {
+          "id": "P23-E02",
+          "kind": "red",
+          "file": "P23/02-red.json",
+          "description": "Solicitudes y respuestas (navegador y cliente API) con credenciales enmascaradas"
+        },
+        {
+          "id": "P23-E03",
+          "kind": "traza",
+          "file": "P23/03-traza-backend.jsonl",
+          "description": "Logs de gateway y servicios con los mismos identificadores de correlación (38 líneas)"
+        }
+      ],
+      "notas": [],
+      "correlaciones": 16
+    },
+    {
+      "id": "P24",
+      "titulo": "Administración de estados: PAGADO → EN_PREPARACION y transición inválida",
+      "flujo": "F11",
+      "requisito": "R10",
+      "criterio": "CA24",
+      "critico": null,
+      "tipo": "éxito y rechazo",
+      "viewports": [
+        "escritorio"
+      ],
+      "precondiciones": "Pedido PAGADO de clienteA (precondición por API + sandbox).",
+      "pasos": [
+        "Admin abre Pedidos y cambia el pedido a EN_PREPARACION",
+        "PUT directo EN_PREPARACION → ENTREGADO",
+        "clienteA consulta su pedido por GraphQL"
+      ],
+      "esperado": "La tabla muestra En preparación; la transición inválida recibe 409; el cliente ve EN_PREPARACION; historial con actor admin.",
+      "verificacion": "Captura + red + SQLite order_events + GraphQL del cliente.",
+      "restauracion": "Base nueva por ejecución.",
+      "inicio": "2026-11-09T19:47:21−03:00 (America/Santiago)",
+      "duracionS": 1.8,
+      "estado": "APROBADA",
+      "error": null,
+      "comprobaciones": [
+        {
+          "label": "transición inválida rechazada",
+          "expected": 409,
+          "observed": 409,
+          "pass": true
+        },
+        {
+          "label": "cliente ve el nuevo estado",
+          "expected": "EN_PREPARACION",
+          "observed": "EN_PREPARACION",
+          "pass": true
+        },
+        {
+          "label": "historial con actor admin",
+          "expected": [
+            "cliente",
+            "payments",
+            "admin"
+          ],
+          "observed": [
+            "cliente",
+            "payments",
+            "admin"
+          ],
+          "pass": true
+        }
+      ],
+      "evidencias": [
+        {
+          "id": "P24-E01",
+          "kind": "captura",
+          "file": "P24/01-escritorio-en-preparacion.png",
+          "description": "Pedido cambiado a En preparación (escritorio 1366x768)"
+        },
+        {
+          "id": "P24-E02",
+          "kind": "red",
+          "file": "P24/02-red.json",
+          "description": "Solicitudes y respuestas (navegador y cliente API) con credenciales enmascaradas"
+        },
+        {
+          "id": "P24-E03",
+          "kind": "traza",
+          "file": "P24/03-traza-backend.jsonl",
+          "description": "Logs de gateway y servicios con los mismos identificadores de correlación (55 líneas)"
+        }
+      ],
+      "notas": [],
+      "correlaciones": 19
+    },
+    {
+      "id": "P25",
+      "titulo": "inventory con respuesta demorada 5 s: el gateway corta a los 4 s y la interfaz lo comunica",
+      "flujo": "F01",
+      "requisito": "R12",
+      "criterio": "CA25",
+      "critico": null,
+      "tipo": "fallo (demora controlada)",
+      "viewports": [
+        "escritorio"
+      ],
+      "precondiciones": "inventory reiniciado con FAULT_DELAY_MS=5000 (inyección de fallos de prueba).",
+      "pasos": [
+        "Reiniciar inventory con demora",
+        "Abrir /catalogo.php",
+        "Medir tiempo hasta el mensaje",
+        "Reiniciar inventory sin demora y reintentar"
+      ],
+      "esperado": "Error UPSTREAM_TIMEOUT (504) \"El servicio tardó demasiado…\" en ≈4 s (< 6 s); tras restablecer, \"Reintentar\" carga el catálogo.",
+      "verificacion": "Captura + red (504) + traza (downstream_failure timeout=true).",
+      "restauracion": "inventory reiniciado sin demora (también en caso de error).",
+      "inicio": "2026-11-09T19:47:23−03:00 (America/Santiago)",
+      "duracionS": 5.5,
+      "estado": "APROBADA",
+      "error": null,
+      "comprobaciones": [
+        {
+          "label": "código UPSTREAM_TIMEOUT",
+          "expected": "UPSTREAM_TIMEOUT",
+          "observed": "UPSTREAM_TIMEOUT",
+          "pass": true
+        },
+        {
+          "label": "mensaje en menos de 6 s",
+          "expected": "< 6 s",
+          "observed": "4.4 s",
+          "pass": true
+        },
+        {
+          "label": "recupera tras restablecer",
+          "expected": true,
+          "observed": true,
+          "pass": true
+        }
+      ],
+      "evidencias": [
+        {
+          "id": "P25-E01",
+          "kind": "captura",
+          "file": "P25/01-escritorio-demora.png",
+          "description": "Catálogo con inventory demorado (escritorio 1366x768)"
+        },
+        {
+          "id": "P25-E02",
+          "kind": "red",
+          "file": "P25/02-red.json",
+          "description": "Solicitudes y respuestas (navegador y cliente API) con credenciales enmascaradas"
+        },
+        {
+          "id": "P25-E03",
+          "kind": "traza",
+          "file": "P25/03-traza-backend.jsonl",
+          "description": "Logs de gateway y servicios con los mismos identificadores de correlación (8 líneas)"
+        }
+      ],
+      "notas": [],
+      "correlaciones": 4
+    },
+    {
+      "id": "P26",
+      "titulo": "Proveedor de pagos (sandbox) indisponible al iniciar el pago",
+      "flujo": "F05",
+      "requisito": "R04,R12",
+      "criterio": "CA26",
+      "critico": null,
+      "tipo": "fallo y recuperación",
+      "viewports": [
+        "escritorio"
+      ],
+      "precondiciones": "Pedido PENDIENTE_PAGO de clienteB. Se detiene payment-sandbox.",
+      "pasos": [
+        "Crear pedido por API",
+        "Detener sandbox",
+        "En Mis pedidos pulsar \"Pagar ahora\"",
+        "Reiniciar sandbox y pulsar de nuevo"
+      ],
+      "esperado": "Mensaje \"El proveedor de pagos no está disponible…\" (503) y el pedido sigue PENDIENTE_PAGO con el stock reservado; tras reiniciar, el botón redirige a la pasarela.",
+      "verificacion": "Captura + red + SQLite (payments ERROR, orders PENDIENTE_PAGO).",
+      "restauracion": "Sandbox reiniciado (también en caso de error).",
+      "inicio": "2026-11-09T19:47:28−03:00 (America/Santiago)",
+      "duracionS": 2,
+      "estado": "APROBADA",
+      "error": null,
+      "comprobaciones": [
+        {
+          "label": "mensaje de proveedor no disponible",
+          "expected": true,
+          "observed": true,
+          "pass": true
+        },
+        {
+          "label": "pedido sigue pendiente",
+          "expected": "PENDIENTE_PAGO",
+          "observed": "PENDIENTE_PAGO",
+          "pass": true
+        },
+        {
+          "label": "intento registrado como ERROR",
+          "expected": [
+            "ERROR"
+          ],
+          "observed": [
+            "ERROR"
+          ],
+          "pass": true
+        },
+        {
+          "label": "recuperación: llega a la pasarela",
+          "expected": true,
+          "observed": true,
+          "pass": true
+        }
+      ],
+      "evidencias": [
+        {
+          "id": "P26-E01",
+          "kind": "captura",
+          "file": "P26/01-escritorio-proveedor-caido.png",
+          "description": "Pago con proveedor indisponible (escritorio 1366x768)"
+        },
+        {
+          "id": "P26-E02",
+          "kind": "red",
+          "file": "P26/02-red.json",
+          "description": "Solicitudes y respuestas (navegador y cliente API) con credenciales enmascaradas"
+        },
+        {
+          "id": "P26-E03",
+          "kind": "traza",
+          "file": "P26/03-traza-backend.jsonl",
+          "description": "Logs de gateway y servicios con los mismos identificadores de correlación (43 líneas)"
+        }
+      ],
+      "notas": [],
+      "correlaciones": 11
+    },
+    {
+      "id": "P27",
+      "titulo": "Límite de solicitudes en una ruta anónima sensible (contact-requests)",
+      "flujo": "F09",
+      "requisito": "R11",
+      "criterio": "CA27",
+      "critico": null,
+      "tipo": "límite",
+      "viewports": [],
+      "precondiciones": "Límite estricto configurado en la ejecución (RATE_LIMIT_STRICT, ver run.json).",
+      "pasos": [
+        "Enviar límite+5 solicitudes inválidas seguidas desde la misma IP"
+      ],
+      "esperado": "Las primeras reciben 400; al superar el límite, 429 RATE_LIMITED con Retry-After; no se crean registros.",
+      "verificacion": "Conteo de estados + SQLite.",
+      "restauracion": "La ventana se reinicia al minuto.",
+      "inicio": "2026-11-09T19:47:30−03:00 (America/Santiago)",
+      "duracionS": 0.5,
+      "estado": "APROBADA",
+      "error": null,
+      "comprobaciones": [
+        {
+          "label": "se alcanza 429",
+          "expected": true,
+          "observed": true,
+          "pass": true
+        },
+        {
+          "label": "cabecera Retry-After presente",
+          "expected": true,
+          "observed": true,
+          "pass": true
+        },
+        {
+          "label": "sin registros creados",
+          "expected": 1,
+          "observed": 1,
+          "pass": true
+        }
+      ],
+      "evidencias": [
+        {
+          "id": "P27-E01",
+          "kind": "datos",
+          "file": "P27/01-estados.json",
+          "description": "Conteo de códigos HTTP"
+        },
+        {
+          "id": "P27-E02",
+          "kind": "red",
+          "file": "P27/02-red.json",
+          "description": "Solicitudes y respuestas (navegador y cliente API) con credenciales enmascaradas"
+        },
+        {
+          "id": "P27-E03",
+          "kind": "traza",
+          "file": "P27/03-traza-backend.jsonl",
+          "description": "Logs de gateway y servicios con los mismos identificadores de correlación (123 líneas)"
+        }
+      ],
+      "notas": [],
+      "correlaciones": 65
+    },
+    {
+      "id": "P28",
+      "titulo": "Comportamiento responsivo en 4 anchos (inicio, catálogo, carrito)",
+      "flujo": "F01-F04",
+      "requisito": "R13",
+      "criterio": "CA28",
+      "critico": null,
+      "tipo": "responsivo",
+      "viewports": [
+        "360",
+        "768",
+        "1024",
+        "1440"
+      ],
+      "precondiciones": "Visitante anónimo con 1 producto en el carrito.",
+      "pasos": [
+        "Para 360, 768, 1024 y 1440 px abrir inicio, catálogo y carrito",
+        "Medir desborde horizontal",
+        "Verificar menú colapsado bajo 992 px y columnas del catálogo"
+      ],
+      "esperado": "Sin desborde horizontal; botón de menú visible en 360/768 y oculto en 1024/1440; columnas del catálogo 1/3/3/4.",
+      "verificacion": "Capturas de página completa + mediciones.",
+      "restauracion": "No requiere.",
+      "inicio": "2026-11-09T19:47:31−03:00 (America/Santiago)",
+      "duracionS": 9.4,
+      "estado": "APROBADA",
+      "error": null,
+      "comprobaciones": [
+        {
+          "label": "360px index: sin desborde horizontal",
+          "expected": 0,
+          "observed": 0,
+          "pass": true
+        },
+        {
+          "label": "360px: botón de menú visible",
+          "expected": true,
+          "observed": true,
+          "pass": true
+        },
+        {
+          "label": "360px catalogo: sin desborde horizontal",
+          "expected": 0,
+          "observed": 0,
+          "pass": true
+        },
+        {
+          "label": "360px: columnas del catálogo",
+          "expected": 1,
+          "observed": 1,
+          "pass": true
+        },
+        {
+          "label": "360px carrito: sin desborde horizontal",
+          "expected": 0,
+          "observed": 0,
+          "pass": true
+        },
+        {
+          "label": "768px index: sin desborde horizontal",
+          "expected": 0,
+          "observed": 0,
+          "pass": true
+        },
+        {
+          "label": "768px: botón de menú visible",
+          "expected": true,
+          "observed": true,
+          "pass": true
+        },
+        {
+          "label": "768px catalogo: sin desborde horizontal",
+          "expected": 0,
+          "observed": 0,
+          "pass": true
+        },
+        {
+          "label": "768px: columnas del catálogo",
+          "expected": 3,
+          "observed": 3,
+          "pass": true
+        },
+        {
+          "label": "768px carrito: sin desborde horizontal",
+          "expected": 0,
+          "observed": 0,
+          "pass": true
+        },
+        {
+          "label": "1024px index: sin desborde horizontal",
+          "expected": 0,
+          "observed": 0,
+          "pass": true
+        },
+        {
+          "label": "1024px: botón de menú visible",
+          "expected": false,
+          "observed": false,
+          "pass": true
+        },
+        {
+          "label": "1024px catalogo: sin desborde horizontal",
+          "expected": 0,
+          "observed": 0,
+          "pass": true
+        },
+        {
+          "label": "1024px: columnas del catálogo",
+          "expected": 3,
+          "observed": 3,
+          "pass": true
+        },
+        {
+          "label": "1024px carrito: sin desborde horizontal",
+          "expected": 0,
+          "observed": 0,
+          "pass": true
+        },
+        {
+          "label": "1440px index: sin desborde horizontal",
+          "expected": 0,
+          "observed": 0,
+          "pass": true
+        },
+        {
+          "label": "1440px: botón de menú visible",
+          "expected": false,
+          "observed": false,
+          "pass": true
+        },
+        {
+          "label": "1440px catalogo: sin desborde horizontal",
+          "expected": 0,
+          "observed": 0,
+          "pass": true
+        },
+        {
+          "label": "1440px: columnas del catálogo",
+          "expected": 4,
+          "observed": 4,
+          "pass": true
+        },
+        {
+          "label": "1440px carrito: sin desborde horizontal",
+          "expected": 0,
+          "observed": 0,
+          "pass": true
+        }
+      ],
+      "evidencias": [
+        {
+          "id": "P28-E01",
+          "kind": "captura",
+          "file": "P28/01-360px-index.png",
+          "description": "index.php a 360px (página completa)"
+        },
+        {
+          "id": "P28-E02",
+          "kind": "captura",
+          "file": "P28/02-360px-catalogo.png",
+          "description": "catalogo.php a 360px (página completa)"
+        },
+        {
+          "id": "P28-E03",
+          "kind": "captura",
+          "file": "P28/03-360px-carrito.png",
+          "description": "carrito.php a 360px (página completa)"
+        },
+        {
+          "id": "P28-E04",
+          "kind": "captura",
+          "file": "P28/04-768px-index.png",
+          "description": "index.php a 768px (página completa)"
+        },
+        {
+          "id": "P28-E05",
+          "kind": "captura",
+          "file": "P28/05-768px-catalogo.png",
+          "description": "catalogo.php a 768px (página completa)"
+        },
+        {
+          "id": "P28-E06",
+          "kind": "captura",
+          "file": "P28/06-768px-carrito.png",
+          "description": "carrito.php a 768px (página completa)"
+        },
+        {
+          "id": "P28-E07",
+          "kind": "captura",
+          "file": "P28/07-1024px-index.png",
+          "description": "index.php a 1024px (página completa)"
+        },
+        {
+          "id": "P28-E08",
+          "kind": "captura",
+          "file": "P28/08-1024px-catalogo.png",
+          "description": "catalogo.php a 1024px (página completa)"
+        },
+        {
+          "id": "P28-E09",
+          "kind": "captura",
+          "file": "P28/09-1024px-carrito.png",
+          "description": "carrito.php a 1024px (página completa)"
+        },
+        {
+          "id": "P28-E10",
+          "kind": "captura",
+          "file": "P28/10-1440px-index.png",
+          "description": "index.php a 1440px (página completa)"
+        },
+        {
+          "id": "P28-E11",
+          "kind": "captura",
+          "file": "P28/11-1440px-catalogo.png",
+          "description": "catalogo.php a 1440px (página completa)"
+        },
+        {
+          "id": "P28-E12",
+          "kind": "captura",
+          "file": "P28/12-1440px-carrito.png",
+          "description": "carrito.php a 1440px (página completa)"
+        }
+      ],
+      "notas": [],
+      "correlaciones": 0
+    },
+    {
+      "id": "P29",
+      "titulo": "Las evidencias y logs de la ejecución no contienen secretos ni contraseñas",
+      "flujo": "Transversal",
+      "requisito": "R11",
+      "criterio": "CA29",
+      "critico": null,
+      "tipo": "control de protección",
+      "viewports": [],
+      "precondiciones": "Todas las demás pruebas ejecutadas.",
+      "pasos": [
+        "Obtener los valores secretos del entorno de prueba (.secrets)",
+        "Buscar cada valor en todos los archivos de texto de la ejecución (evidencias y logs)",
+        "Buscar patrones de JWT (\"eyJ…\") en las evidencias"
+      ],
+      "esperado": "0 coincidencias.",
+      "verificacion": "Reporte de búsqueda (sin imprimir los valores).",
+      "restauracion": "No requiere.",
+      "inicio": "2026-11-09T19:47:40−03:00 (America/Santiago)",
+      "duracionS": 0.3,
+      "estado": "APROBADA",
+      "error": null,
+      "comprobaciones": [
+        {
+          "label": "valores secretos en evidencias",
+          "expected": 0,
+          "observed": 0,
+          "pass": true
+        },
+        {
+          "label": "tokens JWT en evidencias",
+          "expected": 0,
+          "observed": 0,
+          "pass": true
+        }
+      ],
+      "evidencias": [
+        {
+          "id": "P29-E01",
+          "kind": "datos",
+          "file": "P29/01-busqueda.json",
+          "description": "Resultado de la búsqueda de secretos"
+        }
+      ],
+      "notas": [],
+      "correlaciones": 0
+    }
+  ]
+}

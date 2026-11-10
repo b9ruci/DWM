@@ -1,0 +1,17 @@
+{
+  "name": "chocomania-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Backend seguro de Chocolatería Chocomanía: API Gateway, Auth, gestor de secretos, GraphQL Gateway y microservicios inventory, orders, clients y payments.",
+  "type": "commonjs",
+  "engines": { "node": ">=22.13" },
+  "scripts": {
+    "init-secrets": "node scripts/init-secrets.js",
+    "reset": "node scripts/reset-data.js",
+    "start": "node scripts/start-local.js",
+    "test": "node ../tests/runner.mjs"
+  },
+  "dependencies": {
+    "graphql": "16.11.0"
+  }
+}

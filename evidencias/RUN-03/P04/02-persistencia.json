@@ -1,0 +1,10 @@
+{
+  "usuario": {
+    "id": "26c4521b-84dd-45af-818b-5d9d064eaf04",
+    "role": "CLIENTE",
+    "hashAlgoritmo": "scrypt"
+  },
+  "perfil": {
+    "id": "26c4521b-84dd-45af-818b-5d9d064eaf04"
+  }
+}

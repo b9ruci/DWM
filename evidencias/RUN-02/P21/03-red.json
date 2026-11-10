@@ -1,0 +1,377 @@
+[
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:48:35.524Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/categories",
+    "requestHeaders": {
+      "x-correlation-id": "e053a04c-d20b-4f88-bcc1-efc520ff1b5d",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "e053a04c-d20b-4f88-bcc1-efc520ff1b5d",
+    "responseBody": {
+      "data": [
+        {
+          "nombre": "Barras",
+          "total": 2
+        },
+        {
+          "nombre": "Bebidas",
+          "total": 1
+        },
+        {
+          "nombre": "Bombones",
+          "total": 2
+        },
+        {
+          "nombre": "Figuras",
+          "total": 4
+        }
+      ]
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:48:35.524Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/promotions",
+    "requestHeaders": {
+      "x-correlation-id": "9d7aae79-bc0d-43b5-b681-beae01e1e983",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "9d7aae79-bc0d-43b5-b681-beae01e1e983",
+    "responseBody": {
+      "data": [
+        {
+          "id": "promo-1",
+          "titulo": "Barra Chocolate Dubái Labubu",
+          "subtitulo": "La barra del momento, rellena de pistacho y kataifi.",
+          "productoId": "p-001",
+          "precio": 100000,
+          "unidad": "kg",
+          "imagen": "/assets/img/productos/barra-dubai.svg",
+          "disponible": true
+        },
+        {
+          "id": "promo-2",
+          "titulo": "Bombones Surtidos",
+          "subtitulo": "12 sabores artesanales en una caja para regalar.",
+          "productoId": "p-005",
+          "precio": 12990,
+          "unidad": "unidad",
+          "imagen": "/assets/img/productos/bombones.svg",
+          "disponible": true
+        },
+        {
+          "id": "promo-3",
+          "titulo": "Flor de Chocolate",
+          "subtitulo": "Un ramo que no se marchita: chocolate blanco y de leche.",
+          "productoId": "p-004",
+          "precio": 5490,
+          "unidad": "unidad",
+          "imagen": "/assets/img/productos/flor-chocolate.svg",
+          "disponible": true
+        },
+        {
+          "id": "promo-4",
+          "titulo": "Choco Miau",
+          "subtitulo": "Nuestro gatito de chocolate, favorito de los niños.",
+          "productoId": "p-002",
+          "precio": 3990,
+          "unidad": "unidad",
+          "imagen": "/assets/img/productos/choco-miau.svg",
+          "disponible": true
+        }
+      ]
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:48:35.524Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/products?destacado=true",
+    "requestHeaders": {
+      "x-correlation-id": "29f83cdc-64b7-42b8-b4e8-39a0ec4c06d1",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "29f83cdc-64b7-42b8-b4e8-39a0ec4c06d1",
+    "responseBody": {
+      "data": [
+        {
+          "id": "p-001",
+          "nombre": "Barra Chocolate Dubái Labubu",
+          "descripcion": "Barra de chocolate de leche rellena de crema de pistacho y kataifi crujiente. Venta por kilo.",
+          "categoria": "Barras",
+          "precio": 100000,
+          "unidad": "kg",
+          "stock": 15,
+          "disponible": true,
+          "imagen": "/assets/img/productos/barra-dubai.svg",
+          "destacado": true
+        },
+        {
+          "id": "p-005",
+          "nombre": "Bombones Surtidos (12 u.)",
+          "descripcion": "Caja de 12 bombones artesanales con rellenos de frutos secos, licor y caramelo.",
+          "categoria": "Bombones",
+          "precio": 12990,
+          "unidad": "unidad",
+          "stock": 18,
+          "disponible": true,
+          "imagen": "/assets/img/productos/bombones.svg",
+          "destacado": true
+        },
+        {
+          "id": "p-002",
+          "nombre": "Choco Miau",
+          "descripcion": "Figura de chocolate de leche con forma de gatito, decorada a mano.",
+          "categoria": "Figuras",
+          "precio": 3990,
+          "unidad": "unidad",
+          "stock": 36,
+          "disponible": true,
+          "imagen": "/assets/img/productos/choco-miau.svg",
+          "destacado": true
+        },
+        {
+          "id": "p-003",
+          "nombre": "Choco Wau",
+          "descripcion": "Figura de chocolate semiamargo con forma de perrito.",
+          "categoria": "Figuras",
+          "precio": 3990,
+          "unidad": "unidad",
+          "stock": 32,
+          "disponible": true,
+          "imagen": "/assets/img/productos/choco-wau.svg",
+          "destacado": true
+        },
+        {
+          "id": "p-004",
+          "nombre": "Flor de Chocolate",
+          "descripcion": "Ramo de flores de chocolate blanco y de leche, ideal para regalo.",
+          "categoria": "Figuras",
+          "precio": 5490,
+          "unidad": "unidad",
+          "stock": 24,
+          "disponible": true,
+          "imagen": "/assets/img/productos/flor-chocolate.svg",
+          "destacado": true
+        }
+      ],
+      "total": 5
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:48:36.223Z",
+    "method": "POST",
+    "url": "http://localhost:8080/api/v1/auth/login",
+    "requestHeaders": {
+      "x-correlation-id": "ebc1b597-2150-4f42-93bb-f22c8a7695ae",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": {
+      "email": "bruno.cliente@chocomania.test",
+      "password": "[ENMASCARADO]"
+    },
+    "status": 200,
+    "responseCid": "ebc1b597-2150-4f42-93bb-f22c8a7695ae",
+    "responseBody": {
+      "data": {
+        "accessToken": "[ENMASCARADO]",
+        "tokenType": "Bearer",
+        "expiresIn": 900,
+        "user": {
+          "id": "00000000-0000-4000-8000-0000000000b2",
+          "nombre": "Bruno Soto (ficticio)",
+          "role": "CLIENTE"
+        }
+      }
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:48:36.456Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/categories",
+    "requestHeaders": {
+      "x-correlation-id": "12e00737-80e8-4423-b58d-d77663ec0a26",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "12e00737-80e8-4423-b58d-d77663ec0a26",
+    "responseBody": {
+      "data": [
+        {
+          "nombre": "Barras",
+          "total": 2
+        },
+        {
+          "nombre": "Bebidas",
+          "total": 1
+        },
+        {
+          "nombre": "Bombones",
+          "total": 2
+        },
+        {
+          "nombre": "Figuras",
+          "total": 4
+        }
+      ]
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:48:36.457Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/me/profile",
+    "requestHeaders": {
+      "x-correlation-id": "5be45dd6-2921-43c6-95ec-82a322e7ed1a",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "5be45dd6-2921-43c6-95ec-82a322e7ed1a",
+    "responseBody": {
+      "data": {
+        "id": "00000000-0000-4000-8000-0000000000b2",
+        "nombre": "Bruno Soto (ficticio)",
+        "email": "bruno.cliente@chocomania.test",
+        "rut": "22.222.222-2",
+        "telefono": "+56 9 2222 2222",
+        "direccion": "Pasaje Trufa 45",
+        "comuna": "Ñuñoa",
+        "creadoEn": "2026-11-09T22:47:56.242Z"
+      }
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:48:36.568Z",
+    "method": "PUT",
+    "url": "http://localhost:8080/api/v1/me/profile",
+    "requestHeaders": {
+      "x-correlation-id": "c8d421b6-2048-4e68-a584-cf32fd7933e2",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": {
+      "nombre": "Bruno Soto (ficticio)",
+      "rut": "12.345.678-9",
+      "telefono": "+56 9 2222 2222",
+      "direccion": "Pasaje Trufa 45",
+      "comuna": "Ñuñoa"
+    },
+    "status": 400,
+    "responseCid": "c8d421b6-2048-4e68-a584-cf32fd7933e2",
+    "responseBody": {
+      "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Datos inválidos",
+        "details": [
+          {
+            "field": "rut",
+            "message": "RUT inválido"
+          }
+        ],
+        "correlationId": "c8d421b6-2048-4e68-a584-cf32fd7933e2"
+      }
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:48:36.716Z",
+    "method": "PUT",
+    "url": "http://localhost:8080/api/v1/me/profile",
+    "requestHeaders": {
+      "x-correlation-id": "504d9dfb-1b59-4ed0-8d67-654259f3b70c",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": {
+      "nombre": "Bruno Soto (ficticio)",
+      "rut": "12.345.678-5",
+      "telefono": "+56 9 3333 4444",
+      "direccion": "Pasaje Trufa 45",
+      "comuna": "Ñuñoa"
+    },
+    "status": 200,
+    "responseCid": "504d9dfb-1b59-4ed0-8d67-654259f3b70c",
+    "responseBody": {
+      "data": {
+        "id": "00000000-0000-4000-8000-0000000000b2",
+        "nombre": "Bruno Soto (ficticio)",
+        "email": "bruno.cliente@chocomania.test",
+        "rut": "12.345.678-5",
+        "telefono": "+56 9 3333 4444",
+        "direccion": "Pasaje Trufa 45",
+        "comuna": "Ñuñoa",
+        "creadoEn": "2026-11-09T22:47:56.242Z"
+      }
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:48:36.806Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/me/profile",
+    "requestHeaders": {
+      "x-correlation-id": "1157ff9d-9025-4f2a-ae92-e5686a6d011a",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "1157ff9d-9025-4f2a-ae92-e5686a6d011a",
+    "responseBody": {
+      "data": {
+        "id": "00000000-0000-4000-8000-0000000000b2",
+        "nombre": "Bruno Soto (ficticio)",
+        "email": "bruno.cliente@chocomania.test",
+        "rut": "12.345.678-5",
+        "telefono": "+56 9 3333 4444",
+        "direccion": "Pasaje Trufa 45",
+        "comuna": "Ñuñoa",
+        "creadoEn": "2026-11-09T22:47:56.242Z"
+      }
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T22:48:36.806Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/categories",
+    "requestHeaders": {
+      "x-correlation-id": "aba72082-1ddf-4ff5-bb68-509595b88c63",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "aba72082-1ddf-4ff5-bb68-509595b88c63",
+    "responseBody": {
+      "data": [
+        {
+          "nombre": "Barras",
+          "total": 2
+        },
+        {
+          "nombre": "Bebidas",
+          "total": 1
+        },
+        {
+          "nombre": "Bombones",
+          "total": 2
+        },
+        {
+          "nombre": "Figuras",
+          "total": 4
+        }
+      ]
+    }
+  }
+]

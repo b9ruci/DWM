@@ -1,0 +1,139 @@
+{
+  "id": "CARGA-01",
+  "tipo": "MEDICIÓN (no proyección)",
+  "fecha": "2026-11-09T22:51:54.096Z",
+  "commit": "cc0519c",
+  "entorno": "Linux 6.18.44-fc-v310, 4 vCPU (Intel(R) Xeon(R) Processor @ 2.10GHz), 15.7 GiB RAM, Node v22.23.4; generador de carga en la MISMA máquina (compite por CPU)",
+  "datos": "Semillas ficticias (9 productos) + 5 pedidos de clienteA (2 pagados)",
+  "configuracion": "RATE_LIMIT_DEFAULT elevado solo para la medición; resto igual al modo local",
+  "concurrencia": 20,
+  "duracionPorEscenarioS": 20,
+  "resultados": [
+    {
+      "escenario": "L1 GET /products (anónimo)",
+      "concurrencia": 20,
+      "duracionS": 20,
+      "solicitudes": 53289,
+      "throughputRps": 2663.7,
+      "errores": 0,
+      "tasaErrores": "0.00 %",
+      "estados": {
+        "200": 53289
+      },
+      "latenciaMs": {
+        "p50": 6.7,
+        "p95": 13.7,
+        "p99": 19,
+        "max": 64.3
+      },
+      "cpuPromedioPorProceso": {
+        "secrets": "0.1 %",
+        "clients": "0.2 %",
+        "inventory": "63.1 %",
+        "auth": "0.3 %",
+        "orders": "0.3 %",
+        "payments": "0.2 %",
+        "graphql": "0.2 %",
+        "payment-sandbox": "0.3 %",
+        "gateway": "112.2 %"
+      },
+      "rssPicoMB": {
+        "secrets": 50.6,
+        "clients": 71.7,
+        "inventory": 113.9,
+        "auth": 72.1,
+        "orders": 73.7,
+        "payments": 66,
+        "graphql": 67.9,
+        "payment-sandbox": 68.9,
+        "gateway": 190.7
+      },
+      "objetivo": "p95 < 300 ms y 0 % errores",
+      "cumpleObjetivo": true
+    },
+    {
+      "escenario": "L2 GraphQL misPedidos (orders+inventory+payments+clients)",
+      "concurrencia": 20,
+      "duracionS": 20,
+      "solicitudes": 9848,
+      "throughputRps": 491.6,
+      "errores": 0,
+      "tasaErrores": "0.00 %",
+      "estados": {
+        "200": 9848
+      },
+      "latenciaMs": {
+        "p50": 38.4,
+        "p95": 60.2,
+        "p99": 84.2,
+        "max": 349.9
+      },
+      "cpuPromedioPorProceso": {
+        "secrets": "0.0 %",
+        "clients": "16.8 %",
+        "inventory": "16.8 %",
+        "auth": "0.1 %",
+        "orders": "26.4 %",
+        "payments": "20.2 %",
+        "graphql": "107.1 %",
+        "payment-sandbox": "0.0 %",
+        "gateway": "51.3 %"
+      },
+      "rssPicoMB": {
+        "secrets": 49.8,
+        "clients": 82.2,
+        "inventory": 114.6,
+        "auth": 71.8,
+        "orders": 84.2,
+        "payments": 79.2,
+        "graphql": 194.4,
+        "payment-sandbox": 66.7,
+        "gateway": 191.3
+      },
+      "objetivo": "p95 < 300 ms y 0 % errores",
+      "cumpleObjetivo": true
+    },
+    {
+      "escenario": "L3 GraphQL resumenVentas (ADMIN)",
+      "concurrencia": 20,
+      "duracionS": 20,
+      "solicitudes": 23117,
+      "throughputRps": 1155.6,
+      "errores": 0,
+      "tasaErrores": "0.00 %",
+      "estados": {
+        "200": 23117
+      },
+      "latenciaMs": {
+        "p50": 16.6,
+        "p95": 26.6,
+        "p99": 33.6,
+        "max": 48.9
+      },
+      "cpuPromedioPorProceso": {
+        "secrets": "0.0 %",
+        "clients": "0.0 %",
+        "inventory": "0.0 %",
+        "auth": "0.1 %",
+        "orders": "42.8 %",
+        "payments": "0.0 %",
+        "graphql": "96.6 %",
+        "payment-sandbox": "0.0 %",
+        "gateway": "89.0 %"
+      },
+      "rssPicoMB": {
+        "secrets": 49.8,
+        "clients": 82.2,
+        "inventory": 114.6,
+        "auth": 75,
+        "orders": 88.5,
+        "payments": 79.3,
+        "graphql": 201.3,
+        "payment-sandbox": 66.7,
+        "gateway": 191.4
+      },
+      "objetivo": "p95 < 300 ms y 0 % errores",
+      "cumpleObjetivo": true
+    }
+  ]
+}

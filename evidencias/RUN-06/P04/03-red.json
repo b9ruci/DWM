@@ -1,0 +1,277 @@
+[
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T23:05:38.906Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/categories",
+    "requestHeaders": {
+      "x-correlation-id": "82727fb7-3ccf-4393-8796-8002146d10f7",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "82727fb7-3ccf-4393-8796-8002146d10f7",
+    "responseBody": {
+      "data": [
+        {
+          "nombre": "Barras",
+          "total": 2
+        },
+        {
+          "nombre": "Bebidas",
+          "total": 1
+        },
+        {
+          "nombre": "Bombones",
+          "total": 2
+        },
+        {
+          "nombre": "Figuras",
+          "total": 4
+        }
+      ]
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T23:05:38.906Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/promotions",
+    "requestHeaders": {
+      "x-correlation-id": "8e682ef3-64c2-4ea6-8885-1f28cfe9003a",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "8e682ef3-64c2-4ea6-8885-1f28cfe9003a",
+    "responseBody": {
+      "data": [
+        {
+          "id": "promo-1",
+          "titulo": "Barra Chocolate Dubái Labubu",
+          "subtitulo": "La barra del momento, rellena de pistacho y kataifi.",
+          "productoId": "p-001",
+          "precio": 100000,
+          "unidad": "kg",
+          "imagen": "/assets/img/productos/barra-dubai.svg",
+          "disponible": true
+        },
+        {
+          "id": "promo-2",
+          "titulo": "Bombones Surtidos",
+          "subtitulo": "12 sabores artesanales en una caja para regalar.",
+          "productoId": "p-005",
+          "precio": 12990,
+          "unidad": "unidad",
+          "imagen": "/assets/img/productos/bombones.svg",
+          "disponible": true
+        },
+        {
+          "id": "promo-3",
+          "titulo": "Flor de Chocolate",
+          "subtitulo": "Un ramo que no se marchita: chocolate blanco y de leche.",
+          "productoId": "p-004",
+          "precio": 5490,
+          "unidad": "unidad",
+          "imagen": "/assets/img/productos/flor-chocolate.svg",
+          "disponible": true
+        },
+        {
+          "id": "promo-4",
+          "titulo": "Choco Miau",
+          "subtitulo": "Nuestro gatito de chocolate, favorito de los niños.",
+          "productoId": "p-002",
+          "precio": 3990,
+          "unidad": "unidad",
+          "imagen": "/assets/img/productos/choco-miau.svg",
+          "disponible": true
+        }
+      ]
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T23:05:38.917Z",
+    "method": "GET",
+    "url": "http://localhost:8080/api/v1/products?destacado=true",
+    "requestHeaders": {
+      "x-correlation-id": "9a6460e9-0077-4678-b57d-ab064f91f075",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": null,
+    "status": 200,
+    "responseCid": "9a6460e9-0077-4678-b57d-ab064f91f075",
+    "responseBody": {
+      "data": [
+        {
+          "id": "p-001",
+          "nombre": "Barra Chocolate Dubái Labubu",
+          "descripcion": "Barra de chocolate de leche rellena de crema de pistacho y kataifi crujiente. Venta por kilo.",
+          "categoria": "Barras",
+          "precio": 100000,
+          "unidad": "kg",
+          "stock": 15,
+          "disponible": true,
+          "imagen": "/assets/img/productos/barra-dubai.svg",
+          "destacado": true
+        },
+        {
+          "id": "p-005",
+          "nombre": "Bombones Surtidos (12 u.)",
+          "descripcion": "Caja de 12 bombones artesanales con rellenos de frutos secos, licor y caramelo.",
+          "categoria": "Bombones",
+          "precio": 12990,
+          "unidad": "unidad",
+          "stock": 20,
+          "disponible": true,
+          "imagen": "/assets/img/productos/bombones.svg",
+          "destacado": true
+        },
+        {
+          "id": "p-002",
+          "nombre": "Choco Miau",
+          "descripcion": "Figura de chocolate de leche con forma de gatito, decorada a mano.",
+          "categoria": "Figuras",
+          "precio": 3990,
+          "unidad": "unidad",
+          "stock": 40,
+          "disponible": true,
+          "imagen": "/assets/img/productos/choco-miau.svg",
+          "destacado": true
+        },
+        {
+          "id": "p-003",
+          "nombre": "Choco Wau",
+          "descripcion": "Figura de chocolate semiamargo con forma de perrito.",
+          "categoria": "Figuras",
+          "precio": 3990,
+          "unidad": "unidad",
+          "stock": 35,
+          "disponible": true,
+          "imagen": "/assets/img/productos/choco-wau.svg",
+          "destacado": true
+        },
+        {
+          "id": "p-004",
+          "nombre": "Flor de Chocolate",
+          "descripcion": "Ramo de flores de chocolate blanco y de leche, ideal para regalo.",
+          "categoria": "Figuras",
+          "precio": 5490,
+          "unidad": "unidad",
+          "stock": 25,
+          "disponible": true,
+          "imagen": "/assets/img/productos/flor-chocolate.svg",
+          "destacado": true
+        }
+      ],
+      "total": 5
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T23:05:39.619Z",
+    "method": "POST",
+    "url": "http://localhost:8080/api/v1/auth/register",
+    "requestHeaders": {
+      "x-correlation-id": "ffab0ab7-d05f-448b-becf-2a20ee39854d",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": {
+      "nombre": "Carla Prueba (ficticia)",
+      "email": "nueva.1794265538735@chocomania.test",
+      "password": "[ENMASCARADO]"
+    },
+    "status": 201,
+    "responseCid": "ffab0ab7-d05f-448b-becf-2a20ee39854d",
+    "responseBody": {
+      "data": {
+        "id": "75d96e7b-08ac-4454-bd2b-84a7dd149780",
+        "email": "nueva.1794265538735@chocomania.test",
+        "nombre": "Carla Prueba (ficticia)",
+        "role": "CLIENTE"
+      }
+    }
+  },
+  {
+    "origen": "navegador-escritorio",
+    "ts": "2026-11-09T23:05:39.714Z",
+    "method": "POST",
+    "url": "http://localhost:8080/api/v1/auth/login",
+    "requestHeaders": {
+      "x-correlation-id": "738f9a29-b35d-4dfa-bee5-0fbb660c9abe",
+      "authorization": "[ENMASCARADO]"
+    },
+    "requestBody": {
+      "email": "nueva.1794265538735@chocomania.test",
+      "password": "[ENMASCARADO]"
+    },
+    "status": 200,
+    "responseCid": "738f9a29-b35d-4dfa-bee5-0fbb660c9abe",
+    "responseBody": {
+      "data": {
+        "accessToken": "[ENMASCARADO]",
+        "tokenType": "Bearer",
+        "expiresIn": 900,
+        "user": {
+          "id": "75d96e7b-08ac-4454-bd2b-84a7dd149780",
+          "nombre": "Carla Prueba (ficticia)",
+          "role": "CLIENTE"
+        }
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:05:40.536Z",
+    "ms": 122,
+    "method": "POST",
+    "url": "http://127.0.0.1:8080/api/v1/auth/login",
+    "requestHeaders": {
+      "x-correlation-id": "7528ef1d-1199-42d1-a3ed-310143e4d4a6",
+      "content-type": "application/json"
+    },
+    "requestBody": {
+      "email": "nueva.1794265538735@chocomania.test",
+      "password": "[ENMASCARADO]"
+    },
+    "status": 200,
+    "responseCid": "7528ef1d-1199-42d1-a3ed-310143e4d4a6",
+    "responseBody": {
+      "data": {
+        "accessToken": "[ENMASCARADO]",
+        "tokenType": "Bearer",
+        "expiresIn": 900,
+        "user": {
+          "id": "75d96e7b-08ac-4454-bd2b-84a7dd149780",
+          "nombre": "Carla Prueba (ficticia)",
+          "role": "CLIENTE"
+        }
+      }
+    }
+  },
+  {
+    "origen": "cliente-api",
+    "ts": "2026-11-09T23:05:40.545Z",
+    "ms": 9,
+    "method": "GET",
+    "url": "http://127.0.0.1:8080/api/v1/me/profile",
+    "requestHeaders": {
+      "x-correlation-id": "9bbfccfc-599f-423c-a9a2-01f1ed7bf340",
+      "authorization": "[ENMASCARADO]"
+    },
+    "status": 200,
+    "responseCid": "9bbfccfc-599f-423c-a9a2-01f1ed7bf340",
+    "responseBody": {
+      "data": {
+        "id": "75d96e7b-08ac-4454-bd2b-84a7dd149780",
+        "nombre": "Carla Prueba (ficticia)",
+        "email": "nueva.1794265538735@chocomania.test",
+        "rut": null,
+        "telefono": null,
+        "direccion": null,
+        "comuna": null,
+        "creadoEn": "2026-11-09T23:05:39.612Z"
+      }
+    }
+  }
+]
