@@ -15,13 +15,13 @@ def pick(patterns):
 PAQUETES = {
     'Entrega-U1-Frontend-Chocomania': {
         'leeme': 'docs/entregas/ENTREGA-U1.md',
-        'incluir': ['frontend/*', 'docs/diseno/*', 'docs/unidad1-frontend.md'],
-        'renombrar': {'evidencias/RUN-06/P28/*': 'evidencias-responsivas/'},
+        'incluir': ['frontend/*', 'docs/diseno/*', 'docs/unidad1-frontend.md', 'evidencias/RUN-06/P28/*'],
+        'renombrar': {},
     },
     'Entrega-U2-Backend-Chocomania': {
         'leeme': 'docs/entregas/ENTREGA-U2.md',
         'incluir': ['README.md', '.gitignore', 'docker-compose.yml', 'frontend/*', 'backend/*', 'tests/*',
-                    'docs/unidad2-informe.md', 'docs/adr/*', 'docs/diagramas/M*', 'docs/diseno/*', 'docs/trazabilidad.csv',
+                    'docs/unidad1-frontend.md', 'docs/unidad2-informe.md', 'docs/adr/*', 'docs/diagramas/M*', 'docs/diseno/*', 'docs/trazabilidad.csv',
                     'evidencias/RUN-06/*', 'evidencias/RUN-07/*', 'evidencias/CARGA-01/*'],
         'renombrar': {},
     },

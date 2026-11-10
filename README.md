@@ -72,17 +72,18 @@ Publica solo :8000, :8080 y :8090; los servicios privados y el gestor de secreto
 ## Pruebas y evidencias
 
 ```bash
-node tests/runner.mjs --run RUN-04
+node tests/runner.mjs --run RUN-09 --executor "Nombre del integrante"
 ```
 
 Cada ejecución arranca el sistema con bases de datos nuevas, ejecuta P01–P29 (escritorio y móvil emulado) y guarda en
-`evidencias/RUN-04/` fichas, capturas, red con credenciales enmascaradas, trazas del backend por `X-Correlation-Id`
-y comprobaciones de persistencia. Las ejecuciones existentes no se sobrescriben.
+`evidencias/RUN-09/` fichas, capturas, red con credenciales enmascaradas, trazas del backend por `X-Correlation-Id`
+y comprobaciones de persistencia. **Use siempre un ID nuevo:** RUN-01 a RUN-08 ya existen y el arnés rechaza
+un ID repetido para no sobrescribir evidencia ("La ejecución RUN-xx ya existe").
 
 Prueba de carga (ADR-001):
 
 ```bash
-node tests/load/load-test.mjs
+node tests/load/load-test.mjs --id CARGA-02
 ```
 
 ## Estructura
@@ -91,7 +92,7 @@ node tests/load/load-test.mjs
 frontend/        páginas PHP + assets (css, js/core, js/pages, img, vendor autoalojado)
 backend/         lib compartida, services/<servicio>, scripts (init-secrets, start-local, reset-data, rotate-secret)
 tests/           runner.mjs (arnés), suites/, lib/, load/
-evidencias/      RUN-01, RUN-02, RUN-03 … (resultados originales, incluidos fallos)
+evidencias/      RUN-01 … RUN-08 y CARGA-01 (resultados originales, incluidos fallos)
 docs/            informes U1–U3, diagramas (Mermaid), ADR, trazabilidad
 ```
 

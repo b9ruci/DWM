@@ -57,7 +57,7 @@ Ruta externa = `/api/v1` + ruta. Clasificación: **Pú** público · **Pe** pers
 | S26 | R10 | P-ADM clientes | Listar clientes (enmascarado) | GET `/admin/clients` | — | 200 RUT/teléfono enmascarados | — | Pe | ADMIN |
 | S27–S28 | R10 | P-ADM solicitudes | Listar / cambiar estado de solicitud | GET `/admin/contact-requests`, PUT `/admin/contact-requests/{id}` | `{estado}` | 200 | 404 | Pe | ADMIN |
 
-Ejemplos JSON ficticios (de respuestas reales de las ejecuciones): ver `evidencias/RUN-03/P06/*-red.json` (POST /orders, POST /payments) y `evidencias/RUN-03/P12/*-red.json` (GraphQL). El navegador nunca envía precios, totales ni estados de pago confiables (P09).
+Ejemplos JSON ficticios (de respuestas reales de las ejecuciones): ver `evidencias/RUN-06/P06/*-red.json` (POST /orders, POST /payments) y `evidencias/RUN-06/P12/*-red.json` (GraphQL). El navegador nunca envía precios, totales ni estados de pago confiables (P09).
 
 ## Módulo 2 — Clases y cardinalidades del dominio
 
@@ -323,7 +323,7 @@ Revisión: no hay secretos en JavaScript/HTML (el frontend solo recibe `apiBase`
 | graphql | agregación | composición de lectura | ninguno | GraphQL | 4 servicios | evita que el navegador orqueste llamadas y que los servicios se expongan |
 | secrets | soporte | custodia | store | REST interno | — | punto único auditado de secretos |
 
-Agregación implementada: `misPedidos` / `pedido` combinan **orders** (estado, totales, ítems), **inventory** (ficha actual del producto, en lote), **payments** (último pago, en lote) y **clients** (titular). Se integra con la pantalla real `pedidos.php` a través de `POST /api/v1/graphql` (evidencia: `evidencias/RUN-03/P12`). Consulta de prueba y respuesta ficticia:
+Agregación implementada: `misPedidos` / `pedido` combinan **orders** (estado, totales, ítems), **inventory** (ficha actual del producto, en lote), **payments** (último pago, en lote) y **clients** (titular). Se integra con la pantalla real `pedidos.php` a través de `POST /api/v1/graphql` (evidencia: `evidencias/RUN-06/P12`). Consulta de prueba y respuesta ficticia:
 
 ```graphql
 query Pedido($id: ID!) { pedido(id: $id) { id estado total completo advertencias items { nombre cantidad producto { imagen disponible } } pago { estado monto } cliente { nombre } } }

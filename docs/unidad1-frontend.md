@@ -49,7 +49,7 @@ Estados: `showLoading` (spinner), `showEmpty` (con acción), `showError` (mensaj
 ## Evidencia responsiva en cuatro anchos
 
 Generada automáticamente por la prueba P28 (sin desborde horizontal; menú colapsado < 992 px; columnas 1/3/3/4): capturas de página completa en
-[`evidencias/RUN-03/P28/`](../evidencias/RUN-03/P28/) — 360 px, 768 px, 1024 px y 1440 px para inicio, catálogo y carrito.
+[`evidencias/RUN-06/P28/`](../evidencias/RUN-06/P28/) (ejecución de la versión final) — 360 px, 768 px, 1024 px y 1440 px para inicio, catálogo y carrito.
 
 | Ancho | Qué escala, refluye o se transforma |
 |---|---|

@@ -4,7 +4,7 @@
 
 **Versión final evaluada:** código de la aplicación en el commit `cc0519c`; protocolo de pruebas v1.3 en `955ad38`. **Ejecuciones de la versión final:** `RUN-06` y `RUN-07` (independientes, cada una desde bases de datos nuevas). **Reproducción desde un clon limpio:** `RUN-08` sobre `7dd2c2e`, que agrega al repositorio tres archivos JSON informativos que faltaban (I-03) y no modifica el código.
 
-> **Declaración sobre quién ejecutó.** La implementación y las ejecuciones RUN-01…RUN-07 y CARGA-01 fueron realizadas por un agente automatizado (Claude Code) en un contenedor cloud, a pedido del equipo, el 2026-11-09. El equipo debe revisar el expediente, re-ejecutar al menos una corrida con `node tests/runner.mjs --run RUN-08 --executor "Nombre"` y completar las secciones marcadas *completar*. Que quien implementó sea quien ejecutó es una amenaza a la validez (sección 6.4).
+> **Declaración sobre quién ejecutó.** La implementación y las ejecuciones RUN-01…RUN-08 y CARGA-01 fueron realizadas por un agente automatizado (Claude Code) en un contenedor cloud, a pedido del equipo, el 2026-11-09 (hora de Chile). El equipo debe revisar el expediente, re-ejecutar al menos una corrida con un ID nuevo, p. ej. `node tests/runner.mjs --run RUN-09 --executor "Nombre"` y completar las secciones marcadas *completar*. Que quien implementó sea quien ejecutó es una amenaza a la validez (sección 6.4).
 
 Regla central aplicada: **Requisito → criterio → prueba → ejecución → evidencia → conclusión**, materializada en [`docs/trazabilidad.csv`](trazabilidad.csv) y en una `FICHA.md` por prueba y ejecución (`evidencias/RUN-xx/Pyy/FICHA.md`).
 
@@ -216,6 +216,7 @@ Ejemplo de cadena probatoria (P06, RUN-06): `RUN-06/P06/FICHA.md` → capturas `
 | **I-02** | RUN-05 / `P12` comprobaciones 4 y 8; `RUN-05/logs-backend/gateway.log` | La traza de la consulta de detalle no contenía `auth` | Protocolo (no afecta a usuarios); provocaba un falso negativo intermitente. **Media** | **Confirmada**: `pedidos.php` lanza dos consultas GraphQL concurrentes (cid `a957c2db` y `d8459e42`); la primera validó la sesión en auth y la segunda, 1 ms después, usó la caché (comportamiento de diseño, Módulo 6) | Protocolo v1.3: se exigen los servicios de la agregación; auth puede venir de caché · `955ad38` | RUN-06, RUN-07: P12 aprobada | completa (31/31 ×2) | **Cerrada** |
 
 No se atribuyó al backend un error visible en el navegador sin evidencia: en I-02 la interfaz y los datos eran correctos y la causa estaba en el oráculo de la prueba. | **I-03** | Al preparar los paquetes de entrega (2026-11-10): el zip U1 no arrancaba (`Cannot find module './data/products.json'`) | Reproducibilidad: en un clon limpio de `cc0519c` faltaban `frontend/assets/data/*.json` (equipo, servicios y canales mostrarían su estado de error) y los `logs-backend/` referenciados como evidencia. **Alta** para la entrega; sin efecto en los resultados, porque las ejecuciones usaron la copia de trabajo, donde sí existían | **Confirmada**: las reglas `data/` y `*.log` de `.gitignore` excluían esas rutas, y el control de cambios sin commit del arnés no veía archivos ignorados | `.gitignore` corregido y archivos versionados · `7dd2c2e`. Los logs de CARGA-01 (65 MB) siguen fuera y se declaran | RUN-08 desde un clon limpio: 31/31 | completa | **Cerrada**. Mejora pendiente: que el arnés también registre los archivos ignorados que usa la aplicación |
+| **I-04** | Revisión de integridad pedida por el equipo (2026-11-10), sin re-ejecutar pruebas | Los comandos de reproducción del README (`--run RUN-04`), de este informe y de ENTREGA-U3 (`--run RUN-08`) y el de la prueba de carga (`CARGA-01` por omisión) fallaban con "ya existe"; el informe U2 citaba evidencia de RUN-03 (no final) que no viene en el paquete U2; en el paquete U1 la ficha de P28 tenía enlaces rotos | Reproducibilidad de la entrega. **Alta** (un tercero no podía repetir la observación con las instrucciones). No afecta a ningún resultado | **Confirmada** ejecutando los comandos documentados: el arnés rechaza IDs existentes por diseño (integridad), pero la documentación no se actualizó al crear nuevas ejecuciones; además, los paquetes se armaron sin verificar enlaces | IDs nuevos en las instrucciones (RUN-09, CARGA-02); referencias a RUN-06; el paquete U1 conserva la ruta original `evidencias/RUN-06/P28/`; verificación automática de enlaces en los tres paquetes | no requiere: no hubo cambios de código ni de pruebas | — | **Cerrada** |
 
 Los resultados de RUN-01 y RUN-05 se conservan sin modificar.
 
@@ -276,7 +277,7 @@ Datos pequeños y sintéticos · móvil emulado · proveedor de pagos simulado �
 
 ### 6.5 Acciones pendientes (por riesgo)
 
-1. Ejecutar P32 con Docker y registrar RUN-08 por un integrante (riesgo: despliegue).
+1. Ejecutar P32 con Docker y registrar RUN-09 por un integrante (riesgo: despliegue).
 2. Sandbox oficial de un proveedor de pagos (R04).
 3. TLS en el gateway y límite de solicitudes/caché de sesión compartidos si hay varias instancias.
 4. Prueba concurrente de reserva del último ítem; inyección de fallos en orders/payments/auth.
@@ -304,7 +305,7 @@ Datos pequeños y sintéticos · móvil emulado · proveedor de pagos simulado �
 |---|---|---|
 | Bruno Martínez | prototipo U1 (PHP, carrusel/cards dinámicos), mockup a mano | commits hasta `1087c34` |
 | *(integrante)* | | |
-| Asistencia de IA (Claude Code) | implementación U2/U3, arnés, ejecuciones RUN-01…07 y CARGA-01, borradores de informes | commits `ac929d3`, `cc0519c`, `a5c99b7`, `955ad38` y posteriores |
+| Asistencia de IA (Claude Code) | implementación U2/U3, arnés, ejecuciones RUN-01…08 y CARGA-01, borradores de informes | commits `ac929d3`, `cc0519c`, `a5c99b7`, `955ad38` y posteriores |
 
 ### 7.3 Guion sugerido de defensa
 
@@ -313,7 +314,7 @@ Datos pequeños y sintéticos · móvil emulado · proveedor de pagos simulado �
 3. Fallo controlado: detener inventory (P03/P15) y mostrar mensaje, "Información parcial" y recuperación.
 4. Reconstruir una conclusión: R03 → CA08 → P08 → RUN-06/07 → `P08/*-red.json` (misma Idempotency-Key) → conclusión.
 5. Corrección: I-01 (traza de RUN-01/P17 → `cc0519c` → P17 aprobada en RUN-02…07).
-6. Cualquier cambio durante la defensa se registra como una nueva versión y una nueva ejecución (RUN-08+).
+6. Cualquier cambio durante la defensa se registra como una nueva versión y una nueva ejecución (RUN-09 en adelante).
 
 ### 7.4 Control final
 
