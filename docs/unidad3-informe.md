@@ -2,7 +2,7 @@
 
 **Caso:** Chocolatería Chocomanía. **Integrantes:** Bruno Martínez (Sección 8481) — *completar con el resto del equipo y sus aportes (sección 7.2)*.
 
-**Versión final evaluada:** código de la aplicación en el commit `cc0519c` (sin cambios en `frontend/` ni `backend/` desde entonces); protocolo de pruebas v1.3 en `955ad38`. **Ejecuciones de la versión final:** `RUN-06` y `RUN-07` (independientes, cada una desde bases de datos nuevas).
+**Versión final evaluada:** código de la aplicación en el commit `cc0519c`; protocolo de pruebas v1.3 en `955ad38`. **Ejecuciones de la versión final:** `RUN-06` y `RUN-07` (independientes, cada una desde bases de datos nuevas). **Reproducción desde un clon limpio:** `RUN-08` sobre `7dd2c2e`, que agrega al repositorio tres archivos JSON informativos que faltaban (I-03) y no modifica el código.
 
 > **Declaración sobre quién ejecutó.** La implementación y las ejecuciones RUN-01…RUN-07 y CARGA-01 fueron realizadas por un agente automatizado (Claude Code) en un contenedor cloud, a pedido del equipo, el 2026-11-09. El equipo debe revisar el expediente, re-ejecutar al menos una corrida con `node tests/runner.mjs --run RUN-08 --executor "Nombre"` y completar las secciones marcadas *completar*. Que quien implementó sea quien ejecutó es una amenaza a la validez (sección 6.4).
 
@@ -164,7 +164,8 @@ Los ensayos en seco del arnés (depuración de los propios scripts de prueba) se
 | 4 | 2026-11-09 | `ac929d3` | todos | — | primera versión integrada completa | RUN-01 (29) | 28/29 | I-01 |
 | 5 | 2026-11-09 | `cc0519c` | F12 | revocación de sesión tardía (I-01) | invalidación de caché al cerrar sesión | P17 + regresión completa RUN-02/03 | 29/29 ×2 | cobertura |
 | 6 | 2026-11-09 | `a5c99b7` | F02, F11 | cobertura | P30, P31 (sin cambios de aplicación) | RUN-04/05 | 31/31 y 30/31 | I-02 |
-| 7 | 2026-11-09 | `955ad38` | F06 | oráculo intermitente (I-02) | protocolo v1.3 | RUN-06/07 | 31/31 ×2 | cierre |
+| 7 | 2026-11-09 | `955ad38` | F06 | oráculo intermitente (I-02) | protocolo v1.3 | RUN-06/07 | 31/31 ×2 | empaquetado |
+| 8 | 2026-11-10 | `7dd2c2e` | entrega | `.gitignore` excluía `frontend/assets/data/*.json`, la API simulada de U1 y los logs de evidencia (I-03) | se versionan; API simulada `frontend/mock-api/` para U1 | RUN-08 desde clon limpio | 31/31 | cierre |
 
 Los incrementos 1–3 ocurrieron antes del primer commit integrado: el historial de git no los separa; quedan registrados aquí como notas de desarrollo. Contratos actualizados: `backend/services/gateway/routes.js`, `backend/services/graphql/schema.graphql`, `docs/unidad2-informe.md` (Módulo 1). Código de integración: `frontend/assets/js/core/api.js` y `frontend/assets/js/pages/*.js`.
 
@@ -183,6 +184,7 @@ Comprobado para cada flujo en la interfaz: **carga** (spinner), **éxito**, **au
 | [RUN-05](../evidencias/RUN-05/RESULTADOS.md) | 2026-11-09 20:03:55 −03:00 | `cc0519c` · v1.2 | 31 | 30 aprobadas · **1 fallida (P12, intermitente)** | 181/183 | 115 |
 | [**RUN-06**](../evidencias/RUN-06/RESULTADOS.md) | 2026-11-09 20:05:32 −03:00 | `cc0519c` · **v1.3** | 31 | **31 aprobadas** | 183/183 | 115 |
 | [**RUN-07**](../evidencias/RUN-07/RESULTADOS.md) | 2026-11-09 20:06:44 −03:00 | `cc0519c` · **v1.3** | 31 | **31 aprobadas** | 183/183 | 115 |
+| [RUN-08](../evidencias/RUN-08/RESULTADOS.md) | 2026-11-09 23:14:38 −03:00 | `7dd2c2e` · v1.3, **clon limpio con secretos nuevos** | 31 | 31 aprobadas | 183/183 | 115 |
 | [CARGA-01](../evidencias/CARGA-01/RESULTADO.md) | 2026-11-09 | `cc0519c` | 3 escenarios | cumplen objetivo | — | — |
 
 Ejecutor: agente automatizado (ver declaración). Navegador Chromium 153 headless; viewports por prueba en cada ficha. P32 (Docker Compose, manual) **bloqueada** en todas: el entorno no tiene demonio Docker.
@@ -213,7 +215,9 @@ Ejemplo de cadena probatoria (P06, RUN-06): `RUN-06/P06/FICHA.md` → capturas `
 | **I-01** | RUN-01 / `P17` comprobación 6; `P17/03-traza-backend.jsonl` | Tras `POST /auth/logout` (200), el mismo token obtuvo 200 en `GET /orders` | Seguridad: un token robado seguiría usable hasta 5 s tras cerrar sesión. **Alta** | **Confirmada** en la traza: a las 22:47:12.150 (UTC) logout; a las 12.153 el gateway atendió `GET /orders` **sin** consultar `auth /internal/sessions` (caché de 5 s con `active=true`) | El gateway marca la sesión como inactiva en su caché al completar el logout · `cc0519c` | RUN-02, RUN-03, RUN-04, RUN-06, RUN-07: P17 aprobada | completa en cada corrida (29/29, 31/31) | **Cerrada**, con riesgo residual: otra instancia del gateway mantendría hasta 5 s de caché |
 | **I-02** | RUN-05 / `P12` comprobaciones 4 y 8; `RUN-05/logs-backend/gateway.log` | La traza de la consulta de detalle no contenía `auth` | Protocolo (no afecta a usuarios); provocaba un falso negativo intermitente. **Media** | **Confirmada**: `pedidos.php` lanza dos consultas GraphQL concurrentes (cid `a957c2db` y `d8459e42`); la primera validó la sesión en auth y la segunda, 1 ms después, usó la caché (comportamiento de diseño, Módulo 6) | Protocolo v1.3: se exigen los servicios de la agregación; auth puede venir de caché · `955ad38` | RUN-06, RUN-07: P12 aprobada | completa (31/31 ×2) | **Cerrada** |
 
-No se atribuyó al backend un error visible en el navegador sin evidencia: en I-02 la interfaz y los datos eran correctos y la causa estaba en el oráculo de la prueba. Los resultados de RUN-01 y RUN-05 se conservan sin modificar.
+No se atribuyó al backend un error visible en el navegador sin evidencia: en I-02 la interfaz y los datos eran correctos y la causa estaba en el oráculo de la prueba. | **I-03** | Al preparar los paquetes de entrega (2026-11-10): el zip U1 no arrancaba (`Cannot find module './data/products.json'`) | Reproducibilidad: en un clon limpio de `cc0519c` faltaban `frontend/assets/data/*.json` (equipo, servicios y canales mostrarían su estado de error) y los `logs-backend/` referenciados como evidencia. **Alta** para la entrega; sin efecto en los resultados, porque las ejecuciones usaron la copia de trabajo, donde sí existían | **Confirmada**: las reglas `data/` y `*.log` de `.gitignore` excluían esas rutas, y el control de cambios sin commit del arnés no veía archivos ignorados | `.gitignore` corregido y archivos versionados · `7dd2c2e`. Los logs de CARGA-01 (65 MB) siguen fuera y se declaran | RUN-08 desde un clon limpio: 31/31 | completa | **Cerrada**. Mejora pendiente: que el arnés también registre los archivos ignorados que usa la aplicación |
+
+Los resultados de RUN-01 y RUN-05 se conservan sin modificar.
 
 **Incidencias abiertas:** ninguna de sistema detectada por las pruebas. **Bloqueo abierto:** P32 (Docker). La ausencia de más fallos se acredita con 19 pruebas de rechazo, límite o fallo controlado y regresión completa en 6 corridas; no prueba ausencia de defectos fuera de lo probado.
 
@@ -290,7 +294,7 @@ Datos pequeños y sintéticos · móvil emulado · proveedor de pagos simulado �
 | Aplicación integrada | `frontend/`, `backend/`, `docker-compose.yml`, `README.md` |
 | Informe | este documento + `docs/unidad2-informe.md` + `docs/unidad1-frontend.md` + `docs/adr/ADR-001-analitica-grpc.md` |
 | Matriz de trazabilidad | `docs/trazabilidad.csv` (editable) |
-| Paquete de evidencias | `evidencias/INDICE.md`, `evidencias/RUN-01…07`, `evidencias/CARGA-01` |
+| Paquete de evidencias | `evidencias/INDICE.md`, `evidencias/RUN-01…08`, `evidencias/CARGA-01` (sin sus logs de 65 MB) |
 | Pruebas y reproducción | `tests/runner.mjs`, `tests/suites/`, `tests/load/`, `backend/scripts/reset-data.js`; P32 es manual |
 | Bitácora y contribuciones | Etapa 3 de este informe, historial de git, sección 7.2 |
 
@@ -317,5 +321,5 @@ Datos pequeños y sintéticos · móvil emulado · proveedor de pagos simulado �
 - ¿Servicios propios reales? Sí; solo el proveedor de pagos es doble de prueba.
 - ¿Cada conclusión tiene pruebas y evidencias localizables? Sí (`trazabilidad.csv`).
 - ¿Se conservaron fallos? Sí: RUN-01 (P17) y RUN-05 (P12).
-- ¿Capturas y logs sin credenciales? P29 aprobada en las 7 corridas (0 coincidencias); las capturas no muestran contraseñas (campos tipo password).
-- ¿Resultados de la versión final? RUN-06 y RUN-07 sobre `cc0519c` con protocolo v1.3.
+- ¿Capturas y logs sin credenciales? P29 aprobada en las 8 corridas (0 coincidencias); las capturas no muestran contraseñas (campos tipo password).
+- ¿Resultados de la versión final? RUN-06 y RUN-07 sobre `cc0519c` con protocolo v1.3, y RUN-08 reproducida desde un clon limpio de `7dd2c2e` (I-03).

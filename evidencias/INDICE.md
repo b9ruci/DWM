@@ -11,7 +11,8 @@ Cada carpeta `RUN-xx` es una ejecución independiente con bases de datos nuevas.
 | [RUN-05](RUN-05/RESULTADOS.md) | `cc0519c` | v1.2 (commit `a5c99b7`) | APROBADA: 30, FALLIDA: 1 | origen de I-02 (intermitente) |
 | [RUN-06](RUN-06/RESULTADOS.md) | `cc0519c` | v1.3 (commit `955ad38`) | APROBADA: 31 | **versión final, ejecución 1** |
 | [RUN-07](RUN-07/RESULTADOS.md) | `cc0519c` | v1.3 (commit `955ad38`) | APROBADA: 31 | **versión final, ejecución 2** |
-| [CARGA-01](CARGA-01/RESULTADO.md) | `cc0519c` | — | 3 escenarios, cumplen | ADR-001 |
+| [RUN-08](RUN-08/RESULTADOS.md) | `7dd2c2e` | v1.3 (commit `7dd2c2e`) | APROBADA: 31 | reproducción desde clon limpio con secretos nuevos (I-03) |
+| [CARGA-01](CARGA-01/RESULTADO.md) | `cc0519c` | — | 3 escenarios, cumplen | ADR-001 (sus logs, 65 MB, no se versionan) |
 
 Nota: en RUN-01 el commit registrado es `ac929d3` (versión previa a la corrección de I-01). En RUN-02…07 el commit registrado es el del protocolo; el código de la aplicación es el mismo de `cc0519c`.
 
